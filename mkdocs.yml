@@ -1,0 +1,745 @@
+# Copyright (c) 2016-2025 Martin Donath <martin.donath@squidfunk.com>
+
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to
+# deal in the Software without restriction, including without limitation the
+# rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+# sell copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+
+# The above copyright notice and this permission notice shall be included in
+# all copies or substantial portions of the Software.
+
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+# FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+# IN THE SOFTWARE.
+
+# Project information
+site_name: VC Hub User Manual
+site_url: https://zzg890.github.io/vch-docs/
+site_author: Martin Donath
+site_description: >-
+        Write your documentation in Markdown and create a professional static site in
+        minutes – searchable, customizable, in 60+ languages, for all devices
+
+# Repository
+# repo_name: squidfunk/mkdocs-material
+# repo_url: https://github.com/squidfunk/mkdocs-material
+
+# Copyright
+copyright: Copyright &copy; 2016 - 2025 Martin Donath
+
+# Configuration
+theme:
+        name: material
+        custom_dir: material/overrides
+        features:
+                - content.action.edit
+                - content.action.view
+                - content.code.annotate
+                - content.code.copy
+                # - content.code.select
+                # - content.footnote.tooltips
+                # - content.tabs.link
+                - content.tooltips
+                # - header.autohide
+                # - navigation.expand
+                - navigation.footer
+                - navigation.indexes
+                # - navigation.instant
+                # - navigation.instant.prefetch
+                # - navigation.instant.progress
+                # - navigation.prune
+                - navigation.sections
+                - navigation.tabs
+                # - navigation.tabs.sticky
+                - navigation.top
+                - navigation.tracking
+                - search.highlight
+                - search.share
+                - search.suggest
+                - toc.follow
+                # - toc.integrate
+        palette:
+                scheme: default
+                primary: green
+                accent: light green
+        font:
+                text: Roboto
+                code: Roboto Mono
+        favicon: assets/favicon.png
+        icon:
+                logo: logo
+
+# Plugins
+plugins:
+        - ezlinks:
+                  warn_ambiguities: true
+                  wikilinks: true
+                  reference_links: true
+        - search:
+                  separator: '[\s\u200b\-_,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
+        - minify:
+                  minify_html: true
+        - print-site:
+                  add_to_navigation: true
+                  add_full_urls: false
+                  add_table_of_contents: true
+                  toc_title: "Table of Contents"
+                  toc_depth: 2
+                  enumerate_headings: true
+                  enumerate_figures: true
+                  add_cover_page: true
+                  path_to_pdf: "assets/site.pdf"       
+
+# Hooks
+hooks:
+        - material/overrides/hooks/shortcodes.py
+        - material/overrides/hooks/translations.py
+
+# Additional configuration
+extra:
+        status:
+                new: Recently added
+                deprecated: Deprecated
+        analytics:
+                provider: google
+                property: !ENV GOOGLE_ANALYTICS_KEY
+        social:
+                - icon: fontawesome/brands/github
+                  link: https://github.com/squidfunk
+                - icon: fontawesome/brands/docker
+                  link: https://hub.docker.com/r/squidfunk/mkdocs-material/
+                - icon: fontawesome/brands/python
+                  link: https://pypi.org/project/mkdocs-material/
+                - icon: fontawesome/brands/bluesky
+                  link: https://bsky.app/profile/squidfunk.bsky.social
+                - icon: fontawesome/brands/mastodon
+                  link: https://fosstodon.org/@squidfunk
+                - icon: fontawesome/brands/x-twitter
+                  link: https://x.com/squidfunk
+
+# Extensions
+markdown_extensions:
+        - abbr
+        - admonition
+        - attr_list
+        - def_list
+        - footnotes
+        - md_in_html
+        - toc:
+                  permalink: true
+        - pymdownx.arithmatex:
+                  generic: true
+        - pymdownx.betterem:
+                  smart_enable: all
+        - pymdownx.caret
+        - pymdownx.details
+        - pymdownx.emoji:
+                  emoji_generator: !!python/name:material.extensions.emoji.to_svg
+                  emoji_index: !!python/name:material.extensions.emoji.twemoji
+        - pymdownx.highlight:
+                  anchor_linenums: true
+                  line_spans: __span
+                  pygments_lang_class: true
+        - pymdownx.inlinehilite
+        - pymdownx.keys
+        - pymdownx.magiclink:
+                  normalize_issue_symbols: true
+                  repo_url_shorthand: true
+                  user: squidfunk
+                  repo: mkdocs-material
+        - pymdownx.mark
+        - pymdownx.smartsymbols
+        - pymdownx.snippets:
+                  auto_append:
+                          - includes/mkdocs.md
+        - pymdownx.superfences:
+                  custom_fences:
+                          - name: mermaid
+                            class: mermaid
+                            format: !!python/name:pymdownx.superfences.fence_code_format
+        - pymdownx.tabbed:
+                  alternate_style: true
+                  combine_header_slug: true
+                  slugify: !!python/object/apply:pymdownx.slugs.slugify
+                          kwds:
+                                  case: lower
+        - pymdownx.tasklist:
+                  custom_checkbox: true
+        - pymdownx.tilde
+
+not_in_nav: |
+        /tutorials/**/*.md
+
+# Page tree
+nav:
+        - Product Overview:
+                  - overview/index.md
+                  - overview/version-update-notes.md
+                  - overview/system-requirements.md
+                  - overview/breaking-changes.md
+        - New in this Version:
+                  - new-version/index.md
+        - Installation and Upgrade:
+                  - installation/index.md
+                  - installation/windows-environment.md
+                  - installation/linux-environment.md
+                  - installation/product-license.md
+                  - installation/typical-architecture-selection-guide.md
+                  - installation/setup-service-running-user.md
+        - Quick Start Guide:
+                  - quick-start-guide/index.md
+        - System Deployment:
+                  - system-deployment/index.md
+                  - system-deployment/standalone-deployment.md
+                  - system-deployment/network-deployment.md
+                  - system-deployment/hybrid-cloud-and-local-deployment.md
+                  - system-deployment/redundant-deployment.md
+                  - system-deployment/azure-cloud-deployment.md
+        - Management Platform:
+                  - management-platform/index.md
+                  - License:
+                            - management-platform/license/index.md
+                  - Workspaces:
+                            - management-platform/workspaces/index.md
+                            - management-platform/workspaces/multi-workspace-management.md
+                            - management-platform/workspaces/current-workspace-configure-file.md
+                            - management-platform/workspaces/workspace-directory.md
+                            - management-platform/workspaces/upgrade-workspace.md
+                            - management-platform/workspaces/can-not-log-in.md
+                  - Projects:
+                            - management-platform/projects/index.md
+                  - Devices:
+                            - management-platform/devices/index.md
+                            - Modbus TCP:
+                                      - management-platform/devices/modbus-tcp/index.md
+                                      - management-platform/devices/modbus-tcp/batch-operation.md
+                            - Modbus RTU:
+                                      - management-platform/devices/modbus-rtu/index.md
+                                      - management-platform/devices/modbus-rtu/batch-operation.md
+                            - OPC UA:
+                                      - management-platform/devices/opc-ua/index.md
+                                      - management-platform/devices/opc-ua/batch-operation.md
+                                      - management-platform/devices/opc-ua/test-report.md
+                            - MQTT Native:
+                                      - management-platform/devices/mqtt-native/index.md
+                                      - management-platform/devices/mqtt-native/batch-operation.md
+                            - MQTT SparkplugB:
+                                      - management-platform/devices/mqtt-sparkplugb/index.md
+                                      - management-platform/devices/mqtt-sparkplugb/batch-operation.md
+                            - SIEMENS S7:
+                                      - management-platform/devices/siemens-s7/index.md
+                                      - management-platform/devices/siemens-s7/batch-operation.md
+                            - WAGO Protocol:
+                                      - management-platform/devices/wago-protocol/index.md
+                                      - management-platform/devices/wago-protocol/batch-operation.md
+                            - management-platform/devices/usage-of-legacy-protocols.md
+                  - Assets and Tags:
+                            - management-platform/assets-and-tags/index.md
+                            - management-platform/assets-and-tags/aggregation-modes.md
+                            - Asset:
+                                      - management-platform/assets-and-tags/asset/index.md
+                                      - Models and Instances:
+                                                - management-platform/assets-and-tags/asset/model-and-instance/index.md
+                                                - management-platform/assets-and-tags/asset/model-and-instance/batch-instantiate-models.md
+                                                - management-platform/assets-and-tags/asset/model-and-instance/referencing-and-override.md
+                                      - Asset Tree:
+                                                - management-platform/assets-and-tags/asset/asset-tree/index.md
+                                                - Batch Operation:
+                                                          - management-platform/assets-and-tags/asset/asset-tree/batch-operation/index.md
+                                                          - management-platform/assets-and-tags/asset/asset-tree/batch-operation/batch-add.md
+                                                          - management-platform/assets-and-tags/asset/asset-tree/batch-operation/batch-update.md
+                                                          - management-platform/assets-and-tags/asset/asset-tree/batch-operation/export-and-import.md
+                            - Tag:
+                                      - management-platform/assets-and-tags/tag/index.md
+                                      - Tag Type:
+                                                - management-platform/assets-and-tags/tag/tag-type/index.md
+                                                - management-platform/assets-and-tags/tag/tag-type/system-tag.md
+                                                - management-platform/assets-and-tags/tag/tag-type/remote-tag.md
+                                      - Creating Tags:
+                                                - management-platform/assets-and-tags/tag/creating-tags/index.md
+                                                - management-platform/assets-and-tags/tag/creating-tags/io-tag-binding-data-source.md
+                                      - Tag Properties:
+                                                - management-platform/assets-and-tags/tag/tag-properties/index.md
+                                                - management-platform/assets-and-tags/tag/tag-properties/alarm.md
+                                                - management-platform/assets-and-tags/tag/tag-properties/history.md
+                                                - management-platform/assets-and-tags/tag/tag-properties/deadband.md
+                                                - management-platform/assets-and-tags/tag/tag-properties/scale.md
+                                                - management-platform/assets-and-tags/tag/tag-properties/event.md
+                                                - management-platform/assets-and-tags/tag/tag-properties/simulate.md
+                                                - management-platform/assets-and-tags/tag/tag-properties/custom.md
+                                      - management-platform/assets-and-tags/tag/tag-group.md
+                                      - management-platform/assets-and-tags/tag/quality.md
+
+                  - Alarming:
+                            - management-platform/alarming/index.md
+                            - management-platform/alarming/stale-alarm.md
+                            - management-platform/alarming/history-storage.md
+                            - management-platform/alarming/alarm-group.md
+                            - Alarm Notification:
+                                      - management-platform/alarming/alarm-notification/index.md
+                                      - Services:
+                                                - management-platform/alarming/alarm-notification/services/index.md
+                                                - management-platform/alarming/alarm-notification/services/email.md
+                                                - management-platform/alarming/alarm-notification/services/sms-twilio.md
+                                                - management-platform/alarming/alarm-notification/services/sms-alicloud.md
+                                                - management-platform/alarming/alarm-notification/services/wecom.md
+                                                - management-platform/alarming/alarm-notification/services/dingtalk.md
+                                      - Messages:
+                                                - management-platform/alarming/alarm-notification/messages/index.md
+                                                - management-platform/alarming/alarm-notification/messages/email.md
+                                                - management-platform/alarming/alarm-notification/messages/sms-twilio.md
+                                                - management-platform/alarming/alarm-notification/messages/sms-alicloud.md
+                                                - management-platform/alarming/alarm-notification/messages/wecom.md
+                                                - management-platform/alarming/alarm-notification/messages/dingtalk.md
+                                      - management-platform/alarming/alarm-notification/schedules.md
+                                      - management-platform/alarming/alarm-notification/rules.md
+                                      - management-platform/alarming/alarm-notification/failed.md
+                                      - management-platform/alarming/alarm-notification/acknowledge-alarm.md
+                  - Scripts:
+                            - management-platform/scripts/index.md
+                            - management-platform/scripts/service-script.md
+                            - management-platform/scripts/custom-function.md
+                            - management-platform/scripts/schedule.md
+                            - management-platform/scripts/log-configuration.md
+                  - Networking:
+                            - management-platform/networking/index.md
+                  - Databases:
+                            - management-platform/databases/index.md
+                            - Database Connection:
+                                      - management-platform/databases/database-connection/index.md
+                                      - management-platform/databases/database-connection/mysql.md
+                                      - management-platform/databases/database-connection/sql-server.md
+                                      - management-platform/databases/database-connection/postgresql.md
+                                      - management-platform/databases/database-connection/sqlite.md
+                                      - management-platform/databases/database-connection/influxdb.md
+                                      - management-platform/databases/database-connection/query-exceptions.md
+                            - History Database:
+                                      - management-platform/databases/history-database/index.md
+                                      - Create History Database:
+                                                 - management-platform/databases/history-database/create-history-database/index.md
+                                                 - management-platform/databases/history-database/create-history-database/data-partitioning-and-deletion.md
+                                                 - management-platform/databases/history-database/create-history-database/pre-processed.md
+                                      - management-platform/databases/history-database/create-duplicated-history-database.md
+                                      - management-platform/databases/history-database/create-remote-history-database.md
+                            - Database Table Reference:
+                                      - management-platform/databases/database-table-reference/index.md
+                                      - Tag Table Reference:
+                                                - management-platform/databases/database-table-reference/tag-table-reference/index.md
+                                                - management-platform/databases/database-table-reference/tag-table-reference/relational-database-table-schema.md
+                                                - management-platform/databases/database-table-reference/tag-table-reference/influxDB-table-schema.md
+
+                  - Redundancy:
+                            - management-platform/redundancy/index.md
+                            - management-platform/redundancy/configuration.md
+                            - management-platform/redundancy/synchronization.md
+                            - management-platform/redundancy/switch.md
+
+                  - Security:
+                            - management-platform/security/index.md
+                            - management-platform/security/roles-and-users.md
+                            - management-platform/security/user-group.md
+                            - management-platform/security/permission.md
+                            - management-platform/security/access-level.md
+                            - Identity Provider:
+                                      - management-platform/security/identity-provider/index.md
+                                      - management-platform/security/identity-provider/user-attribute-mapping.md
+                                      - management-platform/security/identity-provider/user-grants.md
+                                      - management-platform/security/identity-provider/test-login-and-logout.md
+                                      - management-platform/security/identity-provider/troubleshooting.md
+                                      - management-platform/security/identity-provider/azure-AD-integration.md
+                                      - management-platform/security/identity-provider/integrates-with-OAuth0.md
+                            - management-platform/security/open-api.md
+                  - Node Configuration:
+                            - management-platform/node-configuration/index.md
+                  - Certificate Management:
+                            - management-platform/certificate-management/index.md
+                  - MQTT Broker:
+                            - management-platform/mqtt-broker/index.md
+                  - Trust Store:
+                            - management-platform/trust-store/index.md
+                  - Open API:
+                            - management-platform/open-api/index.md
+                            - management-platform/open-api/api-document-swagger.md
+                            - management-platform/open-api/open-id-connect.md
+                            - management-platform/open-api/asset-api-definitions.md
+                            - management-platform/open-api/historical-data-api-definitions.md
+                            - management-platform/open-api/realtime-data-api-definitions.md
+                            - management-platform/open-api/integration-api-definitions.md
+                            - Test With Postman:
+                                      - management-platform/open-api/test-with-postman/index.md
+                                      - management-platform/open-api/test-with-postman/get-access-token.md
+                                      - management-platform/open-api/test-with-postman/invoke.md
+                                      - management-platform/open-api/test-with-postman/subscribe.md 
+                  - Diagnostics:
+                            - management-platform/diagnostics/index.md
+        - 2D Visualization:
+                  - 2d-visualization/index.md
+                  - Editor Introduction:
+                            - 2d-visualization/editor-introduction/index.md
+                  - Page:
+                            - 2d-visualization/page/index.md
+                            - 2d-visualization/page/page-type.md
+                            - 2d-visualization/page/page-parameter-passing.md
+                            - 2d-visualization/page/navigation.md
+                            - 2d-visualization/page/resolution-adaptation.md
+                            - 2d-visualization/page/page-permission.md 
+                  - Page Template:                            
+                            - 2d-visualization/page-template/index.md
+                  - Sql Query:
+                            - 2d-visualization/sql-query/index.md
+                            - 2d-visualization/sql-query/create-sql-query.md
+                            - Sql Query Example:
+                                      - 2d-visualization/sql-query/sql-query-example/index.md
+                                      - 2d-visualization/sql-query/sql-query-example/query.md
+                                      - 2d-visualization/sql-query/sql-query-example/scalar-query.md
+                                      - 2d-visualization/sql-query/sql-query-example/update-query.md
+                            - 2d-visualization/sql-query/supported-data-types.md
+                  - Controls:
+                            - 2d-visualization/controls/index.md
+                            - Drawing:
+                                      - 2d-visualization/controls/drawing/index.md
+                                      - 2d-visualization/controls/drawing/shape.md
+                                      - 2d-visualization/controls/drawing/fill-stroke.md
+                            - Input:
+                                      - 2d-visualization/controls/input/index.md
+                                      - 2d-visualization/controls/input/dropdown.md
+                                      - 2d-visualization/controls/input/text-input.md
+                                      - 2d-visualization/controls/input/slider.md
+                                      - 2d-visualization/controls/input/datetime-input.md
+                                      - 2d-visualization/controls/input/number-input.md
+                            - Display:
+                                      - 2d-visualization/controls/display/index.md
+                                      - 2d-visualization/controls/display/label.md
+                                      - 2d-visualization/controls/display/value-display.md
+                                      - 2d-visualization/controls/display/led-display.md
+                                      - 2d-visualization/controls/display/iframe.md
+                                      - 2d-visualization/controls/display/rich-text.md
+                                      - 2d-visualization/controls/display/page-container.md
+                                      - 2d-visualization/controls/display/3d-viewer.md
+                                      - 2d-visualization/controls/display/ruler.md
+                            - Button:
+                                      - 2d-visualization/controls/button/index.md
+                                      - 2d-visualization/controls/button/button.md
+                                      - 2d-visualization/controls/button/menu.md
+                                      - 2d-visualization/controls/button/checkbox.md
+                                      - 2d-visualization/controls/button/radio-button.md
+                                      - 2d-visualization/controls/button/toggle-button.md
+                                      - 2d-visualization/controls/button/2-state-button.md
+                                      - 2d-visualization/controls/button/multi-state-button.md
+                            - Chart:
+                                      - 2d-visualization/controls/chart/index.md
+                                      - 2d-visualization/controls/chart/realtime-chart.md
+                                      - 2d-visualization/controls/chart/historical-chart.md
+                                      - 2d-visualization/controls/chart/bar-chart.md
+                                      - 2d-visualization/controls/chart/pie-chart.md
+                                      - 2d-visualization/controls/chart/custom-curve.md
+                                      - 2d-visualization/controls/chart/gauge.md
+                                      - 2d-visualization/controls/chart/custom-chart.md          
+                            - Alarm:
+                                      - 2d-visualization/controls/alarm/index.md
+                                      - Real-time Alarm:
+                                                - 2d-visualization/controls/alarm/real-time-alarm/index.md
+                                                - 2d-visualization/controls/alarm/real-time-alarm/alarm-filter.md
+                                                - 2d-visualization/controls/alarm/real-time-alarm/alarm-ack.md
+                                                - 2d-visualization/controls/alarm/real-time-alarm/shelve-alarm.md
+                                                - 2d-visualization/controls/alarm/real-time-alarm/details.md
+                                      - Historical Alarm:
+                                                - 2d-visualization/controls/alarm/historical-alarm/index.md
+                                                - 2d-visualization/controls/alarm/historical-alarm/filter.md
+                                                - 2d-visualization/controls/alarm/historical-alarm/details.md
+                            - Event:
+                                      - 2d-visualization/controls/event/index.md
+                                      - 2d-visualization/controls/event/realtime-event.md
+                                      - 2d-visualization/controls/event/historical-event.md
+                            - Table:
+                                      - 2d-visualization/controls/table/index.md
+                                      - 2d-visualization/controls/table/table.md
+                                      - 2d-visualization/controls/table/historical-data-table.md
+                                      - 2d-visualization/controls/table/tag-list.md
+                                      - 2d-visualization/controls/table/report-viewer.md          
+                            - 2d-visualization/controls/modify-control-properties.md                           
+                  - Libraries:
+                            - 2d-visualization/libraries/index.md
+                            - 2d-visualization/libraries/svg-editor.md
+                  - Symbol:
+                            - 2d-visualization/symbol/index.md
+                            - 2d-visualization/symbol/symbol-libraries.md
+                            - 2d-visualization/symbol/create-symbol.md
+                            - 2d-visualization/symbol/how-to-use.md
+                  - Report:
+                            - 2d-visualization/report/index.md
+                            - Report Designer:
+                                      - 2d-visualization/report/report-designer/index.md
+                                      - 2d-visualization/report/report-designer/design-report.md
+                            - 2d-visualization/report/create-data-source.md
+                            - 2d-visualization/report/view-report.md
+                            - 2d-visualization/report/export-and-import-reports.md
+                  - Function:
+                            - 2d-visualization/function/index.md
+                            - 2d-visualization/function/expression-function.md
+                            - 2d-visualization/function/page-function.md
+                  - Property Binding:
+                            - 2d-visualization/property-binding/index.md
+                            - 2d-visualization/property-binding/tag.md
+                            - 2d-visualization/property-binding/property.md
+                            - 2d-visualization/property-binding/expression.md
+                            - 2d-visualization/property-binding/dynamic-tag.md
+                            - 2d-visualization/property-binding/dynamic-cell.md
+                            - 2d-visualization/property-binding/sql-query.md
+                            - 2d-visualization/property-binding/bidirectional-bindings.md 
+                  - Animation:
+                            - 2d-visualization/animation/index.md
+                  - Event:
+                            - 2d-visualization/event/index.md
+                            - 2d-visualization/event/navigation.md
+                            - 2d-visualization/event/set-value.md
+                            - 2d-visualization/event/set-property.md
+                            - 2d-visualization/event/script.md
+                            - 2d-visualization/event/security-group.md
+                  - Project Properties:
+                            - 2d-visualization/project-properties/index.md
+                            - 2d-visualization/project-properties/customize-login-page.md
+        - 3D Visualization:
+                  - 3d-visualization/index.md
+                  - Scene Editor:
+                            - 3d-visualization/scene-editor/index.md
+                  - Model Editor:
+                            - 3d-visualization/model-editor/index.md
+                  - Page Visualization:
+                            - 3d-visualization/page-visualization/index.md
+                  - Animation:
+                            - 3d-visualization/animation/index.md
+                  - Event:
+                            - 3d-visualization/event/index.md
+                  - Convert 3D Models to GLB Format:
+                            - 3d-visualization/convert-3d-models-to-glb-format/index.md
+                  - Lighting Settings:
+                            - 3d-visualization/lighting-settings/index.md
+                  - 3D Low Code Example:
+                            - 3d-visualization/3d-low-code-example/index.md
+                            - 3d-visualization/3d-low-code-example/find-3dview.md
+                            - 3d-visualization/3d-low-code-example/getscene.md
+                            - Scenario Operation:
+                                      - 3d-visualization/3d-low-code-example/scenario-operation/index.md
+                                      - 3d-visualization/3d-low-code-example/scenario-operation/background.md
+                                      - 3d-visualization/3d-low-code-example/scenario-operation/backgroundimg.md
+                                      - 3d-visualization/3d-low-code-example/scenario-operation/createbasicmesh.md
+                                      - 3d-visualization/3d-low-code-example/scenario-operation/createcanvasmarker.md
+                                      - 3d-visualization/3d-low-code-example/scenario-operation/createfire.md
+                                      - 3d-visualization/3d-low-code-example/scenario-operation/createhtmlmarker.md
+                                      - 3d-visualization/3d-low-code-example/scenario-operation/createline.md
+                                      - 3d-visualization/3d-low-code-example/scenario-operation/createmodel.md
+                                      - 3d-visualization/3d-low-code-example/scenario-operation/createplane.md
+                                      - 3d-visualization/3d-low-code-example/scenario-operation/createrain.md
+                                      - 3d-visualization/3d-low-code-example/scenario-operation/createsmoke.md
+                                      - 3d-visualization/3d-low-code-example/scenario-operation/createsnow.md
+                                      - 3d-visualization/3d-low-code-example/scenario-operation/createtextlabel.md
+                                      - 3d-visualization/3d-low-code-example/scenario-operation/createtube.md
+                                      - 3d-visualization/3d-low-code-example/scenario-operation/createwebview.md
+                                      - 3d-visualization/3d-low-code-example/scenario-operation/findcanvas.md
+                                      - 3d-visualization/3d-low-code-example/scenario-operation/findfire.md
+                                      - 3d-visualization/3d-low-code-example/scenario-operation/findhtml.md
+                                      - 3d-visualization/3d-low-code-example/scenario-operation/findline.md
+                                      - 3d-visualization/3d-low-code-example/scenario-operation/findmesh.md
+                                      - 3d-visualization/3d-low-code-example/scenario-operation/findplane.md
+                                      - 3d-visualization/3d-low-code-example/scenario-operation/findrain.md
+                                      - 3d-visualization/3d-low-code-example/scenario-operation/findsmoke.md
+                                      - 3d-visualization/3d-low-code-example/scenario-operation/findsnow.md
+                                      - 3d-visualization/3d-low-code-example/scenario-operation/findtextlabel.md
+                                      - 3d-visualization/3d-low-code-example/scenario-operation/findtube.md
+                                      - 3d-visualization/3d-low-code-example/scenario-operation/findwebview.md
+                                      - 3d-visualization/3d-low-code-example/scenario-operation/on.md
+                                      - 3d-visualization/3d-low-code-example/scenario-operation/openfirstpersoncontrols.md
+                                      - 3d-visualization/3d-low-code-example/scenario-operation/outlineobjects.md
+                                      - 3d-visualization/3d-low-code-example/scenario-operation/query.md
+                                      - 3d-visualization/3d-low-code-example/scenario-operation/querycanvas.md
+                                      - 3d-visualization/3d-low-code-example/scenario-operation/queryfire.md
+                                      - 3d-visualization/3d-low-code-example/scenario-operation/queryhtml.md
+                                      - 3d-visualization/3d-low-code-example/scenario-operation/queryline.md
+                                      - 3d-visualization/3d-low-code-example/scenario-operation/querymesh.md
+                                      - 3d-visualization/3d-low-code-example/scenario-operation/queryplane.md
+                                      - 3d-visualization/3d-low-code-example/scenario-operation/queryrain.md
+                                      - 3d-visualization/3d-low-code-example/scenario-operation/querysmoke.md
+                                      - 3d-visualization/3d-low-code-example/scenario-operation/querysnow.md
+                                      - 3d-visualization/3d-low-code-example/scenario-operation/querytextlabel.md
+                                      - 3d-visualization/3d-low-code-example/scenario-operation/querytube.md
+                                      - 3d-visualization/3d-low-code-example/scenario-operation/querywebview.md
+                                      - 3d-visualization/3d-low-code-example/scenario-operation/remove.md
+                                      - 3d-visualization/3d-low-code-example/scenario-operation/setoutlineoption.md
+                                      - 3d-visualization/3d-low-code-example/scenario-operation/stopfirstpersoncontrols.md
+                                      - 3d-visualization/3d-low-code-example/scenario-operation/skybox.md
+                                      - 3d-visualization/3d-low-code-example/scenario-operation/creatediffusion.md
+                            - Camera:          
+                                      - 3d-visualization/3d-low-code-example/camera/index.md
+                                      - 3d-visualization/3d-low-code-example/camera/flypath.md
+                                      - 3d-visualization/3d-low-code-example/camera/lookat.md
+                                      - 3d-visualization/3d-low-code-example/camera/position.md
+                                      - 3d-visualization/3d-low-code-example/camera/reset.md
+                                      - 3d-visualization/3d-low-code-example/camera/rotate-around.md
+                                      - 3d-visualization/3d-low-code-example/camera/pause.md
+                                      - 3d-visualization/3d-low-code-example/camera/resume.md
+                            - Object models in the scene:
+                                      - 3d-visualization/3d-low-code-example/object-models-in-the-scene/index.md
+                                      - Basic Model:
+                                                - 3d-visualization/3d-low-code-example/object-models-in-the-scene/basic-model/index.md
+                                                - 3d-visualization/3d-low-code-example/object-models-in-the-scene/basic-model/addchildren.md
+                                                - 3d-visualization/3d-low-code-example/object-models-in-the-scene/basic-model/getchildren.md
+                                                - 3d-visualization/3d-low-code-example/object-models-in-the-scene/basic-model/getid.md
+                                                - 3d-visualization/3d-low-code-example/object-models-in-the-scene/basic-model/getparent.md
+                                                - 3d-visualization/3d-low-code-example/object-models-in-the-scene/basic-model/gettype.md
+                                                - 3d-visualization/3d-low-code-example/object-models-in-the-scene/basic-model/getworldposition.md
+                                                - 3d-visualization/3d-low-code-example/object-models-in-the-scene/basic-model/name.md
+                                                - 3d-visualization/3d-low-code-example/object-models-in-the-scene/basic-model/position.md
+                                                - 3d-visualization/3d-low-code-example/object-models-in-the-scene/basic-model/userdata.md
+                                                - 3d-visualization/3d-low-code-example/object-models-in-the-scene/basic-model/visible.md
+                                      - Custom Annotations:
+                                                - 3d-visualization/3d-low-code-example/object-models-in-the-scene/custom-annotations/index.md
+                                                - 3d-visualization/3d-low-code-example/object-models-in-the-scene/custom-annotations/element.md
+                                      - Embedded Page:
+                                                - 3d-visualization/3d-low-code-example/object-models-in-the-scene/embedded-page/index.md
+                                                - 3d-visualization/3d-low-code-example/object-models-in-the-scene/embedded-page/src.md
+                                                - 3d-visualization/3d-low-code-example/object-models-in-the-scene/embedded-page/title.md
+                                      - Grid Model:
+                                                - 3d-visualization/3d-low-code-example/object-models-in-the-scene/grid-model/index.md
+                                                - 3d-visualization/3d-low-code-example/object-models-in-the-scene/grid-model/addoutline.md
+                                                - 3d-visualization/3d-low-code-example/object-models-in-the-scene/grid-model/color.md
+                                                - 3d-visualization/3d-low-code-example/object-models-in-the-scene/grid-model/movepaths.md
+                                                - 3d-visualization/3d-low-code-example/object-models-in-the-scene/grid-model/moveto.md
+                                                - 3d-visualization/3d-low-code-example/object-models-in-the-scene/grid-model/on.md
+                                                - 3d-visualization/3d-low-code-example/object-models-in-the-scene/grid-model/opacity.md
+                                                - 3d-visualization/3d-low-code-example/object-models-in-the-scene/grid-model/removeoutline.md
+                                                - 3d-visualization/3d-low-code-example/object-models-in-the-scene/grid-model/rotateto.md
+                                                - 3d-visualization/3d-low-code-example/object-models-in-the-scene/grid-model/rotation.md
+                                                - 3d-visualization/3d-low-code-example/object-models-in-the-scene/grid-model/scale.md
+                                                - 3d-visualization/3d-low-code-example/object-models-in-the-scene/grid-model/scaleto.md
+                                                - 3d-visualization/3d-low-code-example/object-models-in-the-scene/grid-model/stopanimation.md
+                                                - 3d-visualization/3d-low-code-example/object-models-in-the-scene/grid-model/wireframe.md
+                                      - Image Overlays:
+                                                - 3d-visualization/3d-low-code-example/object-models-in-the-scene/image-overlays/index.md
+                                                - 3d-visualization/3d-low-code-example/object-models-in-the-scene/image-overlays/canvas.md
+                                                - 3d-visualization/3d-low-code-example/object-models-in-the-scene/image-overlays/size.md
+                                      - Line:
+                                                - 3d-visualization/3d-low-code-example/object-models-in-the-scene/line/index.md
+                                                - 3d-visualization/3d-low-code-example/object-models-in-the-scene/line/color.md
+                                                - 3d-visualization/3d-low-code-example/object-models-in-the-scene/line/curve.md
+                                                - 3d-visualization/3d-low-code-example/object-models-in-the-scene/line/points.md
+                                      - Lines with textures:
+                                                - 3d-visualization/3d-low-code-example/object-models-in-the-scene/lines-with-textures/index.md
+                                                - 3d-visualization/3d-low-code-example/object-models-in-the-scene/lines-with-textures/color.md
+                                                - 3d-visualization/3d-low-code-example/object-models-in-the-scene/lines-with-textures/image.md
+                                                - 3d-visualization/3d-low-code-example/object-models-in-the-scene/lines-with-textures/points.md
+                                                - 3d-visualization/3d-low-code-example/object-models-in-the-scene/lines-with-textures/repeatx.md
+                                                - 3d-visualization/3d-low-code-example/object-models-in-the-scene/lines-with-textures/repeaty.md
+                                      - Surface:
+                                                - 3d-visualization/3d-low-code-example/object-models-in-the-scene/surface/index.md
+                                                - 3d-visualization/3d-low-code-example/object-models-in-the-scene/surface/doubleside.md
+                                                - 3d-visualization/3d-low-code-example/object-models-in-the-scene/surface/image.md
+                                      - Text Annotation:
+                                                - 3d-visualization/3d-low-code-example/object-models-in-the-scene/text-annotation/index.md
+                                                - 3d-visualization/3d-low-code-example/object-models-in-the-scene/text-annotation/fontcolor.md
+                                                - 3d-visualization/3d-low-code-example/object-models-in-the-scene/text-annotation/fontsize.md
+                                                - 3d-visualization/3d-low-code-example/object-models-in-the-scene/text-annotation/height.md
+                                                - 3d-visualization/3d-low-code-example/object-models-in-the-scene/text-annotation/text.md
+        - Appendix:
+                  - appendix/index.md
+                  - System Function:
+                            - appendix/system-function/index.md
+                            - System.Alarm:
+                                      - appendix/system-function/system-alarm/index.md
+                                      - appendix/system-function/system-alarm/system-alarm-query.md
+                                      - appendix/system-function/system-alarm/system-alarm-queryhistory.md
+                            - System.Context:
+                                      - appendix/system-function/system-context/index.md
+                                      - System.Context.alarm:
+                                                - appendix/system-function/system-context/system-context-alarm/index.md
+                                                - appendix/system-function/system-context/system-context-alarm/system-context-currentalarm-ackmode.md
+                                                - appendix/system-function/system-context/system-context-alarm/system-context-currentalarm-acknotes.md
+                                                - appendix/system-function/system-context/system-context-alarm/system-context-currentalarm-acktime.md
+                                                - appendix/system-function/system-context/system-context-alarm/system-context-currentalarm-description.md
+                                                - appendix/system-function/system-context/system-context-alarm/system-context-currentalarm-statuschangeid.md
+                                                - appendix/system-function/system-context/system-context-alarm/system-context-currentalarm-statuschangetime.md
+                                                - appendix/system-function/system-context/system-context-alarm/system-context-currentalarm-name.md
+                                                - appendix/system-function/system-context/system-context-alarm/system-context-currentalarm-nodename.md
+                                                - appendix/system-function/system-context/system-context-alarm/system-context-currentalarm-ackuser.md
+                                                - appendix/system-function/system-context/system-context-alarm/system-context-currentalarm-path.md
+                                                - appendix/system-function/system-context/system-context-alarm/system-context-currentalarm-priority.md
+                                                - appendix/system-function/system-context/system-context-alarm/system-context-currentalarm-state.md
+                                                - appendix/system-function/system-context/system-context-alarm/system-context-currentalarm-type.md
+                                                - appendix/system-function/system-context/system-context-alarm/system-context-currentalarm-alarmvalue.md
+                                                - appendix/system-function/system-context/system-context-alarm/system-context-currentalarm-datatype.md
+                                                - appendix/system-function/system-context/system-context-alarm/system-context-currentalarm-activetime.md
+                                                - appendix/system-function/system-context/system-context-alarm/system-context-currentalarm-alarmgroups.md
+                                                - appendix/system-function/system-context/system-context-alarm/system-context-currentalarm-cleartime.md
+                                                - appendix/system-function/system-context/system-context-alarm/system-context-currentalarm-notificationrule.md
+                                      - System.Context.currentEvent:
+                                                - appendix/system-function/system-context/system-context-currentevent/index.md
+                                                - appendix/system-function/system-context/system-context-currentevent/system-context-currentevent-newvalue.md
+                                                - appendix/system-function/system-context/system-context-currentevent/system-context-currentevent-offsetx.md
+                                                - appendix/system-function/system-context/system-context-currentevent/system-context-currentevent-offsety.md
+                                                - appendix/system-function/system-context/system-context-currentevent/system-context-currentevent-oldvalue.md
+                                                - appendix/system-function/system-context/system-context-currentevent/system-context-currentevent-screenx.md
+                                                - appendix/system-function/system-context/system-context-currentevent/system-context-currentevent-screeny.md
+                                                - appendix/system-function/system-context/system-context-currentevent/system-context-currentevent-type.md
+                                                - appendix/system-function/system-context/system-context-currentevent/system-context-currentevent-x.md
+                                                - appendix/system-function/system-context/system-context-currentevent/system-context-currentevent-y.md
+                            - System.Datatable:
+                                      - appendix/system-function/system-datatable/index.md
+                                      - appendix/system-function/system-datatable/system-datatable-todatatable.md
+                            - System.Db:
+                                      - appendix/system-function/system-db/index.md
+                                      - appendix/system-function/system-db/system-db-runsqlquery.md
+                            - System.Event:
+                                      - appendix/system-function/system-event/index.md
+                                      - appendix/system-function/system-event/system-event-fail.md
+                                      - appendix/system-function/system-event/system-event-success.md
+                            - System.Function:
+                                      - appendix/system-function/system-function/index.md
+                                      - appendix/system-function/system-function/system-function-runscript.md     
+                            - System.Library:
+                                      - appendix/system-function/system-library/index.md
+                                      - appendix/system-function/system-library/system-library-getlocalimage.md 
+                                      - appendix/system-function/system-library/system-library-getsystemimage.md                     
+                            - System.Page:
+                                      - appendix/system-function/system-page/index.md
+                                      - appendix/system-function/system-page/system-page-getpropertyvalue.md
+                                      - appendix/system-function/system-page/system-page-setpropertyvalue.md
+                            - System.Security:
+                                      - appendix/system-function/system-security/index.md
+                                      - appendix/system-function/system-security/system-security-changepassword.md
+                                      - appendix/system-function/system-security/system-security-getroles.md
+                                      - appendix/system-function/system-security/system-security-getusername.md
+                                      - appendix/system-function/system-security/system-security-login.md
+                                      - appendix/system-function/system-security/system-security-logout.md
+                            - System.Tag:
+                                      - appendix/system-function/system-tag/index.md
+                                      - appendix/system-function/system-tag/system-tag-getpropertyvalues.md
+                                      - appendix/system-function/system-tag/system-tag-mock.md
+                                      - appendix/system-function/system-tag/system-tag-querypropertyvalues.md
+                                      - appendix/system-function/system-tag/system-tag-read.md
+                                      - appendix/system-function/system-tag/system-tag-readhistory.md
+                                      - appendix/system-function/system-tag/system-tag-readvalue.md
+                                      - appendix/system-function/system-tag/system-tag-subscribe.md
+                                      - appendix/system-function/system-tag/system-tag-writevalue.md
+                            - System.UI:
+                                      - appendix/system-function/system-ui/index.md
+                                      - appendix/system-function/system-ui/system-ui-applychanges.md
+                                      - appendix/system-function/system-ui/system-ui-back.md
+                                      - appendix/system-function/system-ui/system-ui-close.md
+                                      - appendix/system-function/system-ui/system-ui-findcontrol.md
+                                      - appendix/system-function/system-ui/system-ui-forward.md
+                                      - appendix/system-function/system-ui/system-ui-gohome.md
+                                      - appendix/system-function/system-ui/system-ui-open.md
+                                      - appendix/system-function/system-ui/system-ui-opennewtab.md
+                                      - appendix/system-function/system-ui/system-ui-openpopup.md
+                                      - appendix/system-function/system-ui/system-ui-redirect.md
+                            - System.Utils:
+                                      - appendix/system-function/system-utils/index.md
+                                      - appendix/system-function/system-utils/system-utils-importscript.md
+                                      - appendix/system-function/system-utils/system-utils-importstyle.md
+

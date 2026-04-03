@@ -1,0 +1,5 @@
+- [color](color.md) 
+- [image](image.md) 
+- [points](points.md) 
+- [repeatX](repeatx.md) 
+- [repeatY](repeaty.md)

@@ -1,0 +1,31 @@
+# findLine
+
+**Description:** Query the first line that meets the criteria in the scene
+
+Find Line:
+
+```typescript
+const view = await System.UI.findControl('3DViewer1')// Obtain a 3D viewer control named "3DViewer1" in the page
+const scene = await view.getScene();
+const mash = await scene.findLine({
+//Id: "3b013f32-d6b0-484e-835c-e63e75d30ecb",//To query the unique uuid of the model
+name: 'line',//Fuzzy query names containing lines
+//User defined data content for userData
+})
+console.log(mash)//Output all queried results
+```
+ 
+**Example:**
+
+Write the above code on the button, click the button, and you can query the first matching model in the scene whose name includes line
+
+
+![1](../../../assets/images/3d_lowcode_SOperation_findline1.gif)
+
+The queried model can use all its methods and properties:
+
+![alt text](3d_lowcode_SOperation_findline2.png)
+
+
+
+
