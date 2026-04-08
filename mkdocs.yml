@@ -361,6 +361,7 @@ nav:
                             - management-platform/open-api/historical-data-api-definitions.md
                             - management-platform/open-api/realtime-data-api-definitions.md
                             - management-platform/open-api/integration-api-definitions.md
+                            - management-platform/open-api/modbustcp.md
                             - Test With Postman:
                                       - management-platform/open-api/test-with-postman/index.md
                                       - management-platform/open-api/test-with-postman/get-access-token.md
