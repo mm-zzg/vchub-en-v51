@@ -85,16 +85,6 @@ plugins:
                   separator: '[\s\u200b\-_,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
         - minify:
                   minify_html: true
-        - print-site:
-                  add_to_navigation: true
-                  add_full_urls: false
-                  add_table_of_contents: true
-                  toc_title: "Table of Contents"
-                  toc_depth: 2
-                  enumerate_headings: true
-                  enumerate_figures: true
-                  add_cover_page: true
-                  path_to_pdf: "assets/site.pdf"       
 
 # Hooks
 hooks:
