@@ -17,8 +17,12 @@ Request Payload(QueryString):
 | interval        | integer  | The sample period. The unit is second.                                                                               |
 | period          | integer  | The sample period                                                                                                    |
 | periodMode      | String   | The sample period mode(None,Second,Minute,Hour,Day)                                                                  |
-| aggregationType | String   | The aggregation type, available values: Raw, Avg, Max, Min, First,Last,Count,CountOn,CountOff,DurationOn,DurationOff |
+| aggregationType | String[] | The aggregation type list, available values: Raw, Avg, Max, Min, First,Last,Count,CountOn,CountOff,DurationOn,DurationOff |
 | path            | String[] | The tag path list                                                                                                    |
+| timeout         | Integer  | Timeout seconds                                                                                                      |
+| noInterpolation | Boolean  | Whether to disable interpolation                                                                                     |
+| ignoreBadQuality | Boolean | Whether to ignore bad quality records                                                                                |
+| includeBoundingValues | Boolean | Whether to include bounding values                                                                               |
 
 Response Payload(Json Array)
 
@@ -29,7 +33,7 @@ Response Payload(Json Array)
 | time    | DateTime | The timestamp          |
 | quality | String   | The quality of the tag |
 
-## GET /v1/historicalData/alarms
+## GET /api/v1/historicalData/alarms
 
 Get historical alarms
 
@@ -68,7 +72,7 @@ Response Payload(JsonArray):
 | operator    | String   | The user who acknownlege the alarm                                                         |
 | ackMode     | String   | The acknownledge mode (Auto,Manual,ManualNeedInfo)                                         |
 
-## POST /v1/historicalData/alarms
+## POST /api/v1/historicalData/alarms
 
 Get historical alarms
 
@@ -76,13 +80,13 @@ Protocol: Https
 
 Request Playload(JsonObject):
 
-Field descriptions are the same as **GET /v1/historicalData/alarms**, only in POST format
+Field descriptions are the same as **GET /api/v1/historicalData/alarms**, only in POST format
 
 Response Payload(JsonArray)):
 
-The field descriptions are consistent with the response structure of **GET /v1/historicalData/alarms.**
+The field descriptions are consistent with the response structure of **GET /api/v1/historicalData/alarms.**
 
-## GET /v1/historicalData/pagedAlarms
+## GET /api/v1/historicalData/pagedAlarms
 
 Get paged historical alarms
 
@@ -108,11 +112,10 @@ Response Payload(JsonObject):
 
 | Name       | Type                     | Description                                                                                                    |
 |------------|--------------------------|----------------------------------------------------------------------------------------------------------------|
-| TotalCount | Integer                  | Total number of historical alarm records                                                                       |
-| TotalPage  | Integer                  | Total number of pages of historical alarms                                                                     |
-| Data       | AssetAlarmHistoryModel[] | List of alarm data, with the same field structure as the response payload of **GET /v1/historicalData/alarms** |
+| totalCount | Integer                  | Total number of historical alarm records                                                                       |
+| data       | AssetAlarmHistoryModel[] | List of alarm data, with the same field structure as the response payload of **GET /api/v1/historicalData/alarms** |
 
-## POST /v1/historicalData/pagedAlarms
+## POST /api/v1/historicalData/pagedAlarms
 
 Get paged historical alarms
 
@@ -120,8 +123,8 @@ Protocol: Https
 
 Request Playload(JsonObject)):
 
-Field descriptions are the same as in **GET /v1/historicalData/pagedAlarms**, but in POST format only.
+Field descriptions are the same as in **GET /api/v1/historicalData/pagedAlarms**, but in POST format only.
 
 Response Payload(JsonObject):
 
-The field descriptions are consistent with the response structure of **GET /v1/historicalData/pagedAlarms**
+The field descriptions are consistent with the response structure of **GET /api/v1/historicalData/pagedAlarms**

@@ -1,12 +1,12 @@
 # Integration API definitions
 
-## GET /api/v1/scripts/execute
+## POST /api/v1/scripts/execute
 
 Execute the custom script and return the result.
 
 Protocol: Https
 
-Request Payload(Json):
+Request Payload(JsonObject):
 
 | Name       | Type      | Description                                                                                                           |
 |------------|-----------|-----------------------------------------------------------------------------------------------------------------------|

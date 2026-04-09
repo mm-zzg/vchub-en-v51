@@ -61,11 +61,11 @@ Delete asset instance by path
 
 Protocol: Https
 
-Request Payload:(JsonObject)
+Path Parameter:
 
-| Name       | Type   | Description                               |
-|------------|--------|-------------------------------------------|
-| Path | String | The path of current asset instance |
+| Name | Type   | Description                       |
+|------|--------|-----------------------------------|
+| path | String | The path of current asset instance |
 
 Response Payload: NA
 
@@ -76,11 +76,11 @@ Get properties of asset instance by instance path, the properties means the chil
 
 Protocol: Https
 
-Request Payload: 
+Path Parameter:
 
-| Name       | Type   | Description                               |
-|------------|--------|-------------------------------------------|
-| Path | String | The path of current asset instance |
+| Name | Type   | Description                       |
+|------|--------|-----------------------------------|
+| path | String | The path of current asset instance |
 
 
 Response Payload:
@@ -105,7 +105,7 @@ Batch add asset instance api.
 
 Protocol: Https
 
-Request Payload:(JsonObject)
+Request Payload:(JsonArray)
 
 | Name       | Type   | Description                               |
 |------------|--------|-------------------------------------------|
@@ -127,7 +127,7 @@ Batch Update Asset Instances
 
 Protocol: Https
 
-Request Payload:(JsonObject)
+Request Payload:(JsonArray)
 
 | Name       | Type   | Description                               |
 |------------|--------|-------------------------------------------|
@@ -149,7 +149,11 @@ Batch Delete Asset Instances by paths
 
 Protocol: Https
 
-Request Payload: NA 
+Request Payload:(JsonArray)
+
+| Name | Type     | Description                               |
+|------|----------|-------------------------------------------|
+| data | String[] | The asset instance path list to be deleted |
 
 Response Payload: NA
 
@@ -461,13 +465,13 @@ Response Payload(JsonArray)
 
 
 
-## POST /api/assetModels
+## POST /api/v1/assetModels
 
 Create new asset model
 
 Protocol: Https
 
-Request Payload(QueryString):
+Request Payload(JsonObject):
 
 | Name       | Type   | Description                |
 |------------|--------|----------------------------|
@@ -478,17 +482,17 @@ Response Payload: NA
 
 
 
-## PUT /api/assetModels/{modelPath}
+## PUT /api/v1/assetModels/{modelPath}
 
 Update Asset model path model path
 
 Protocol: Https
 
-Request Payload(QueryString):
+Request Payload(JsonObject):
 
-| Name       | Type   | Description                |
-|------------|--------|----------------------------|
-| parentPath | String | Parent path of Asset model |
+| Name | Type   | Description      |
+|------|--------|------------------|
+| name | String | Asset model name |
 
 Response Payload: NA
 
@@ -500,11 +504,11 @@ Delete Asset mdoel by model path.
 
 Protocol: Https
 
-Request Payload(QueryString):
+Path Parameter:
 
-| Name       | Type   | Description                |
-|------------|--------|----------------------------|
-| parentPath | String | Parent path of Asset model |
+| Name      | Type   | Description           |
+|-----------|--------|-----------------------|
+| modelPath | String | The asset model path |
 
 Response Payload: NA
 
@@ -613,7 +617,7 @@ Batch create new asset models
 
 Protocol: Https
 
-Request Payload(JsonObject):
+Request Payload(JsonArray):
 
 | Name       | Type   | Description                               |
 |------------|--------|-------------------------------------------|
@@ -637,7 +641,7 @@ Batch update asset models. The model must contain the path of asset model to be 
 
 Protocol: Https
 
-Request Payload(JsonObject):
+Request Payload(JsonArray):
 
 | Name       | Type   | Description                               |
 |------------|--------|-------------------------------------------|
@@ -660,7 +664,11 @@ Batch delete asset models by model paths
 
 Protocol: Https
 
-Request Payload:NA
+Request Payload(JsonArray):
+
+| Name | Type     | Description                               |
+|------|----------|-------------------------------------------|
+| data | String[] | The asset model path list to be deleted |
 
 Response Payload:NA
 
@@ -1633,7 +1641,7 @@ Request Payload(JsonObject):
 Response Payload: NA
 
 
-## PUT /api/assets/{id}
+## PUT /api/v1/assets/{id}
 
 Update asset by id. 
 
@@ -1654,12 +1662,11 @@ Delete asset tree by asset tree id
 
 Protocol: Https
 
-Request Payload(JsonObject):
+Path Parameter:
 
-| Name        | Type   | Description       |
-|-------------|--------|-------------------|
-| name        | String | Asset name        |
-| description | String | Asset description |
+| Name | Type   | Description       |
+|------|--------|-------------------|
+| id   | String | The asset tree id |
 
 Response Body: NA
 
@@ -1671,7 +1678,7 @@ Batch Create new Asset Tree.
 
 Protocol: Https
 
-Request Payload(JsonObject):
+Request Payload(JsonArray):
 
 | Name        | Type   | Description       |
 |-------------|--------|-------------------|
@@ -1686,7 +1693,7 @@ Batch update asset trees. The model must contain the id of asset tree to be upda
 
 Protocol: Https
 
-Request Payload(JsonObject):
+Request Payload(JsonArray):
 
 | Name        | Type   | Description       |
 |-------------|--------|-------------------|
@@ -1710,7 +1717,11 @@ Batch Delete asset tree by ids
 
 Protocol: Https
 
-Request Payload: NA 
+Request Payload(JsonArray):
+
+| Name | Type     | Description                       |
+|------|----------|-----------------------------------|
+| data | String[] | The asset tree id list to delete |
 
 Response Payload: NA
 
