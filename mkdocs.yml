@@ -360,6 +360,7 @@ nav:
                             - management-platform/open-api/asset-api-definitions.md
                             - management-platform/open-api/historical-data-api-definitions.md
                             - management-platform/open-api/realtime-data-api-definitions.md
+                            - management-platform/open-api/csharp-signalr-realtime-data.md
                             - management-platform/open-api/integration-api-definitions.md
                             - management-platform/open-api/modbustcp.md
                             - Test With Postman:
