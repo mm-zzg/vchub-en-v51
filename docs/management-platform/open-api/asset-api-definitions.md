@@ -166,7 +166,7 @@ Response Payload:
 |------------|--------|-------------------------------------------|
 | description | String | The parent path of current asset instance |
 |customProperties|||
-| treeName       | String |                       |
+| treeName       | String |     Asset tree name                  |
 |parentPath|string|Parent path of current asset instance|
 | name       | String | Asset instance name                       |
 | type        | String             | Asset type (Instance,Tag)    |
@@ -186,9 +186,9 @@ Response Payload:
 
 |  configuration |  |  |
 |------------|--------|-------------------------------------------|
-| name       | String | |
-|  tagGroup | String |  |
-|  description | string |  |
+| name       | String |Name of asset tag |
+|  tagGroup | String | Selected tagGroup of asset tag|
+|  description | string | description of asset tag |
 |  value |  |  |
 |  alarm |  |  |
 |  history |  |  |
@@ -673,11 +673,12 @@ Protocol: Https
 
 Response Payload:
 
+
 | Name       | Type   | Description                               |
 |------------|--------|-------------------------------------------|
 | description | String | The parent path of current asset instance |
 |customProperties|||
-| treeName       | String |                       |
+| treeName       | String |           Asset tree name              |
 |parentPath|string|Parent path of current asset instance|
 | name       | String | Asset instance name                       |
 | type        | String             | Asset type (Instance,Tag)    |
@@ -688,7 +689,6 @@ Response Payload:
 |  configuration |  |  |
 |properties|String|AssetModel Properties|
 
-
 | customProperties    |    |                                |
 |------------|--------|-------------------------------------------|
 |additionalProp1|string|custom property1|
@@ -698,9 +698,9 @@ Response Payload:
 
 |  configuration |  |  |
 |------------|--------|-------------------------------------------|
-| name       | String | |
-|  tagGroup | String |  |
-|  description | string |  |
+| name       | String |Name of asset tag |
+|  tagGroup | String | Selected tagGroup of asset tag|
+|  description | string | description of asset tag |
 |  value |  |  |
 |  alarm |  |  |
 |  history |  |  |
@@ -709,6 +709,7 @@ Response Payload:
 |  event |  |  |
 |  simulate |  |  |
 |custom|||
+
 
 |  value |  |  |
 |------------|--------|-------------------------------------------|
@@ -952,7 +953,7 @@ Request Payload:
 |------------|--------|-------------------------------------------|
 | description | String | The parent path of current asset instance |
 |customProperties|||
-| treeName       | String |                       |
+| treeName       | String |         Asset tree name                |
 |parentPath|string|Parent path of current asset instance|
 | name       | String | Asset instance name                       |
 | type        | String             | Asset type (Instance,Tag)    |
@@ -973,9 +974,9 @@ Request Payload:
 
 |  configuration |  |  |
 |------------|--------|-------------------------------------------|
-| name       | String | |
-|  tagGroup | String |  |
-|  description | string |  |
+| name       | String |Name of asset tag |
+|  tagGroup | String | Selected tagGroup of asset tag|
+|  description | string | description of asset tag |
 |  value |  |  |
 |  alarm |  |  |
 |  history |  |  |
@@ -1169,7 +1170,7 @@ Request Payload:
 |------------|--------|-------------------------------------------|
 | description | String | The parent path of current asset instance |
 |customProperties|||
-| treeName       | String |                       |
+| treeName       | String |             Asset tree name            |
 |parentPath|string|Parent path of current asset instance|
 | name       | String | Asset instance name                       |
 | type        | String             | Asset type (Instance,Tag)    |
@@ -1190,9 +1191,9 @@ Request Payload:
 
 |  configuration |  |  |
 |------------|--------|-------------------------------------------|
-| name       | String | |
-|  tagGroup | String |  |
-|  description | string |  |
+| name       | String |Name of asset tag |
+|  tagGroup | String | Selected tagGroup of asset tag|
+|  description | string | description of asset tag |
 |  value |  |  |
 |  alarm |  |  |
 |  history |  |  |
@@ -1416,9 +1417,9 @@ Response Payload:
 
 |  configuration |  |  |
 |------------|--------|-------------------------------------------|
-| name       | String | |
-|  tagGroup | String |  |
-|  description | string |  |
+| name       | String |Name of asset tag |
+|  tagGroup | String | Selected tagGroup of asset tag|
+|  description | string | description of asset tag |
 |  value |  |  |
 |  alarm |  |  |
 |  history |  |  |
@@ -2010,7 +2011,7 @@ Request Payload:
 |------------|--------|-------------------------------------------|
 | description | String | The parent path of current asset instance |
 |customProperties|||
-| treeName       | String |                       |
+| treeName       | String |          Asset tree name              |
 |parentPath|string|Parent path of current asset instance|
 | name       | String | Asset instance name                       |
 | type        | String             | Asset type (Instance,Tag)    |
@@ -2022,9 +2023,9 @@ Request Payload:
 
 |  configuration |  |  |
 |------------|--------|-------------------------------------------|
-| name       | String | |
-|  tagGroup | String |  |
-|  description | string |  |
+| name       | String |Name of asset tag |
+|  tagGroup | String | Selected tagGroup of asset tag|
+|  description | string | description of asset tag |
 |  value |  |  |
 |  alarm |  |  |
 |  history |  |  |
@@ -2219,7 +2220,7 @@ Request Payload:
 |------------|--------|-------------------------------------------|
 | description | String | The parent path of current asset instance |
 |customProperties|||
-| treeName       | String |                       |
+| treeName       | String |         Asset tree name               |
 |parentPath|string|Parent path of current asset instance|
 | name       | String | Asset instance name                       |
 | type        | String             | Asset type (Instance,Tag)    |
@@ -2232,9 +2233,9 @@ Request Payload:
 
 |  configuration |  |  |
 |------------|--------|-------------------------------------------|
-| name       | String | |
-|  tagGroup | String |  |
-|  description | string |  |
+| name       | String |Name of asset tag |
+|  tagGroup | String | Selected tagGroup of asset tag|
+|  description | string | description of asset tag |
 |  value |  |  |
 |  alarm |  |  |
 |  history |  |  |
@@ -2438,7 +2439,7 @@ Request Payload:
 |------------|--------|-------------------------------------------|
 | description | String | The parent path of current asset instance |
 |customProperties|||
-| treeName       | String |                       |
+| treeName       | String |             Asset tree name            |
 |parentPath|string|Parent path of current asset instance|
 | name       | String | Asset instance name                       |
 | type        | String             | Asset type (Instance,Tag)    |
@@ -2450,9 +2451,9 @@ Request Payload:
 
 |  configuration |  |  |
 |------------|--------|-------------------------------------------|
-| name       | String | |
-|  tagGroup | String |  |
-|  description | string |  |
+| name       | String |Name of asset tag |
+|  tagGroup | String | Selected tagGroup of asset tag|
+|  description | string | description of asset tag |
 |  value |  |  |
 |  alarm |  |  |
 |  history |  |  |
