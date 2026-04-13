@@ -14,7 +14,7 @@ Authorization can be granted based on the following several function modules:
 
 #### I/O Tag
 
-There are 6 different license quantities available. You can determine the number of licenses to purchase based on your specific situation.
+There are 7 different license quantities available. You can determine the number of licenses to purchase based on your specific situation.
 
 - 1,000 I/O tags 
 - 2,000 I/O tags
@@ -22,6 +22,7 @@ There are 6 different license quantities available. You can determine the number
 - 10,000 I/O tags
 - 20,000 I/O tags
 - 50,000 I/O tags
+- 100,000 I/O tags
 
 **Notes:**
 
@@ -33,11 +34,15 @@ There are 6 different license quantities available. You can determine the number
 
 #### Concurrent Online User
 
- The concurrent user count including 3 different types of data. 
+ The concurrent user count including 5 different types. 
 
-- 2 Concurrent Online Users
-- 5 Concurrent Online Users
-- 10 Concurrent Online Users
+- 2 Engineering Concurrent Online Users, 20 Runtime Concurrent Online Users
+- 5 Engineering Concurrent Online Users, 50 Runtime Concurrent Online Users
+- 10 Engineering Concurrent Online Users, 100 Runtime Concurrent Online Users
+- 20 Engineering Concurrent Online Users, 200 Runtime Concurrent Online Users
+- 50 Engineering Concurrent Online Users, 500 Runtime Concurrent Online Users
+
+ The number of engineering users and runtime users included in the license is counted separately.
 
 **When the online count reaches the maximum limit, the user logs in**
 
@@ -65,21 +70,22 @@ There are 6 different license quantities available. You can determine the number
 
 **Notes:**
 
-1. If the user does not purchase any Concurrent Online User type license, only one concurrent user is allowed.
+1. If the user does not purchase any Concurrent Online User type license, only 1 engineering concurrent user and 10 runtime concurrent users are allowed.
 
 2. The number of concurrent users is also not supported for accumulation.
 
-3. An auto login will also count as one online user.
+3. An auto login will also count as one runtime online user.
 
 #### Add On 
 
 The following functional modules are Add Ons. 
 
-- Database: MySQL,SQL Server,PostgreSQL,InfluxDB
+- Database: MySQL, SQL Server, PostgreSQL, InfluxDB
 - Report
-- Alarm Notifications: SMS(Twilio),SMS(Ali Cloud),WeCom,DingTalk
+- Alarm Notifications: SMS(Twilio), SMS(Ali Cloud), WeCom, DingTalk
 - Open API
-- Driver: MQTT Native,MQTT SparkplugB,WAGO Protocol
+- Driver: MQTT Native, MQTT SparkplugB, WAGO Protocol
+- Driver: IEC 104
 - 3D
 
 **Notes:**
