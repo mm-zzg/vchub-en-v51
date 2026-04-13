@@ -333,6 +333,7 @@ nav:
                   - Security:
                             - management-platform/security/index.md
                             - management-platform/security/roles-and-users.md
+                            - management-platform/security/online-users.md
                             - management-platform/security/user-group.md
                             - management-platform/security/permission.md
                             - management-platform/security/access-level.md

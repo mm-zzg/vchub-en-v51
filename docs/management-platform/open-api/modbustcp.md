@@ -1,4 +1,4 @@
-# ModbusTcp
+# Modbus Tcp API definitions
 
 ## POST	api/v1/modbusTcp/device
 
