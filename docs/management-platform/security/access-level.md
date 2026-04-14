@@ -1,6 +1,50 @@
 # Access Level
 
-It is used to maintain and manage the Access Level of the platform. Click "Security" -> "Access Level" in the menu bar, and you can enter the Access Level configuration page. Users can flexibly configure the Access Level according to their needs.
+## What is Access Level
+
+Access Level is a mechanism used to implement permission control and functional access management, defining the scope of system functions or data that a user can access.
+
+In VC Hub, Access Level is a unified permission model. It not only includes the traditional Role dimension, but also supports hierarchical access control based on organizational or physical structure, enabling a more flexible access control strategy.
+
+**Structure of Access Level**
+
+Access Level uses a hierarchical tree model, which can be structured according to business or physical entities such as plants, production lines, or areas.
+
+Example structure:
+
+- Authenticated
+  - Roles
+  - Plants
+    - Plant 1
+      - Line A
+      - Line B
+    - Plant 2
+      - Line A
+      - Line B
+
+In this structure:
+
+- Upper-level nodes (e.g., Plants) represent broader access scopes
+- Lower-level nodes (e.g., Line A) represent more granular access control scopes
+- Users can be assigned Access Levels at any node in the hierarchy
+
+**Permission Inheritance Rules**
+
+Access Level follows a hierarchical inheritance mechanism:
+
+- If a user is assigned a child-level node, they automatically inherit access to its parent nodes
+- Permissions propagate upward along the path
+- Multiple Access Levels can be assigned to a single user
+
+**Example**
+
+If a user is assigned:
+
+`Authenticated/Plants/Plant 1/Line A`
+
+Then the user is allowed to access only Plant 1 – Line A related functions and resources.
+
+Click "Security" -> "Access Level" in the menu bar, and you can enter the Access Level configuration page. Users can flexibly configure the Access Level according to their needs.
 
 By assigning different Access Levels, it is possible to precisely control whether users have the right to access specific resources.
 
@@ -16,13 +60,13 @@ The Access Level is displayed in a tree structure in the system. By default, fiv
 - Authenticated/Roles/Configurator
 - Authenticated/Roles/Operator
 
-| **Levels**                       | **Description**                                                                                                                                                                                                                                                                                             |
-|----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Authenticated                    | By default, users who have successfully logged in are assigned the "Authenticated" access level.                                                                                                                                                                                                            |
+| **Levels**                       | **Description**               |
+|----------------------------------|-------------------------------|
+| Authenticated                    | By default, users who have successfully logged in are assigned the "Authenticated" access level.   |
 | Authenticated/Roles              | You can add sub-levels under this level, but only one level of sub-levels can be added. For levels other than the "Authenticated/Roles" level, you can nest them to any depth according to your needs. These levels should correspond to the role names expected to be obtained from the Identity Provider. |
-| Authenticated/Roles/Admin        | System built-in role.                                                                                                                                                                                                                                                                                       |
-| Authenticated/Roles/Configurator | System built-in role.                                                                                                                                                                                                                                                                                       |
-| Authenticated/Roles/Operator     | System built-in role.                                                                                                                                                                                                                                                                                       |
+| Authenticated/Roles/Admin        | System built-in role. |
+| Authenticated/Roles/Configurator | System built-in role. |
+| Authenticated/Roles/Operator     | System built-in role. |
 
 ## Customize Access Level
 
