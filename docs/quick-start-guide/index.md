@@ -222,35 +222,94 @@ For example, you may need to enable port 9090 for the Debian web interface:
 
 `ufw allow 9090`
 
+#### 3.3.5 WAGO Edge Computer Built-in Firewall (Firewalld)
 
+The edge server is equipped with a built-in firewall that restricts access to most network ports. 
 
+To ensure proper operation of the VC Hub, you can either 
 
+- Disable the firewall entirely, or 
 
+- Keep the firewall enabled and allow only the required ports
 
+**Option 1 : Disable the Firewall (Not Recommended)**
 
+Use the following commands to stop and permanently disable the firewall service:
 
+`systemctl stop firewalld`
 
+`systemctl disable firewalld`
 
+**Note:**
 
-We have outlined some simple steps to guide you through configuring your project. You can run a project in a short amount of time.
+- Disabling the firewall reduces system security. 
 
-## 1.Create a Project
+- This option is recommended only in trusted or isolated network environments.
+
+**Option 2: Open the Required Ports (Recommended)**
+
+To keep the firewall enabled and allow only the ports required for VC Hub operation, execute the provided configuration script:
+
+```typescript
+#!/bin/bash
+# Open specified ports and make the changes permanent
+# Define ports to open
+PORTS=(8066 10443 8099 1883 8883)
+# Loop through the ports and open each one
+for port in "${PORTS[@]}"; do
+    echo "Opening port: $port"
+    firewall-cmd --permanent --add-port=${port}/tcp
+done
+# Reload firewalld to apply changes
+echo "Reloading firewalld rules..."
+firewall-cmd --reload
+# Display all open ports
+echo "Currently open ports:"
+firewall-cmd --list-ports
+```
+
+#### 3.3.6 Firewall Best Practices
+
+- Block all incoming connections by default
+
+- Explicitly allow only required ports
+
+- Regularly review and maintain firewall rules
+
+- Open additional ports only when expanding VC Hub functionality (e.g., instance communication or MQTT access)
+
+## 4. VC Hub Structure
+
+![alt text](39.png)
+
+**Definition of Terms:**
+
+**Node:** A node is an independent running instance of the VC Hub. Once the VC Hub is installed, it becomes a Node.
+
+**Workspace：**An workspace can be understood as an independent configuration container used to host the complete system configuration for a specific application scenario.It centrally manages configurations such as projects, devices, tags, alarms, scripts, databases, and permissions.Different workspaces are isolated from each other, and only one engineering can be running at a time.
+
+**Project:** A Project represents a specific application scenario within the system. Each project can contain its own independent set of pages. All projects share the complete configuration of their associated workspace, including assets, devices, database connections, network settings, and other system-level configurations.
+
+**Asset** Asset is an abstract representation of a business object or physical object. It typically represents a real-world “object” such as a device, production line, or site. An asset can contain models, instances, and tags.
+
+## 5. Start working with VC Hub
+
+### 5.1 Create a Project
 
 Click the "Add" button in the project list to create a project.
 
 ![alt text](1.png)
 
 
-
-## 2.Add a Database
+### 5.2 Add a Database
 
 After the installation of VC Hub, a SQLite database will be automatically created, which you can use for basic testing. You can also click "[Database](../management-platform/databases/index.md)" -> "[Database Connection](../management-platform/databases/database-connection/index.md)" page and then click the "New" button to create a new database connection. 
 
-## 3.Add Assets
+### 5.3 Add Assets
 
 After the installation of VC Hub, a default asset will be automatically created, which you can use for basic testing. You can also click "Tags" -> "[Assets](../management-platform/assets-and-tags/asset/index.md)" page and then click the "New" button to create new assets.
 
-## 4.Open the Editor
+### 5.4 Open the Editor
 
 On the project list page, click the "Design" button for the project.
 
@@ -262,7 +321,7 @@ Open the configuration editor to display the following interface.
 ![alt text](3.png)
 
 
-## 5.Create a New Page
+### 5.5 Create a New Page
 
 Click "New Page" to quickly create a new page.
 
@@ -275,7 +334,7 @@ In the **Tools** window on the left side of the designer, add for example "Rect"
 ![alt text](5.png)
 
 
-## 6.Create a Tag
+### 5.6 Create a Tag
 
 In the asset dropdown box of the asset window in the configuration editor, select an asset and then click the add button to add a memory tag to that asset. Tag name: liquid.
 
@@ -289,7 +348,7 @@ Enable the simulated property for this tag, using simulated value as the tag val
 
 
 
-## 7.Enable History for Tags
+### 5.7 Enable History for Tags
 
 At the top of the tag editing page, enable [history](../management-platform/assets-and-tags/tag/tag-properties/history.md) to store the value of the tag historically.
 
@@ -297,7 +356,7 @@ At the top of the tag editing page, enable [history](../management-platform/asse
 
 
 
-## 8.Bind Tag
+### 5.8 Bind Tag
 
 Bind tags to controls on the page.
 
@@ -312,7 +371,7 @@ Bind tags to controls on the page.
     
 **Note:** For more information on binding, please refer to the Property Binding page. 
 
-## 9.Preview/Run
+### 5.9 Preview/Run
 
 Click the preview button in the page tool bar to view the preview effect. You can also click the run button for the project in the project list to view the running page.
 
