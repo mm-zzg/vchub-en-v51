@@ -485,7 +485,7 @@ nav:
                             - 2d-visualization/property-binding/dynamic-tag.md
                             - 2d-visualization/property-binding/dynamic-cell.md
                             - 2d-visualization/property-binding/sql-query.md
-                            - 2d-visualization/property-binding/bidirectional-bindings.md 
+                            - 2d-visualization/property-binding/readwrite-mode-bindings.md 
                   - Animation:
                             - 2d-visualization/animation/index.md
                   - Event:
