@@ -40,6 +40,7 @@ The easiest way is to use a file transfer tool such as WinSCP or FileZilla.
 ![alt text](15.png)
 
 **Be ensured before installation:**
+
 - The device must be accessible to the operator / administrator on the network. At the latest when the application has been installed on the target system, all further steps are carried out via the VC Hub web interface.
 
 - To install the VC Hub, the technician requires administrative rights, meaning they must be a member of the root / sudo group on the target system.
@@ -154,11 +155,11 @@ To do this, the server needs an internet connection and the user performing the 
 
 1. Check UFW status. After installation, UFW is typically inactive.
 
-   `ufw status`
+     `ufw status`
 
 2. Deny all incoming connections by default. This blocks all inbound traffic unless explicitly allowed.
 
-   `ufw default deny incoming`
+     `ufw default deny incoming`
 
 3. Allow all outgoing connections by default. This ensures the system can initiate outbound connections.
 
@@ -196,7 +197,7 @@ To do this, the server needs an internet connection and the user performing the 
    You can find very good and detailed instructions on configuring UFW here:
 
    `https://www.digitalocean.com/community/tutorials/how-to-set-up-a-firewall-with-ufw-on-debian`
-   
+
    ![alt text](38.png)
 
 #### 3.3.4 Allowing Web Access Ports
