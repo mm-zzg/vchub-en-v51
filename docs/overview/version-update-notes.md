@@ -14,6 +14,15 @@
 
 ## New Features
 
+#### 5.1.X
+
+- **Separate licensing for runtime and engineering users:** When a user logs in, distinguish whether they are an engineering user or a runtime  user. If the user is an engineering user, redirect them to the Admin Console page after login; if the user is a runtime user, display the runtime page.
+- **IEC 60870-5-104:** Added support for the IEC 60870-5-104 (IEC 104) protocol.
+- **Add New License Types:** The License Items have been expanded to include 100,000 I/O tags, 20 concurrent online users, 50 concurrent online users, and IEC 104 support.
+- **Concurrent Online Users Include Engineering Users and Runtime Users:** The original “concurrent online users” refers to engineering users. Based on this, concurrent online user limits for runtime users have now been added.
+- **OPEN APIs Enhancement:** Introduced batch and CRUD (create, read, update, delete) APIs for assets, models, instances, tags, and alarm configurations, improved error messages, and provided full lifecycle management APIs for Modbus TCP devices and frames, including control, monitoring, and querying capabilities.
+- **Upgrade Angular to v21.x:** Upgrade the Angular version to the latest official release.(Angular is a front-end web application development framework.)
+
 #### 5.0.X
 
 - **License Management**: Support license activation, deactivation, refresh, update and deletion.

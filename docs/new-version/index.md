@@ -41,6 +41,6 @@ Increased the number of runtime concurrent users based on the existing concurren
 
 This release significantly enhances the OpenAPI capabilities.
 
- It introduces batch and CRUD APIs for assets, models, instances, tags, and alarm configurations, along with improved metadata support such as extended attributes and the ability to retrieve full tag information in a single response. Error messages have also been improved to provide clearer and more consistent feedback.
+ It introduces batch and CRUD (create, read, update, delete) APIs for assets, models, instances, tags, and alarm configurations, along with improved metadata support such as extended attributes and the ability to retrieve full tag information in a single response. Error messages have also been improved to provide clearer and more consistent feedback.
 
 In addition, full lifecycle management APIs are provided for Modbus TCP devices and frames, including creation, modification, deletion, start/stop control, connection status subscription, connection testing, and device querying with frame information.
