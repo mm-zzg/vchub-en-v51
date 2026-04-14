@@ -167,13 +167,13 @@ To do this, the server needs an internet connection and the user performing the 
 
 4. Allow SSH before enabling UFW.
 
-   If you are connected via SSH, this step is critical to avoid locking yourself out.
+     If you are connected via SSH, this step is critical to avoid locking yourself out.
 
       `ufw allow ssh `
 
-   UFW recognizes standard services like ssh.
+     UFW recognizes standard services like ssh.
 
-   Alternatively, you can allow SSH by port number:
+     Alternatively, you can allow SSH by port number:
 
       `ufw allow 22`
 
@@ -181,21 +181,21 @@ To do this, the server needs an internet connection and the user performing the 
 
      `ufw enable `
 
-   When prompted, type y and press Enter to confirm.
+     When prompted, type y and press Enter to confirm.
 
 6. Verify firewall status and rules
 
      `ufw status`
 
-   You should now see UFW status as active.
+     You should now see UFW status as active.
 
    ![alt text](36.png)
 
-   If we have done everything correctly, we can no longer access the web interface of the VC Hub.
+     If we have done everything correctly, we can no longer access the web interface of the VC Hub.
 
    ![alt text](37.png)
 
-   You can find very good and detailed instructions on configuring UFW here:
+     You can find very good and detailed instructions on configuring UFW here:
 
    `https://www.digitalocean.com/community/tutorials/how-to-set-up-a-firewall-with-ufw-on-debian`
 
