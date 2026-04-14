@@ -1,10 +1,10 @@
-# Bidirectional Bindings
+# Enable Read/Write Mode Bindings
 
-Bidirectional binding refers to the automatic synchronization between a control's property and a tag, dynamic tag, or another property. 
+Read/Write Mode binding refers to the automatic synchronization between a control's property and a tag, dynamic tag, or another property.
 
-This means when the data source changes, the control's style or value updates automatically，when the user modifies the control's style or value, the data source is also updated automatically.
+This means when the data source changes, the control's style or value updates automatically; when the user modifies the control's style or value, the data source is also updated automatically.
 
-## Controls and Properties that Support Bidirectional Binding
+## Controls and Properties that Support Read/Write Mode Binding
 
 | **Control**    | **Property**                 |
 |----------------|------------------------------|
@@ -16,43 +16,43 @@ This means when the data source changes, the control's style or value updates au
 | Dropdown       | Selected Text/Selected Value |
 | Datetime Input | Date                         |
 
-## Bidirectional Tag Bindings
+## Enable Read/Write Mode Tag Bindings
 
-In the property binding window, after selecting a tag, you can enable the **"Bidirectional "** option. After enabling bidirectional binding, a fallback option can be set. If the property change fails, it will revert to the last valid value.
+In the property binding window, after selecting a tag, you can enable the **"Enable Read/Write Mode"** option. When enabled, a fallback option can be set — if the write operation fails, the value will revert to the last valid value.
 
 ![alt text](51.png)
 
 **Example**
 
-Number input control and tag are bound in both directions.
+The number input control and tag are configured with Read/Write Mode binding.
 
 1. Draw a number input control on the page.
 2. Click the bind button on the "Value" property of the control.
 
     ![alt text](52.png)
 
-3. After selecting the tag in the "Property Binding" window, check the “Bidirectional ” box and click the "OK" button to complete the binding.
+3. After selecting the tag in the "Property Binding" window, check the **"Enable Read/Write Mode"** checkbox and click the **"OK"** button to complete the binding.
 
-    ![alt text](53.png)
+    ![alt text](51.png)
 
 4. On the running page, when the value of the tag changes, the value displayed in the number input control changes synchronously; clicking the **Enter** key after entering the value in the number input control will write the entered value back to the bound tag.
 
-## Bidirectional Property Bindings
+## Enable Read/Write Mode Property Bindings
 
-In the property binding window, after selecting a property, you can enable the **"Bidirectional"** option. After enabling bidirectional binding, a fallback option can be set. If the property change fails, it will revert to the last valid value.
+In the property binding window, after selecting a property, you can enable the **"Enable Read/Write Mode"** option. When enabled, a fallback option can be set — if the write operation fails, the value will revert to the last valid value.
 
 ![alt text](54.png)
 
 **Example**
 
-The number input and slider are bound in both directions.
+The number input and slider are configured with Read/Write Mode binding.
 
 1. Draw a number input and a slider control on the page.
 2. Click the bind button of the "Value" property of the number input.
 
-    ![alt text](55.png)
+    ![alt text](52.png)
 
-3. In the "Property Binding" window, select the **value** property of the slider, check the “Bidirectional” box, and click the "OK" button to complete the binding.
+3. In the "Property Binding" window, select the **value** property of the slider, check the **"Enable Read/Write Mode"** checkbox, and click the **"OK"** button to complete the binding.
 
     ![alt text](56.png)
 
@@ -60,9 +60,9 @@ The number input and slider are bound in both directions.
 
     ![bidirectional](../../assets/images/bidirectional.gif)
 
-## Bidirectional Dynamic Tag Bindings
+## Enable Read/Write Mode Dynamic Tag Bindings
 
-In the property binding window, after selecting a dynamic tag, you can enable the **"Bidirectional"** option. After enabling bidirectional binding, a fallback option can be set. If the property change fails, it will revert to the last valid value.
+In the property binding window, after selecting a dynamic tag, you can enable the **"Enable Read/Write Mode"** option. When enabled, a fallback option can be set — if the write operation fails, the value will revert to the last valid value.
 
 ![alt text](60.png)
 
@@ -72,16 +72,16 @@ The text input is bound to an dynamic tag to display the running status of diffe
 
 1. Draw a text input, a dropdown, and 2 text label controls on the page.
 
-    ![alt text](57.png)
+    ![alt text](60.png)
 
 2. The dropdown options are set to: Motor 1, Motor 2, Motor 3.
 3. Click the bind button of the "Text" property of the text input control.
 
     ![alt text](58.png)
 
-4. After selecting ”Dynamic Tag“ in the property binding window, make the following settings, check “Bidirectional ”, and click the ”OK“ button to complete the binding.
+4. After selecting "Dynamic Tag" in the property binding window, configure the required settings, check the **"Enable Read/Write Mode"** checkbox, and click the **"OK"** button to complete the binding.
 
-    ![alt text](59.png)
+    ![alt text](60.png)
 
 5. On the running page, when the options in the dropdown  change, the value of the text input  changes. When Motor 1 is selected, the text input displays the running status of Motor 1, and when Motor 2 is selected, the text input displays the running status of Motor 2.
 6. Entering **true** or **false** in the text input and clicking the Enter key will modify the operating status of the currently selected motor.
