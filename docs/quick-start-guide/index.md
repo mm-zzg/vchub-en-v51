@@ -163,28 +163,29 @@ To do this, the server needs an internet connection and the user performing the 
 
 3. Allow all outgoing connections by default. This ensures the system can initiate outbound connections.
 
-   `ufw default allow outgoing`
+     `ufw default allow outgoing`
 
 4. Allow SSH before enabling UFW.
 
    If you are connected via SSH, this step is critical to avoid locking yourself out.
 
-   `ufw allow ssh `
+      `ufw allow ssh `
 
    UFW recognizes standard services like ssh.
 
    Alternatively, you can allow SSH by port number:
-   `ufw allow 22`
+
+      `ufw allow 22`
 
 5. Enable UFW
 
-   `ufw enable `
+     `ufw enable `
 
    When prompted, type y and press Enter to confirm.
 
 6. Verify firewall status and rules
 
-   `ufw status`
+     `ufw status`
 
    You should now see UFW status as active.
 
@@ -202,25 +203,19 @@ To do this, the server needs an internet connection and the user performing the 
 
 #### 3.3.4 Allowing Web Access Ports
 
-Allow HTTP and HTTPS traffic
+**Allow HTTP and HTTPS traffic**
 
-Allow http (port 80):
+Allow http (port 80): `ufw allow 80`
 
-`ufw allow 80`
-
-Allow https (port 443):
-
-`ufw allow https`
+Allow https (port 443): `ufw allow https`
 
 After enabling these rules, both HTTP and HTTPS access should work again in the web browser.
 
-Allow Additional Ports (Example)
+**Allow Additional Ports (Example)**
 
 If you use other services or custom ports, you must allow those ports as well.
 
-For example, you may need to enable port 9090 for the Debian web interface:
-
-`ufw allow 9090`
+For example, you may need to enable port 9090 for the Debian web interface: `ufw allow 9090`
 
 #### 3.3.5 WAGO Edge Computer Built-in Firewall (Firewalld)
 
@@ -286,11 +281,11 @@ firewall-cmd --list-ports
 
 **Node:** A node is an independent running instance of the VC Hub. Once the VC Hub is installed, it becomes a Node.
 
-**Workspace：**An workspace can be understood as an independent configuration container used to host the complete system configuration for a specific application scenario.It centrally manages configurations such as projects, devices, tags, alarms, scripts, databases, and permissions.Different workspaces are isolated from each other, and only one engineering can be running at a time.
+**Workspace** An workspace can be understood as an independent configuration container used to host the complete system configuration for a specific application scenario.It centrally manages configurations such as projects, devices, tags, alarms, scripts, databases, and permissions.Different workspaces are isolated from each other, and only one engineering can be running at a time.
 
 **Project:** A Project represents a specific application scenario within the system. Each project can contain its own independent set of pages. All projects share the complete configuration of their associated workspace, including assets, devices, database connections, network settings, and other system-level configurations.
 
-**Asset** Asset is an abstract representation of a business object or physical object. It typically represents a real-world “object” such as a device, production line, or site. An asset can contain models, instances, and tags.
+**Asset:** Asset is an abstract representation of a business object or physical object. It typically represents a real-world “object” such as a device, production line, or site. An asset can contain models, instances, and tags.
 
 ## 5. Start working with VC Hub
 
