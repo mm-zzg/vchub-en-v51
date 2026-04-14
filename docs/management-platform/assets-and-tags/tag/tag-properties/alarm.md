@@ -29,14 +29,14 @@ In the Add or Edit popup window of the tag, there is an alarm switch at the top,
 
 ![alt text](5.png)
 
-Support 8 limit alarms. H4, H3, H2, H, L,  L2, L3, L4. By default all types are in unchecked state. After checking a row, the row is in editable state. Multiple types can be selected.
+Support 8 limit alarms. H4, H3, H2, H, L, L2, L3, L4. By default all types are in unchecked state. After checking a row, the row is in editable state. Multiple types can be selected.
 
 | **Name**          | **Description**  |
 |-------------------|---------------------------|
 | Name              | Set the name of this alarm. |
-| Level             | The level of the alarm. Contains 4 levels: Critical High, Medium, and Low.   |
+| Level             | The level of the alarm. Contains 4 levels: Critical, High, Medium and Low.   |
 | Limit             | A preset value. The alarm occurs when the value of the tag is higher or lower than this value.   |
-| Deadband          | A preset value. A range set to avoid sending alarm messages frequently when an abnormal condition occurs in the equipment or system. Within this range, even if the tag value exceeds the preset upper or lower limit, the system does not trigger the alarm immediately, but waits until the deadband is exceeded.    |
+| Deadband          | A preset value. A range set to avoid sending alarm messages frequently when an abnormal condition occurs in the equipment or system.  The deadband configuration only adds restrictions on the side of the alarm recovery, but not on the alarm generation. For example, if you set a limit alarm of >=50, and the deadband is set to 1, then the alarm will be generated as long as it is >=50, but it will not disappear until < 50-1. Of course, if the direction of the alarm is reversed, and a limit alarm is set for <=50, and the deadband is set to 1, then the alarm will be generated as soon as it is <=50, but the alarm will not disappear until it is > 50+1.|
 | Ack Mode          | Sets the acknowledgement mode of the alarm. Contains: Automatic, Manual (Require Confirmation), and Manual (No Confirmation).  Selecting Automatic, the system automatically acknowledges the alarm when it resumes;  Select Manual (Require Confirmation), no matter the alarm is recovered or not, you need to acknowledge manually and fill in the acknowledgement information;  Select Manual (No Confirmation) to require manual acknowledgement regardless of whether the alarm is restored or not, without filling in the acknowledgement information. |
 | Notification Rule | Optional. Choose from the data in the "Alarming" -> "Alarm Notifications" -> "Rules" list. After selecting a notification rule, when the alarm occurs, notifications will be sent to the corresponding users according to the chosen notification rule.   |
 | Description       | A description of the alarm.  |
