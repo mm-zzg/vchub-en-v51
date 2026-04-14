@@ -54,4 +54,4 @@ Binding types:
 - [Expression](property-binding/expression.md) 
 - [Dynamic Tag](property-binding/dynamic-tag.md) 
 - [Dynamic Cell](property-binding/dynamic-cell.md)
-- [Bidirectional Bindings](property-binding/bidirectional-bindings.md)
+- [Enable Read/Write Mode Bindings](property-binding/readwrite-mode-bindings.md)
