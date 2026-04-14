@@ -1,6 +1,6 @@
 # Quick Start Guide
 
-# 1. System Requirements
+## 1. System Requirements
 
 Recommended hardware configuration
 
@@ -19,7 +19,7 @@ Supported Browsers
 - Google Chrome (Latest Version)
 - Microsoft Edge (Latest Version)
 
-# 2. Download installation package
+## 2. Download installation package
 
 Download the latest VC Hub version from the WAGO Download Center.
 
@@ -44,9 +44,9 @@ The easiest way is to use a file transfer tool such as WinSCP or FileZilla.
 - To install the VC Hub, the technician requires administrative rights, meaning they must be a member of the root / sudo group on the target system.
 - The target computer requires access to the Internet, as any packages that are not available during installation will be installed automatically. Access to the Internet is also required after installation for licensing the system with the Wago registration server. After that, Internet access is no longer necessary.
 
-# 3. Install VC hub
+## 3. Install VC hub
 
-## 3.1 Windows Environment
+### 3.1 Windows Environment
 
 **Recommended Systems**
 
@@ -58,14 +58,21 @@ The easiest way is to use a file transfer tool such as WinSCP or FileZilla.
 - Windows 11 (Not supported in Home Edition)
 
 **Installation Steps**
+
 1. Run the installation package program as an administrator.
+
 2. Select the installation language.
+
 3. Perform a port check, if the port is occupied, the installation cannot proceed.
   ![alt text](16.png)
 4. Read and accept the license agreement.
+
 5. Choose the installation location.
+
 6. Select the VC Hub application data directory.
+
 7. The installation process will take a few minutes. 
+
 8. The installation is complete. Check the Checkbox as shown in the picture below, then click "Finish”. 
    ![alt text](17.png)
 9. You will enter the process of creating the user interface. Create an administrator user. Remember this username and password, as you will use them to log in for the first time.
@@ -82,7 +89,7 @@ _The IP address is based on the actual deployment address you have chosen. The f
 
 ![alt text](21.png)
 
-## 3.2 Linux Environment
+### 3.2 Linux Environment
 
 **Installation Steps**
 
@@ -118,7 +125,88 @@ _The IP address is based on the actual deployment address you have chosen. The f
 
 ![alt text](34.png)
 
-## 3.3 Firewall Settings
+### 3.3 Firewall Settings
+
+#### 3.3.1 Why the Web Interface Cannot Be Accessed
+
+If the web interface cannot be accessed via the selected port, it is highly likely that the host operating system's firewall is blocking the selected port.
+
+Linux firewall mechanisms are very efficient, but configuring rules and port access requires some experience.
+
+For security reasons, it is strongly recommended to block all incoming connections by default and explicitly allow only the ports that are required.
+
+#### 3.3.2 Linux Firewall Overview (UFW)
+
+Many Linux distributions now deliverd with the so called UFW (Uncomplicated Firewall) tool pre-installed.
+
+UFW simplifies the process of setting up the firewall. 
+
+If the tool is not pre-installed, you can easily install it with the command `apt install ufw` or `sudo apt install ufw`.
+
+To do this, the server needs an internet connection and the user performing the installation must do so as root or with root privileges.
+
+![alt text](35.png)
+
+#### 3.3.3 Configuring the Firewall Using UFW 
+
+1. Check UFW status. After installation, UFW is typically inactive.
+
+`ufw status`
+
+2. Deny all incoming connections by default. This blocks all inbound traffic unless explicitly allowed.
+
+`ufw default deny incoming`
+
+3. Allow all outgoing connections by default. This ensures the system can initiate outbound connections.
+
+`ufw default allow outgoing`
+
+4. Allow SSH before enabling UFW.
+
+If you are connected via SSH, this step is critical to avoid locking yourself out.
+`ufw allow ssh `
+UFW recognizes standard services like ssh.
+Alternatively, you can allow SSH by port number:
+`ufw allow 22`
+5. Enable UFW
+`ufw enable `
+When prompted, type y and press Enter to confirm.
+6. Verify firewall status and rules
+`ufw status`
+You should now see UFW status as active.
+   ![alt text](36.png)
+If we have done everything correctly, we can no longer access the web interface of the VC Hub.
+   ![alt text](37.png)
+You can find very good and detailed instructions on configuring UFW here:
+`https://www.digitalocean.com/community/tutorials/how-to-set-up-a-firewall-with-ufw-on-debian`
+   ![alt text](38.png)
+
+#### 3.3.4 Allowing Web Access Ports
+
+Allow HTTP and HTTPS traffic
+
+Allow http (port 80):
+
+`ufw allow 80`
+
+Allow https (port 443):
+
+`ufw allow https`
+
+After enabling these rules, both HTTP and HTTPS access should work again in the web browser.
+
+Allow Additional Ports (Example)
+
+If you use other services or custom ports, you must allow those ports as well.
+
+For example, you may need to enable port 9090 for the Debian web interface:
+
+`ufw allow 9090`
+
+
+
+
+
 
 
 
