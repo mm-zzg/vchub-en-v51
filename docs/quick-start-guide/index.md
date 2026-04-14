@@ -41,7 +41,9 @@ The easiest way is to use a file transfer tool such as WinSCP or FileZilla.
 
 **Be ensured before installation:**
 - The device must be accessible to the operator / administrator on the network. At the latest when the application has been installed on the target system, all further steps are carried out via the VC Hub web interface.
+
 - To install the VC Hub, the technician requires administrative rights, meaning they must be a member of the root / sudo group on the target system.
+
 - The target computer requires access to the Internet, as any packages that are not available during installation will be installed automatically. Access to the Internet is also required after installation for licensing the system with the Wago registration server. After that, Internet access is no longer necessary.
 
 ## 3. Install VC hub
@@ -83,6 +85,7 @@ The easiest way is to use a file transfer tool such as WinSCP or FileZilla.
    ![alt text](20.png)
 
 **Notes:**
+
 With https, only a self-signed certificate is currently available, which is why a security message appears in the browser. This can be adjusted later. It will not affect the current use of the system.
 
 _The IP address is based on the actual deployment address you have chosen. The following image is merely for illustration purposes._
@@ -151,34 +154,49 @@ To do this, the server needs an internet connection and the user performing the 
 
 1. Check UFW status. After installation, UFW is typically inactive.
 
-`ufw status`
+   `ufw status`
 
 2. Deny all incoming connections by default. This blocks all inbound traffic unless explicitly allowed.
 
-`ufw default deny incoming`
+   `ufw default deny incoming`
 
 3. Allow all outgoing connections by default. This ensures the system can initiate outbound connections.
 
-`ufw default allow outgoing`
+   `ufw default allow outgoing`
 
 4. Allow SSH before enabling UFW.
 
-If you are connected via SSH, this step is critical to avoid locking yourself out.
-`ufw allow ssh `
-UFW recognizes standard services like ssh.
-Alternatively, you can allow SSH by port number:
-`ufw allow 22`
+   If you are connected via SSH, this step is critical to avoid locking yourself out.
+
+   `ufw allow ssh `
+
+   UFW recognizes standard services like ssh.
+
+   Alternatively, you can allow SSH by port number:
+   `ufw allow 22`
+
 5. Enable UFW
-`ufw enable `
-When prompted, type y and press Enter to confirm.
+
+   `ufw enable `
+
+   When prompted, type y and press Enter to confirm.
+
 6. Verify firewall status and rules
-`ufw status`
-You should now see UFW status as active.
+
+   `ufw status`
+
+   You should now see UFW status as active.
+
    ![alt text](36.png)
-If we have done everything correctly, we can no longer access the web interface of the VC Hub.
+
+   If we have done everything correctly, we can no longer access the web interface of the VC Hub.
+
    ![alt text](37.png)
-You can find very good and detailed instructions on configuring UFW here:
-`https://www.digitalocean.com/community/tutorials/how-to-set-up-a-firewall-with-ufw-on-debian`
+
+   You can find very good and detailed instructions on configuring UFW here:
+
+   `https://www.digitalocean.com/community/tutorials/how-to-set-up-a-firewall-with-ufw-on-debian`
+   
    ![alt text](38.png)
 
 #### 3.3.4 Allowing Web Access Ports
