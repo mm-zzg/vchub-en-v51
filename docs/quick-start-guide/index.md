@@ -189,17 +189,17 @@ To do this, the server needs an internet connection and the user performing the 
 
      You should now see UFW status as active.
 
-   ![alt text](36.png)
+     ![alt text](36.png)
 
      If we have done everything correctly, we can no longer access the web interface of the VC Hub.
 
-   ![alt text](37.png)
+     ![alt text](37.png)
 
      You can find very good and detailed instructions on configuring UFW here:
 
-   `https://www.digitalocean.com/community/tutorials/how-to-set-up-a-firewall-with-ufw-on-debian`
+     `https://www.digitalocean.com/community/tutorials/how-to-set-up-a-firewall-with-ufw-on-debian`
 
-   ![alt text](38.png)
+     ![alt text](38.png)
 
 #### 3.3.4 Allowing Web Access Ports
 
