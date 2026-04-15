@@ -4,7 +4,7 @@ By applying animation effects sensibly, users can enjoy a more efficient, intuit
 
 In VC Hub, when the control has animation properties, the "Animation" column will be displayed in the property bar on the right. Click the setting button to set the animation.
 
-In addition to "Value" supporting binding, the "Enable" state also supports binding. Through binding, the enabled state of the animation can dynamically change along with the value of a certain tag or expression. It is no longer manually fixed as "on/off", but rather determined dynamically by the bound value whether the animation is enabled or not.
+**Value** can be configured as either a static value or a binding. Similarly, the **Enable** state also supports binding. Through binding, the enabled state of the animation can change dynamically based on the value of a tag or expression, rather than being manually fixed to "on/off".
 
 ![alt text](80.png)
 
@@ -56,7 +56,7 @@ See where objects are traveling on the conveyor belt.
 
 #### Rotation
 
-The object rotates as the value changes.
+Use a static value to simulate the rotation of the fan blade.
 
 **Example**
 
@@ -67,7 +67,7 @@ The object rotates as the value changes.
 | **Properties**  | **Value**   |
 |-----------------|---------------|
 | Enable          | Enable  |
-| Value           | Tags: Default.roll  |
+| Value           | True  |
 | Type            | The result type of the value. Divided into number and bool.  <br>Number：  <br>![alt text](87.png) <br>Bool:  <br>![alt text](88.png)|
 | Min             | When the type is number, this parameter is displayed. Used in combination with the "Angle" . Set the minimum value at which the animation takes effect, and the rotation angle of the object at the minimum value.  <br>![alt text](89.png) |
 | Max             | When the type is number, this parameter is displayed. Used in combination with the "Angle" . Set the minimum value at which the animation takes effect, and the rotation angle of the object at the minimum value. <br>![alt text](90.png) |

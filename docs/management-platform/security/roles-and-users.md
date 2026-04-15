@@ -31,3 +31,12 @@ When you log in for the first time, the first user created during installation i
 2. Click the Add button on the user list page to create a user.  Only one role can be set for a user. 
 
 ![alt text](3.png)
+
+**Type:**
+
+Two user types are available: **EngineeringUser** and **RuntimeUser**.
+
+| User Type | Description |
+|-----------|-------------|
+| EngineeringUser | Has the permission to perform system configuration and design pages. |
+| RuntimeUser | Is limited to accessing and operating the project's runtime pages. |
