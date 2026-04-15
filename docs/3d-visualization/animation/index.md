@@ -4,9 +4,17 @@ By rationally applying animation effects, VC Hub can bring users a more efficien
 
 In VC Hub, when the model has animation attributes, the "Animation" column will be displayed in the attribute bar on the right. Click the setting button to set the animation.
 
+![alt text](3d_Animation1.png)
+
+
 **Value** can be configured as either a static value or a binding. Through binding, the enabled state of the animation can change dynamically based on the value of a tag or expression, rather than being manually fixed to "on/off".
 
-![alt text](3d_Animation1.png)
+Static value:
+![alt text](113.png)
+Binding:
+After binding is completed, the binding information can be viewed by clicking the icon.
+![alt text](114.png)
+
 
 ## **Animation type**
 
@@ -23,6 +31,7 @@ Create a sphere model that represents an alarm light that flashes when the value
 
 ![3d_Animation2](../../assets/images/3d_Animation2.gif)
 
+![alt text](3d_Animation2.png)
 ![alt text](3d_Animation3.png)
 
 
@@ -44,8 +53,6 @@ The model is displaced according to the path on the conveyor belt.
 ![alt text](3d_Animation5.png)
 
 
-
-
 | **Name**                             | **Value**                                                                                                                                                                  |
 |:--------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Enable                               | Enable                                                                                                                                                                     |
@@ -54,7 +61,7 @@ The model is displaced according to the path on the conveyor belt.
 | Reverse Play                         | Does the model move to the end of the path and then move back in the opposite direction?                                                                                   |
 | Face Forward                         | The model always faces the direction of motion.                                                                                                                            |
 | Path                                 | The path where the model needs to be displaced                                                                                                                             |
-| Bool value                           | Tag: Default:roll   <br> **Note:** This animation only takes effect when the value is a Bool value.  |
+| Bool value                           | True|
 | The world position of current object | Show the world position of current object                     |
 
 #### **Rotation**
@@ -94,12 +101,12 @@ The cube determines whether to scale based on a Bool value.
 
 ![3d_Animation12](3d_Animation12.png)
 
-
+![alt text](3d_Animation13.png)
 
 | **Name**     | **Value**                                                                                                                                                                 |
 |:--------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Enabled      | Enable                                                                                                                                                                    |
-| Bool value   | Tag: Default:roll  <br>**Note:** This animation only takes effect when the value is a Bool value. | 
+| Bool value   | Tag: Default:Roll  <br>**Note:** This animation only takes effect when the value is a Bool value. | 
 | Percentage   | The size of the deformation of the model.                                                                                                                                 |
 | Direction    | In which direction the model should deform.                                                                                                                               |
 | Executions   | The number of times it needs to be executed when the value is true.                                                                                                       |
