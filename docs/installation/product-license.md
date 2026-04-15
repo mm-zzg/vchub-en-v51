@@ -48,25 +48,19 @@ There are 7 different license quantities available. You can determine the number
 
 1. Users with Security Permission attempting to log in will be prompted with a login failure message. As shown in the figure below:
 ![alt text](38.png)
-     - Click the "Switch Account" button to navigate to the login page. You can use another account or your current account to log in again. 
-     - Clicking on "Force Login" will force a login and will also forcibly  log out the user who was online first.
+     - Click the "**Exit**" button to navigate to the login page. You can use another account or your current account to log in again. 
+     - Click the "**Refresh**" button to refresh the current user list and retrieve the latest list of online engineering users.
+     - In the list, click the "**Force Logout**" button for a user to force them offline. After at least one user has been logged out, the "**Continue to the System**" button becomes enabled. Click it to enter the Admin Console page.
 2. Users without Security Permission will be prompted with a login failure message. As shown in the following picture:
 ![alt text](39.png) 
-     - Click the "Switch Account" button to navigate to the login page. You can use another account or your current account to log in again. 
-     - Click the "Retry" button and you will attempt to log in again. If there are remaining online slots available, you will be successfully logged in; otherwise, you will remain on this page.
+     - Click the "Back" button to navigate to the login page. You can use another account or your current account to log in again. 
 
 **When the user is forcibly logged out**
 
-1. When a user with Security Permission is forced to log out due to violating the rules, they will automatically be redirected to the following page:
+When a user is forced to log out due to violating the rules, they will automatically be redirected to the following page:
 ![alt text](40.png)
-     - Click the "Switch Account" button to navigate to the login page. You can use another account or your current account to log in again. 
-     - Clicking on "Force Login" will force a login and will also forcibly log out the user who was online first.
-
-2. When a user without Security Permission is forcibly logged out, they will automatically be redirected to the following page:
-![alt text](41.png)
-     - Click the "Switch Account" button to navigate to the login page. You can use another account or your current account to log in again. 
-     - Click the "Retry" button and you will attempt to log in again. If there are remaining online slots available, you will be successfully logged in; otherwise, you will remain on this page.
-
+     - Click the "Back" button to navigate to the login page. You can use another account or your current account to log in again. 
+     
 
 **Notes:**
 
@@ -84,8 +78,8 @@ The following functional modules are Add Ons.
 - Report
 - Alarm Notifications: SMS(Twilio), SMS(Ali Cloud), WeCom, DingTalk
 - Open API
-- Driver: MQTT Native, MQTT SparkplugB, WAGO Protocol
-- Driver: IEC 104
+- Device: MQTT Native, MQTT SparkplugB, WAGO Protocol
+- Device: IEC 104
 - 3D
 
 **Notes:**

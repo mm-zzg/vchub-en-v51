@@ -1,4 +1,4 @@
-# Enable Read/Write Mode Bindings
+# Read/Write Mode Bindings
 
 Read/Write Mode binding refers to the automatic synchronization between a control's property and a tag, dynamic tag, or another property.
 
@@ -16,9 +16,9 @@ This means when the data source changes, the control's style or value updates au
 | Dropdown       | Selected Text/Selected Value |
 | Datetime Input | Date                         |
 
-## Enable Read/Write Mode Tag Bindings
+## Tag Bindings with Read/Write Mode
 
-In the property binding window, after selecting a tag, you can enable the **"Enable Read/Write Mode"** option. When enabled, a fallback option can be set — if the write operation fails, the value will revert to the last valid value.
+In the property binding window, after selecting a tag, you can enable the **"Read/Write Mode"** option. When enabled, a fallback option can be set — if the write operation fails, the value will revert to the last valid value.
 
 ![alt text](51.png)
 
@@ -31,15 +31,15 @@ The number input control and tag are configured with Read/Write Mode binding.
 
     ![alt text](52.png)
 
-3. After selecting the tag in the "Property Binding" window, check the **"Enable Read/Write Mode"** checkbox and click the **"OK"** button to complete the binding.
+3. After selecting the tag in the "Property Binding" window, check the **"Read/Write Mode"** checkbox and click the **"OK"** button to complete the binding.
 
     ![alt text](51.png)
 
 4. On the running page, when the value of the tag changes, the value displayed in the number input control changes synchronously; clicking the **Enter** key after entering the value in the number input control will write the entered value back to the bound tag.
 
-## Enable Read/Write Mode Property Bindings
+## Property Bindings with Read/Write Mode 
 
-In the property binding window, after selecting a property, you can enable the **"Enable Read/Write Mode"** option. When enabled, a fallback option can be set — if the write operation fails, the value will revert to the last valid value.
+In the property binding window, after selecting a property, you can enable the **"Read/Write Mode"** option. When enabled, a fallback option can be set — if the write operation fails, the value will revert to the last valid value.
 
 ![alt text](54.png)
 
@@ -52,7 +52,7 @@ The number input and slider are configured with Read/Write Mode binding.
 
     ![alt text](52.png)
 
-3. In the "Property Binding" window, select the **value** property of the slider, check the **"Enable Read/Write Mode"** checkbox, and click the **"OK"** button to complete the binding.
+3. In the "Property Binding" window, select the **value** property of the slider, check the **"Read/Write Mode"** checkbox, and click the **"OK"** button to complete the binding.
 
     ![alt text](56.png)
 
@@ -60,9 +60,9 @@ The number input and slider are configured with Read/Write Mode binding.
 
     ![bidirectional](../../assets/images/bidirectional.gif)
 
-## Enable Read/Write Mode Dynamic Tag Bindings
+## Dynamic Tag Bindings with Read/Write Mode 
 
-In the property binding window, after selecting a dynamic tag, you can enable the **"Enable Read/Write Mode"** option. When enabled, a fallback option can be set — if the write operation fails, the value will revert to the last valid value.
+In the property binding window, after selecting a dynamic tag, you can enable the **"Read/Write Mode"** option. When enabled, a fallback option can be set — if the write operation fails, the value will revert to the last valid value.
 
 ![alt text](60.png)
 
@@ -79,7 +79,7 @@ The text input is bound to an dynamic tag to display the running status of diffe
 
     ![alt text](58.png)
 
-4. After selecting "Dynamic Tag" in the property binding window, configure the required settings, check the **"Enable Read/Write Mode"** checkbox, and click the **"OK"** button to complete the binding.
+4. After selecting "Dynamic Tag" in the property binding window, configure the required settings, check the **"Read/Write Mode"** checkbox, and click the **"OK"** button to complete the binding.
 
     ![alt text](60.png)
 

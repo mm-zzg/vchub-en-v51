@@ -7,7 +7,7 @@ In VC Hub, when the model has animation attributes, the "Animation" column will 
 ![alt text](3d_Animation1.png)
 
 
-**Value** can be configured as either a static value or a binding. Through binding, the enabled state of the animation can change dynamically based on the value of a tag or expression, rather than being manually fixed to "on/off".
+**Value** can be configured as either a static value or a binding.Through binding, the enabled state of the animation can change dynamically based on the value of a tag or expression, rather than being manually fixed to "enabled" or "disabled".
 
 Static value:
 ![alt text](113.png)
