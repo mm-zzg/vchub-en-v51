@@ -36,7 +36,7 @@ copyright: Copyright &copy; 2016 - 2025 Martin Donath
 # Configuration
 theme:
         name: material
-        custom_dir: material/overrides
+        custom_dir: src/overrides
         features:
                 - content.action.edit
                 - content.action.view
@@ -88,8 +88,8 @@ plugins:
 
 # Hooks
 hooks:
-        - material/overrides/hooks/shortcodes.py
-        - material/overrides/hooks/translations.py
+        - src/overrides/hooks/shortcodes.py
+        - src/overrides/hooks/translations.py
 
 # Additional configuration
 extra:
@@ -228,6 +228,10 @@ nav:
                             - WAGO Protocol:
                                       - management-platform/devices/wago-protocol/index.md
                                       - management-platform/devices/wago-protocol/batch-operation.md
+                            - IEC 104:
+                                      - management-platform/devices/iec104/index.md
+                                      - management-platform/devices/iec104/tls.md
+                                      - management-platform/devices/iec104/batch-operation.md
                             - management-platform/devices/usage-of-legacy-protocols.md
                   - Assets and Tags:
                             - management-platform/assets-and-tags/index.md
@@ -485,7 +489,7 @@ nav:
                             - 2d-visualization/property-binding/dynamic-tag.md
                             - 2d-visualization/property-binding/dynamic-cell.md
                             - 2d-visualization/property-binding/sql-query.md
-                            - 2d-visualization/property-binding/readwrite-mode-bindings.md 
+                            - 2d-visualization/property-binding/bidirectional-bindings.md 
                   - Animation:
                             - 2d-visualization/animation/index.md
                   - Event:
