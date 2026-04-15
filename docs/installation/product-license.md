@@ -78,8 +78,8 @@ The following functional modules are Add Ons.
 - Report
 - Alarm Notifications: SMS(Twilio), SMS(Ali Cloud), WeCom, DingTalk
 - Open API
-- Driver: MQTT Native, MQTT SparkplugB, WAGO Protocol
-- Driver: IEC 104
+- Device: MQTT Native, MQTT SparkplugB, WAGO Protocol
+- Device: IEC 104
 - 3D
 
 **Notes:**
