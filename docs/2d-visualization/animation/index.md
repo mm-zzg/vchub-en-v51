@@ -4,7 +4,7 @@ By applying animation effects sensibly, users can enjoy a more efficient, intuit
 
 In VC Hub, when the control has animation properties, the "Animation" column will be displayed in the property bar on the right. Click the setting button to set the animation.
 
-**Value** can be configured as either a static value or a binding. Similarly, the **Enable** state also supports binding. Through binding, the enabled state of the animation can change dynamically based on the value of a tag or expression, rather than being manually fixed to "on/off".
+**Value** can be configured as either a static value or a binding. Similarly, the **Enable** state also supports binding. Through binding, the enabled state of the animation can change dynamically based on the value of a tag or expression, rather than being manually fixed to "enabled" or "disabled".
 
 ![alt text](80.png)
 
