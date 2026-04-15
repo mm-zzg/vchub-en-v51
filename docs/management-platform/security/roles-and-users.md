@@ -2,9 +2,9 @@
 
 VC Hub provides 3 built-in roles.
 
-- Admin: Has all privileges.  
-- Configurator: The only difference from Admin is that Admin cannot be selected for the role when creating a user.  
-- Operator: Can only view the running page of the project and view the devices.
+- **Admin:** Has all privileges.  
+- **Configurator:** The only difference from Admin is that Admin cannot be selected for the role when creating a user.  
+- **Operator:** Can only view the running page of the project and view the devices.
 
 ## **Creating Roles**
 
@@ -17,10 +17,10 @@ You can add other roles in the Roles page.
 
 **Configurations:**
 
-| **Name**     | **Description**                                                                                                                                                           |
-|--------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Role Name    | The name of this role.                                                                                                                                                    |
-| Description    | The description of this role.                                                                                                                                                    |
+| **Name**     | **Description**   |
+|--------------|-------------------|
+| Role Name    | The name of this role. |
+| Description  | The description of this role.|
 | Startup Page | You can configure a startup page for a role when the role can only view the running page of a specific project. Select a page from all project pages as the startup page. |
 
 ## **Creating Users**
@@ -34,9 +34,9 @@ When you log in for the first time, the first user created during installation i
 
 **Type:**
 
-Two user types are available: **EngineeringUser** and **RuntimeUser**.
+Two user types are available: **Engineering User** and **Runtime User**.
 
 | User Type | Description |
 |-----------|-------------|
-| EngineeringUser | Has the permission to perform system configuration and design pages. |
-| RuntimeUser | Is limited to accessing and operating the project's runtime pages. |
+| Engineering User | Has the permission to perform system configuration and design pages. |
+| Runtime User | It is limited to accessing and operating the project's runtime pages. |
