@@ -1,6 +1,6 @@
 # IEC104
 
-The IEC104 driver in VC Hub communicates with substation/SCADA devices over IEC 60870-5-104. You can add one IEC104 device, configure communication parameters, enable it, and then bind I/O tags to IEC104 points.
+The IEC104 driver in VC Hub communicates with substation devices over IEC 60870-5-104. You can add one IEC104 device, configure communication parameters, enable it, and then bind I/O tags to IEC104 points.
 
 For bulk import/export workflows, see [Batch Operation](batch-operation.md).
 
@@ -8,10 +8,10 @@ For bulk import/export workflows, see [Batch Operation](batch-operation.md).
 
 1. On the **Devices** -> **IEC104** page, click the **Add** button.
 2. In the Add dialog, enter device information (the values below are examples; use your real project values):
-   - Device Name: IEC104-1
+   - Device Name: IEC104_1
    - Enable TLS: Disabled (or Enabled if your server requires TLS)
-   - Server1: 10.160.100.30
-   - Port1: 2404 (typical IEC104) or 19998 (example TLS port)
+   - Server1: 127.0.0.1
+   - Port1: 2404 or 19998 (TLS port)
    - Common Address: 1
    - Originator Address: 0
    - Connection Timeout (ms): 10000
@@ -36,7 +36,7 @@ For bulk import/export workflows, see [Batch Operation](batch-operation.md).
    - **Active**: the server endpoint currently in use for connection.
    - **Standby**: configured endpoint not currently used for the active connection.
    ![alt text](9.png)
-   
+
 **Configuration Fields**
 
 | **Name** | **Description** |
@@ -91,7 +91,7 @@ Bind I/O tags to data points from your IEC104 device.
 | Type ID | IEC104 ASDU Type ID; options are filtered by the tag data type. |
 | Information Object Address | IEC104 IOA for the target point (positive integer). |
 
-**Type ID selection by tag data type (examples)**
+**Type ID selection by tag data type**
 
 | **Tag Data Type** | **Typical Type ID options** |
 | --- | --- |
