@@ -57,7 +57,7 @@ There are 7 different license quantities available. You can determine the number
 
 **When the user is forcibly logged out**
 
-1. When a user is forced to log out due to violating the rules, they will automatically be redirected to the following page:
+When a user is forced to log out due to violating the rules, they will automatically be redirected to the following page:
 ![alt text](40.png)
      - Click the "Back" button to navigate to the login page. You can use another account or your current account to log in again. 
      
