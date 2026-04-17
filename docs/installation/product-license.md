@@ -12,7 +12,7 @@ VC Hub supports both **annual subscription** and **one-time purchase**. Users ca
 
 Authorization can be granted based on the following several function modules:
 
-#### I/O Tag
+### I/O Tag
 
 There are 7 different license quantities available. You can determine the number of licenses to purchase based on your specific situation.
 
@@ -32,7 +32,7 @@ There are 7 different license quantities available. You can determine the number
 4. Tags with a quality status of "Bad_NotLicensed" will no longer be collected or pushed in the preview and runtime pages.
 
 
-#### Concurrent Online User
+### Concurrent Online User
 
  The concurrent user count including 5 different types. 
 
@@ -70,7 +70,7 @@ When a user is forced to log out due to violating the rules, they will automatic
 
 3. An auto login will also count as one runtime online user.
 
-#### Add On 
+### Add On 
 
 The following functional modules are Add Ons. 
 
