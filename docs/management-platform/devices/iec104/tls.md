@@ -17,8 +17,8 @@ When **Enable TLS** is checked, VC Hub uses TLS-oriented default behavior:
 
 - The TLS default server port is **19998**.
 - For empty server rows, port defaults are switched automatically:
-   - TLS enabled: default port is **19998**.
-   - TLS disabled: default port is **2404**.
+    - TLS enabled: default port is **19998**.
+    - TLS disabled: default port is **2404**.
 
 ## Test Connection with TLS
 
@@ -48,13 +48,13 @@ When you enable/start a TLS-enabled IEC104 device, VC Hub validates the certific
 
 - If certificate state is **not trusted**:
 - VC Hub adds the endpoint certificate to trust store.
-   - Trust-store cache is cleared.
-   - TLS trust status is re-checked for visible devices.
-   - The device can then be enabled/started.
+    - Trust-store cache is cleared.
+    - TLS trust status is re-checked for visible devices.
+    - The device can then be enabled/started.
 - If certificate state is **expired**:
-   - VC Hub does **not** add the certificate.
-   - An expired-certificate message is shown.
-   - The device remains not allowed to start.
+    - VC Hub does **not** add the certificate.
+    - An expired-certificate message is shown.
+    - The device remains not allowed to start.
   
 ![alt text](18.png)
 
