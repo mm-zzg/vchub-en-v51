@@ -57,7 +57,7 @@ After logging in, engineering users are directed to the Admin Console page, whil
 ![alt text](39.png) 
      - Click the "Back" button to navigate to the login page. You can use another account or your current account to log in again. 
 3. If a user does not have Security Permission, but all currently logged-in accounts use the same username as the one attempting to log in, a list of logged-in users will be displayed. 
-Users can only view online user information corresponding to their own user type after logging in.
+Users can only view online user information corresponding to their own user type after logging in. Users can force logout accounts that are already logged in from other browsers.
 ![alt text](38.png)
 
 
