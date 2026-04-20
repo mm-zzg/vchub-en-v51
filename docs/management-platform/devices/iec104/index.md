@@ -37,7 +37,7 @@ For bulk import/export workflows, see [Batch Operation](batch-operation.md).
    ![alt text](1.png)
 8. In the device list, turn on **Enable Status** for the device.
    ![alt text](2.png)
-9. On the device View page, server endpoint status is shown as Active or Standby
+9. On the device View page, server endpoint status is shown as Active or Standby. Only one endpoint can be Active: VC Hub checks endpoints in configured order and sets the first available endpoint to Active; once one endpoint is Active, all others remain Standby and are not connected.
     - **Active**: the server endpoint currently in use for connection.
     - **Standby**: configured endpoint not currently used for the active connection.
     ![alt text](9.png)
@@ -76,15 +76,20 @@ For bulk import/export workflows, see [Batch Operation](batch-operation.md).
 Bind I/O tags to data points from your IEC104 device.
 
 1. Create an I/O tag in the editor.
+   
    ![alt text](3.png)
+
 2. Open the tag edit page and click the data source binding button.
+   
    ![alt text](4.png)
+
 3. In the Data Source dialog, select the target IEC104 device and fill in:
     - Common Address
-    - Type ID
+    - ASDU Type
     - Information Object Address
   
    ![alt text](5.png)
+
 4. Click **OK** to finish binding.
 
 **Configuration Fields**
@@ -100,10 +105,6 @@ Bind I/O tags to data points from your IEC104 device.
 
 | **Tag Data Type** | **Typical Type ID options** |
 | --- | --- |
-| **Bool** | <1> M_SP_NA_1<br><30> M_SP_TB_1<br><3> M_DP_NA_1<br><31> M_DP_TB_1<br><45> C_SC_NA_1<br><58> C_SC_TA_1<br><46> C_DC_NA_1<br><59> C_DC_TA_1 |
-| **Integer** | <3> M_DP_NA_1<br><31> M_DP_TB_1<br><11> M_ME_NB_1<br><35> M_ME_TE_1<br><49> C_SE_NB_1<br><62> C_SE_TB_1<br><46> C_DC_NA_1<br><59> C_DC_TA_1 |
-| **Double** | <9> M_ME_NA_1<br><34> M_ME_TD_1<br><11> M_ME_NB_1<br><31> M_ME_TE_1<br><13> M_ME_NC_1<br><36> M_ME_TF_1<br><48> C_SE_NA_1<br><61> C_SE_TA_1<br><49> C_SE_NB_1<br><62> C_SE_TB_1<br><50> C_SE_NC_1<br><63> C_SE_TC_1 |
-
-![alt text](6.png)
-![alt text](7.png)
-![alt text](8.png)
+| **Bool** | <1> M_SP_NA_1<br><30> M_SP_TB_1<br><3> M_DP_NA_1<br><31> M_DP_TB_1<br><45> C_SC_NA_1<br><58> C_SC_TA_1<br><46> C_DC_NA_1<br><59> C_DC_TA_1<br>![alt text](6.png) |
+| **Integer** | <3> M_DP_NA_1<br><31> M_DP_TB_1<br><11> M_ME_NB_1<br><35> M_ME_TE_1<br><49> C_SE_NB_1<br><62> C_SE_TB_1<br><46> C_DC_NA_1<br><59> C_DC_TA_1<br>![alt text](7.png) |
+| **Double** | <9> M_ME_NA_1<br><34> M_ME_TD_1<br><11> M_ME_NB_1<br><31> M_ME_TE_1<br><13> M_ME_NC_1<br><36> M_ME_TF_1<br><48> C_SE_NA_1<br><61> C_SE_TA_1<br><49> C_SE_NB_1<br><62> C_SE_TB_1<br><50> C_SE_NC_1<br><63> C_SE_TC_1<br>![alt text](8.png) |

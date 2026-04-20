@@ -2,6 +2,15 @@
 
 This page describes how TLS works for IEC104 devices in VC Hub, including TLS configuration, default port behavior, certificate validation rules during enable/start, and trust-store dialog behavior.
 
+## When to Use TLS
+
+Use TLS for IEC104 devices in the following scenarios:
+
+- Communication crosses untrusted networks (for example, public WAN, shared enterprise network, or wireless segments).
+- Security or compliance requirements require encrypted transport and certificate-based endpoint validation.
+- You need to reduce the risk of eavesdropping and man-in-the-middle attacks on control and telemetry traffic.
+- The project uses remote access, multi-site deployment, or third-party network infrastructure where link security cannot be guaranteed.
+
 ## Enable TLS for an IEC104 Device
 
 1. Open **Devices** -> **IEC104** and click **Add** (or **Edit** an existing device).
@@ -30,10 +39,10 @@ When **Enable TLS** is checked, VC Hub uses TLS-oriented default behavior:
 
 ## Certificate Validation and Warning Prompt
 
-When you enable/start a TLS-enabled IEC104 device, VC Hub validates the certificate of the active endpoint before allowing the device to run:
+When you enable/disable a TLS-enabled IEC104 device, VC Hub validates the certificate of the active endpoint before allowing the device to run:
 
-- If the certificate is **not manually trusted**, the device is **not allowed to start**.
-- If the certificate is **expired**, the device is also **not allowed to start**.
+- If the certificate is **not manually trusted**, the device is **not allowed to enabled**.
+- If the certificate is **expired**, the device is also **not allowed to enabled**.
 - In both cases, a warning indicator is shown.
 - Clicking the warning opens the certificate/trust dialog.
 - In that dialog, you can click the endpoint **IP address** to view certificate details.
@@ -47,14 +56,13 @@ When you enable/start a TLS-enabled IEC104 device, VC Hub validates the certific
 ### Yes
 
 - If certificate state is **not trusted**:
-- VC Hub adds the endpoint certificate to trust store.
-    - Trust-store cache is cleared.
-    - TLS trust status is re-checked for visible devices.
-    - The device can then be enabled/started.
+    - VC Hub adds the endpoint certificate to trust store.
+    - Re-check certificate for current device.
+    - The device can then be enabled.
 - If certificate state is **expired**:
     - VC Hub does **not** add the certificate.
     - An expired-certificate message is shown.
-    - The device remains not allowed to start.
+    - The device remains not allowed to enabled.
   
 ![alt text](18.png)
 
