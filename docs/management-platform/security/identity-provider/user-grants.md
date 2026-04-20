@@ -1,6 +1,6 @@
 # User Grants
 
-User Grants is a method of directly assigning users to access levels. It essentially overrides the original rules of security levels.
+User Grants is used to configure permissions for users who log in through a third-party system.
 
 You can authorize users through the **Security-> Identity Provider** list by clicking the **User Grants** button. Users can be added, allowing you to later assign them specific access levels.
 
@@ -14,8 +14,6 @@ User Grants can only be applied to users after they authenticate through the Ide
 
 ## Configuring User Grants
 
-Configuring user grants is divided into two parts: adding users, assigning access levels to users.
-
 1. Click the **"Security" → "Identity Provider"** menu.
 
     ![alt text](../1.png)
@@ -24,13 +22,31 @@ Configuring user grants is divided into two parts: adding users, assigning acces
 
     ![alt text](36.png)
 
-3. In the pop-up window, click the **"Add"** button to add a username.
+3. In the pop-up window, click the **"Add"** button to add a user.
 
-    ![alt text](37.png)
+    ![alt text](37.png) 
 
-4. Select a user, and set the access levels for that user on the right-side panel. The currently selected user will be highlighted.
+    ![](43.png)
 
-    ![alt text](38.png)
+4. Select the Type, fill in the user information, and assign Permissions (you can only select access levels outside of roles, since roles are mapped through User Attribute Mapping). Make sure the username matches the username used in the third-party system.
 
-5. After setting the access levels for one user, continue selecting the next user to configure their access levels. Once all users have been configured, click the **"OK"** button to save the settings.
+5. Once the configuration is complete, click the Save button to save the settings.
+
+6. The added users will be displayed in the User Grants list.
+
+If a user logs in directly through a third-party system without being pre-created in User Grants, the following dialog will appear after login:
+
+![](44.png)
+
+After selecting the Type and clicking the OK button, the system will determine what the user is allowed to access based on the permissions mapped in VC Hub (via Identity Provider’s User Attribute Mapping), and decide which pages the user can view.
+
+After a successful login, the third-party user information will be automatically synchronized to the Identity Provider’s User Grants list, where it can be further modified and have permissions configured.
+
+**Notes:**
+
+Every time a user successfully logs in through a third party, the latest information such as Name, Email, and Phone number from the third party will be synchronized to the VC Hub.
+
+
+
+
 
