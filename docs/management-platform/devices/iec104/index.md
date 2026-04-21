@@ -77,18 +77,18 @@ Bind I/O tags to data points from your IEC104 device.
 
 1. Create an I/O tag in the editor.
 
-   ![alt text](3.png)
+    ![alt text](3.png)
 
 2. Open the tag edit page and click the data source binding button.
 
-   ![alt text](4.png)
+    ![alt text](4.png)
 
-3. In the Data Source dialog, select the target IEC104 device and fill in:
+3. In the Data Source dialog, select the target IEC 104 device and fill in:
     - Common Address
     - ASDU Type
     - Information Object Address
   
-   ![alt text](5.png)
+    ![alt text](5.png)
    
 4. Click **OK** to finish binding.
 
@@ -96,10 +96,10 @@ Bind I/O tags to data points from your IEC104 device.
 
 | **Name** | **Description** |
 | --- | --- |
-| Device Name | IEC104 device selected from the device tree. |
+| Device Name | IEC 104 device selected from the device tree. |
 | Common Address | Common address used by this tag binding (positive integer). |
-| ASDU Type | IEC104 ASDU Type ID; options are filtered by the tag data type. |
-| Information Object Address | IEC104 IOA for the target point (positive integer). |
+| ASDU Type | IEC 104 ASDU Type ID; options are filtered by the tag data type. |
+| Information Object Address | IEC 104 IOA for the target point (positive integer). |
 
 **Type ID selection by tag data type**
 

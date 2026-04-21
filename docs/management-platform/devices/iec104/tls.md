@@ -11,9 +11,9 @@ Use TLS for IEC104 devices in the following scenarios:
 - You need to reduce the risk of eavesdropping and man-in-the-middle attacks on control and telemetry traffic.
 - The project uses remote access, multi-site deployment, or third-party network infrastructure where link security cannot be guaranteed.
 
-## Enable TLS for an IEC104 Device
+## Enable TLS for an IEC 104 Device
 
-1. Open **Devices** -> **IEC104** and click **Add** (or **Edit** an existing device).
+1. Open **Devices** -> **IEC 104** and click **Add** (or **Edit** an existing device).
 2. Check **Enable TLS**.
 3. Configure server endpoints and ports.
 4. Save and enable the device.
@@ -39,38 +39,71 @@ When **Enable TLS** is checked, VC Hub uses TLS-oriented default behavior:
 
 ## Certificate Validation and Warning Prompt
 
-When you enable/disable a TLS-enabled IEC104 device, VC Hub validates the certificate of the active endpoint before allowing the device to run:
+When working with TLS-enabled IEC 104 devices, VC Hub checks the security certificate of the connected endpoint before allowing the device to start.
 
-- If the certificate is **not manually trusted**, the device is **not allowed to enabled**.
-- If the certificate is **expired**, the device is also **not allowed to enabled**.
-- In both cases, a warning indicator is shown.
-- Clicking the warning opens the certificate/trust dialog.
-- In that dialog, you can click the endpoint **IP address** to view certificate details.
+If there is a problem with the certificate, VC Hub will display a warning and prevent the device from being enabled.
+
+### When Does a Warning Appear?
+
+A warning icon appears if:
+
+- The certificate is not trusted
+- The certificate is expired
+
+In both cases, the device cannot be started until the issue is resolved.
+
+### Warning Icon
+
+A warning icon is displayed next to the affected device.
 
 ![alt text](16.png)
+
+To view details:
+
+- Click the warning icon
+- The "Untrusted Certificate" dialog opens
+
 ![alt text](17.png)
+
+### Viewing Certificate Details
+
+Inside the dialog:
+
+- Locate the endpoint IP address
+- Click the IP address
+- A detailed view of the certificate is displayed
+
 ![alt text](19.png)
 
-## Dialog Behavior: Yes / No
+### What You Can Do
 
-### Yes
+**Option 1: Click Yes**
 
-- If certificate state is **not trusted**:
-    - VC Hub adds the endpoint certificate to trust store.
-    - Re-check certificate for current device.
-    - The device can then be enabled.
-- If certificate state is **expired**:
-    - VC Hub does **not** add the certificate.
-    - An expired-certificate message is shown.
-    - The device remains not allowed to enabled.
-  
-![alt text](18.png)
+![](20.png)
 
-### No
+If the certificate is not trusted:
 
-- The dialog is closed.
-- For a **not trusted** certificate, the device remains disabled (not started).
-- For an **expired** certificate, the device also remains disabled (not started).
+- The certificate will be added to the trust store
+- VC Hub will check the certificate again
+- If valid, the device can be enabled
+
+If the certificate is expired:
+
+- The certificate will not be accepted
+- A message will inform you that the certificate is expired
+- The device will remain disabled
+
+**Option 2: Click No**
+
+![](21.png)
+
+- The dialog will close
+- No changes are made
+
+The device will remain disabled in both cases:
+
+- Untrusted certificate
+- Expired certificate
 
 ## Notes
 
