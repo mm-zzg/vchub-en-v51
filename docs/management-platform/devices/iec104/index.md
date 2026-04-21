@@ -1,12 +1,12 @@
-# IEC104
+# IEC 104
 
-The IEC104 driver in VC Hub communicates with substation devices over IEC 60870-5-104. You can add one IEC104 device, configure communication parameters, enable it, and then bind I/O tags to IEC104 points.
+The IEC 104 driver in VC Hub communicates with substation devices over IEC 60870-5-104. You can add one IEC104 device, configure communication parameters, enable it, and then bind I/O tags to IEC 104 points.
 
 For bulk import/export workflows, see [Batch Operation](batch-operation.md).
 
-## **Connecting to an IEC104 device**
+## **Connecting to an IEC 104 device**
 
-1. On the **Devices** -> **IEC104** page, click the **Add** button.
+1. On the **Devices** -> **IEC 104** page, click the **Add** button.
 2. In the Add dialog, enter device information (the values below are examples; use your real project values):
     - Device Name: IEC104_1
     - Enable TLS: Disabled (or Enabled if your server requires TLS)
@@ -46,16 +46,16 @@ For bulk import/export workflows, see [Batch Operation](batch-operation.md).
 
 | **Name** | **Description** |
 | --- | --- |
-| Device Name | Name of the IEC104 device connection. |
-| Enable TLS | Enables TLS for IEC104 communication. |
+| Device Name | Name of the IEC 104 device connection. |
+| Enable TLS | Enables TLS for IEC 104 communication. |
 | Server1-Server4 | Up to 4 server IP/domain endpoints. |
 | Port1-Port4 | Port for each server endpoint. |
 | Test Connection | Verifies connectivity to the selected server endpoint. |
 | Common Address | ASDU common address of the remote station. |
 | Connection Timeout (ms) | Timeout for establishing TCP/TLS connection. |
-| Receive APDU Timeout (ms) | Timeout for receiving IEC104 APDU data. |
+| Receive APDU Timeout (ms) | Timeout for receiving IEC 104 APDU data. |
 | Command ACK Timeout (ms) | Timeout waiting for command acknowledgment. |
-| K / W | IEC104 flow-control window parameters. |
+| K / W | IEC 104 flow-control window parameters. |
 | T0 / T1 / T2 / T3 | IEC104 timeout parameters (seconds). |
 | General Interrogation Interval | Periodic GI interval. 0 means disabled. |
 | Counter Interrogation Interval | Periodic counter interrogation interval. 0 means disabled. |
@@ -73,7 +73,7 @@ For bulk import/export workflows, see [Batch Operation](batch-operation.md).
 
 ## **Tag Binding**
 
-Bind I/O tags to data points from your IEC104 device.
+Bind I/O tags to data points from your IEC 104 device.
 
 1. Create an I/O tag in the editor.
 
