@@ -6,6 +6,12 @@
 
 Use this function to log in directly, avoiding the system's built-in login page.
 
+!!! note
+    When debugging a page in Preview mode, calling `System.Security.login` or `System.Security.logout` performs a simulated action.
+    `System.Security.login` only validates whether the username and password are correct.
+    `System.Security.logout` does not perform an actual logout action.
+    After a simulated successful login, subsequent behavior still runs under the current Design user.
+
 ## Grammar
 
 **System.Security.login(username: string, password: string): Promise`<boolean>`**<br>
