@@ -1,6 +1,15 @@
 # IEC104 TLS
 
-This page describes how TLS works for IEC104 devices in VC Hub, including TLS configuration, default port behavior, trust-store warning handling, and the actual **Yes/No** behavior in the certificate trust dialog.
+This page describes how TLS works for IEC104 devices in VC Hub, including TLS configuration, default port behavior, certificate validation rules during enable/start, and trust-store dialog behavior.
+
+## When to Use TLS
+
+Use TLS for IEC104 devices in the following scenarios:
+
+- Communication crosses untrusted networks (for example, public WAN, shared enterprise network, or wireless segments).
+- Security or compliance requirements require encrypted transport and certificate-based endpoint validation.
+- You need to reduce the risk of eavesdropping and man-in-the-middle attacks on control and telemetry traffic.
+- The project uses remote access, multi-site deployment, or third-party network infrastructure where link security cannot be guaranteed.
 
 ## Enable TLS for an IEC104 Device
 
@@ -17,8 +26,8 @@ When **Enable TLS** is checked, VC Hub uses TLS-oriented default behavior:
 
 - The TLS default server port is **19998**.
 - For empty server rows, port defaults are switched automatically:
-  - TLS enabled: default port is **19998**.
-  - TLS disabled: default port is **2404**.
+    - TLS enabled: default port is **19998**.
+    - TLS disabled: default port is **2404**.
 
 ## Test Connection with TLS
 
@@ -28,38 +37,44 @@ When **Enable TLS** is checked, VC Hub uses TLS-oriented default behavior:
 
 ![alt text](15.png)
 
-## Trust-Store Warning and Certificate Prompt
+## Certificate Validation and Warning Prompt
 
-After a TLS-enabled device is started and connected, VC Hub checks whether the active endpoint certificate is trusted:
+When you enable/disable a TLS-enabled IEC104 device, VC Hub validates the certificate of the active endpoint before allowing the device to run:
 
-- If certificate is **not trusted**, a warning indicator appears.
-- If certificate is **expired**, a warning indicator also appears.
-- Clicking the warning opens the trust-store confirmation dialog.
+- If the certificate is **not manually trusted**, the device is **not allowed to enabled**.
+- If the certificate is **expired**, the device is also **not allowed to enabled**.
+- In both cases, a warning indicator is shown.
+- Clicking the warning opens the certificate/trust dialog.
+- In that dialog, you can click the endpoint **IP address** to view certificate details.
 
 ![alt text](16.png)
+![alt text](17.png)
+![alt text](19.png)
 
 ## Dialog Behavior: Yes / No
 
 ### Yes
 
 - If certificate state is **not trusted**:
-  - VC Hub adds the endpoint certificate to trust store.
-  - Trust-store cache is cleared.
-  - TLS trust status is re-checked for visible devices.
+    - VC Hub adds the endpoint certificate to trust store.
+    - Re-check certificate for current device.
+    - The device can then be enabled.
 - If certificate state is **expired**:
-  - VC Hub does **not** add the certificate.
-  - An error message is shown.
+    - VC Hub does **not** add the certificate.
+    - An expired-certificate message is shown.
+    - The device remains not allowed to enabled.
+  
+![alt text](18.png)
 
 ### No
 
 - The dialog is closed.
-- If the device is currently running, VC Hub disables (stops) that device.
-
-![alt text](17.png)
-![alt text](18.png)
+- For a **not trusted** certificate, the device remains disabled (not started).
+- For an **expired** certificate, the device also remains disabled (not started).
 
 ## Notes
 
-1. Trust-store checks are applied for TLS-enabled, started, and connected devices.
+1. TLS-enabled devices must pass certificate validation before they can start.
 2. Endpoint status in **View** can show **Active** (currently connected endpoint) and **Standby** (configured but not currently used endpoint).
-3. For stable TLS operation, ensure endpoint certificates are valid (not expired) and trusted before long-running communication.
+3. The warning dialog provides different messages for **not trusted** and **expired** certificate states.
+4. For stable TLS operation, ensure endpoint certificates are valid (not expired) and trusted before long-running communication.
