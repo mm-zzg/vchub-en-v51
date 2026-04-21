@@ -2,6 +2,8 @@
 
 VC Hub uses licenses to activate features on the VC Hub server. At the moment, only **online activation** is supported.
 
+For detailed license types, please refer to [Product License](../../installation/product-license.md).
+
 ## Trial Mode
 
 After installing VC Hub, the system automatically enters a **30-day trial period**. During the trial period, all features are fully available.

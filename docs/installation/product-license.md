@@ -10,6 +10,8 @@ You can activate the product by purchasing a formal license. Currently, only onl
 
 VC Hub supports both **annual subscription** and **one-time purchase**. Users can only choose one of these methods for purchase.
 
+For detailed instructions on using the License, please refer to [License](../management-platform/license/index.md).
+
 Authorization can be granted based on the following several function modules:
 
 ### I/O Tag
@@ -26,7 +28,7 @@ There are 7 different license quantities available. You can determine the number
 
 **Notes:**
 
-1. The tag numbers cannot be added together. For example: If you need to use 3,000 I/O tags, based on the number of tags, you need to purchase a license with ≥ 3000 tags.So you need to purchase a license that supports 5,000 I/O tags. 
+1. The tag numbers cannot be added together. For example: If you need to use 3,000 I/O tags, based on the number of tags, you need to purchase a license with ≥ 3000 tags. So you need to purchase a license that supports 5,000 I/O tags. 
 2. If the I/O tag license is not activated, the quality of the I/O tag will be displayed as "Bad_NotLicensed".
 3. If the number of created I/O tags exceeds the maximum allowed by the I/O tag license, then according to the tag sorting rules, the tags beyond the maximum limit will have their quality set to "Bad_NotLicensed".
 4. Tags with a quality status of "Bad_NotLicensed" will no longer be collected or pushed in the preview and runtime pages.
@@ -57,7 +59,7 @@ After logging in, engineering users are directed to the Admin Console page, whil
 ![alt text](39.png) 
      - Click the "Back" button to navigate to the login page. You can use another account or your current account to log in again. 
 3. If a user does not have Security Permission, but all currently logged-in accounts use the same username as the one attempting to log in, a list of logged-in users will be displayed. 
-Users can only view online user information corresponding to their own user type after logging in. Users can force logout accounts that are already logged in from other browsers.
+Users can only view online user information corresponding to their own user type after logging in. 可以踢除已在其他处登录的账号。
 ![alt text](38.png)
 
 

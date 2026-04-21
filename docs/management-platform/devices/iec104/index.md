@@ -71,15 +71,20 @@ For bulk import/export workflows, see [Batch Operation](batch-operation.md).
 Bind I/O tags to data points from your IEC104 device.
 
 1. Create an I/O tag in the editor.
+
    ![alt text](3.png)
+
 2. Open the tag edit page and click the data source binding button.
+
    ![alt text](4.png)
+
 3. In the Data Source dialog, select the target IEC104 device and fill in:
    - Common Address
    - Type ID
    - Information Object Address
   
    ![alt text](5.png)
+   
 4. Click **OK** to finish binding.
 
 **Configuration Fields**
