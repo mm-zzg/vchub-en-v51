@@ -23,14 +23,14 @@ This example uses Asset API from [Asset API Definitions](asset-api-definitions.m
 - You have `client_id` and `client_secret` from OpenID Connect client registration.
 - .NET 8 SDK (or later).
 
-## Step 1: Create a Console Project
+### Step 1: Create a Console Project
 
 ```bash
 dotnet new console -n VcHubWebApiDemo
 cd VcHubWebApiDemo
 ```
 
-## Step 2: C# Sample Code
+### Step 2: C# Sample Code
 
 Create or replace `Program.cs` with the following sample:
 
@@ -114,7 +114,7 @@ record OpenIdConfiguration(string token_endpoint);
 record TokenResponse(string access_token, string token_type, int expires_in);
 ```
 
-## Step 3: Run
+### Step 3: Run
 
 ```bash
 dotnet run
@@ -138,3 +138,5 @@ If token and API permissions are correct, the console prints response payloads r
 - [Open Id Connect](open-id-connect.md)
 - [Asset API Definitions](asset-api-definitions.md)
 - [Test with Postman](test-with-postman/index.md)
+
+
