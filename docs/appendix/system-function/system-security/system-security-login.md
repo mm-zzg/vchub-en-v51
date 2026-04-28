@@ -14,17 +14,19 @@ Use this function to log in directly, avoiding the system's built-in login page.
 
 ## Grammar
 
-**System.Security.login(username: string, password: string): Promise`<boolean>`**<br>
+**System.Security.login(username: string, password: string, pagePath: string): Promise`<void>`**<br>
 
-- Parameter<br>
+- Parameters<br>
 
-    username<br>
+    username — The user's login name.<br>
 
-    password<br>
+    password — The user's password.<br>
+
+    pagePath — The path of the page to navigate to after a successful login.<br>
 
 - Return<br>
 
-    Whether login succeeded.<br>
+    Resolves when the operation completes. If login succeeds, the page will navigate to `pagePath`.<br>
 
 ## Code Example
 
@@ -34,27 +36,25 @@ Switch User Button Script
 
 ![alt text](a_sf_ss-login1.png)
 
-```typescript 
-const result = await System.UI.openPopup('LoginPopup');
-if (result === 'GoHomePage') {
-    System.UI.goHome();
-}
+```typescript
+await System.UI.openPopup('LoginPopup');
 
-
-```   
+```
 Login Button Script for the LoginPopup page
 
 ![alt text](a_sf_ss-login2.png)
 
-```typescript 
+```typescript
 const usernameInput = await System.UI.findControl('UsernameInput');
 const passwordInput = await System.UI.findControl('PasswordInput');
-const succeeded = await System.Security.login(usernameInput.text, passwordInput.text);
-if (succeeded) {
-    System.UI.close('GoHomePage');
+try {
+    await System.Security.login(usernameInput.text, passwordInput.text, 'Home');
+    // On success the page redirects to 'Home'
+} catch (err) {
+    // Handle login failure (show error message, etc.)
 }
 
 
-```   
+```
 
 
