@@ -1,0 +1,22 @@
+{
+  "servers": {
+    "Azure DevOps": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "-y",
+        "@azure-devops/mcp@latest",
+        "mm-wagoscada",
+        "-d", "core",
+        "-d", "work",
+        "-d", "work-items",
+        "-d", "search",
+        "-d", "test-plans",
+        "-d", "repositories",
+        "-d", "wiki",
+        "-d", "pipelines",
+        "-d", "advanced-security"
+      ]
+    }
+  }
+}
