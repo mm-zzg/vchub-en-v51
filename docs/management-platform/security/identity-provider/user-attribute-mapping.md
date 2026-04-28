@@ -7,9 +7,14 @@ User attribute mapping allows you to map information from the Identity Provider 
 1. Click the **"Security" → "Identity Provider"** menu.<br>
    ![alt text](../1.png)
 2. In the Identity Provider list, click the "User Attribute Mapping" for a specific entry in the action column.
-   ![alt text](33.png)
+   ![alt text](33.png) 
 3. In the pop-up window, set the source and mapping path. The system provides the following 5 properties that can be used for mapping:
    ![alt text](34.png)
+
+**Notes:**
+
+- The **User Attribute Mapping** option is only available when the data type is **OpenID Connect**.
+
 
 **Properties**
 
