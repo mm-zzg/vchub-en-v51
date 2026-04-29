@@ -34,3 +34,12 @@ Logout.
 System.Security.logout()
 
 ```   
+
+## Post-logout redirect behavior
+
+After calling `System.Security.logout()`, the page will redirect according to the following priority (from highest to lowest):
+
+1. If the system has a third-party Identity Provider (IdP) enabled, the user will be redirected to the IdP's login page.
+2. Else if the project configuration defines a custom Login Page, the user will be redirected to that project-specific Login Page.
+3. Otherwise, the user will be redirected to the system's default Login page.
+
