@@ -39,7 +39,10 @@ System.Security.logout()
 
 After calling `System.Security.logout()`, the page will redirect according to the following priority (from highest to lowest):
 
-1. If the system has a third-party Identity Provider (IdP) enabled, the user will be redirected to the IdP's login page.
-2. If a **Local** type Identity Provider (IdP) is used and a custom login page is set in the 2D Designer project configuration popup, the user will be redirected to that project-specific login page. Otherwise, the user will be redirected to the system's default login page.
-
+1. If the system has a third-party (**OpenID Connect type**) Identity Provider (IdP) enabled, the user will be redirected to the IdP's login page.
+2. If a **Local type** Identity Provider (IdP) is used, 
+   - A custom login page is set in the 2D Designer project configuration popup, the user will be redirected to that project-specific login page. 
    ![](1.png)
+   - Otherwise, the user will be redirected to the system's default login page.
+
+   
