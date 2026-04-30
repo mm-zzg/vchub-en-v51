@@ -30,7 +30,7 @@ After successful login, the runtime will navigate to the page specified by `page
 
 - **Impact**: Projects configured with Auto login using Engineering-type users.
 - **Change**: Starting from version 5.1, the Auto login feature only supports users of type `Runtime` and no longer supports users of type `Engineering`.
-- **Solution**: Reconfigure Auto login to bind a `Runtime` user account.
+- **Solution**: Reconfigure Auto login to associate it with a `Runtime` user account.
 
 ## Breaking changes in 4.5
 
