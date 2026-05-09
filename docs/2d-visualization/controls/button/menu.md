@@ -65,7 +65,9 @@ Use navigation to switch between pages.
 
 
 **Popup**
+
 ![alt text](popup.png)
+
 | **Properties**   | **Description**  |
 |------------|--------|
 | Popup          | Open the selected popup.|
@@ -91,7 +93,9 @@ Use the navigation control to change the page displayed in the Page Container.
 
 
 **IFrame**
+
 ![alt text](image-2.png)
+
 | **Properties**   | **Description**  |
 |------------|--------|
 | IFrame | Select a IFrame control on the page. |
