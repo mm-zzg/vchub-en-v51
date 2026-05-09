@@ -40,3 +40,4 @@ Two user types are available: **Engineering User** and **Runtime User**.
 |-----------|-------------|
 | Engineering User | Has the permission to perform system configuration and design pages. |
 | Runtime User | It is limited to accessing and operating the project's runtime pages. |
+

@@ -1,5 +1,37 @@
 # Breaking Changes
 
+## Breaking changes in 5.1
+
+#### Breaking Change 1: System.Security.login requires the pagePath parameter
+
+- **Impact**: All scripts and custom logic that call `System.Security.login`.
+- **Change**: Starting from version 5.1, `System.Security.login` adds a required `pagePath` parameter and changes the return type.
+- **Solution**: Update all `System.Security.login` calls to include a valid target page path.
+
+Old version:
+
+```typescript
+namespace System.Security {
+    function login(username: string, password: string): Promise<boolean>;
+}
+```
+
+New version:
+
+```typescript
+namespace System.Security {
+    function login(username: string, password: string, pagePath: string): Promise<void>;
+}
+```
+
+After successful login, the runtime will navigate to the page specified by `pagePath`.
+
+#### Breaking Change 2: Auto login only supports Runtime users
+
+- **Impact**: Projects configured with Auto login using Engineering-type users.
+- **Change**: Starting from version 5.1, the Auto login feature only supports users of type `Runtime` and no longer supports users of type `Engineering`.
+- **Solution**: Reconfigure Auto login to associate it with a `Runtime` user account.
+
 ## Breaking changes in 4.5
 
 #### Breaking Change 1: Change in license authentication method
@@ -165,7 +197,7 @@ INNER JOIN ScadaProviderMapping b ON a.ProviderId = b.Id
 INNER JOIN ScadaAlarmMapping c ON a.AlarmId = c.Id AND a.ProviderId = c.ProviderId
 INNER JOIN ScadaTagMapping d ON c.TagId = d.Id AND c.ProviderId = d.ProviderId AND c.Type = d.Type;
 ```
- 
+
 **SQL Server**
 
 ```sql
@@ -226,7 +258,7 @@ INNER JOIN ScadaProviderMapping b ON a.ProviderId = b.Id
 INNER JOIN ScadaAlarmMapping c ON a.AlarmId = c.Id AND a.ProviderId = c.ProviderId
 INNER JOIN ScadaTagMapping d ON c.TagId = d.Id AND c.ProviderId = d.ProviderId AND c.Type = d.Type;
 ```
- 
+
 **My SQL**
 
 ```sql
@@ -288,7 +320,7 @@ INNER JOIN ScadaAlarmMapping c ON a.AlarmId = c.Id AND a.ProviderId = c.Provider
 INNER JOIN ScadaTagMapping d ON c.TagId = d.Id AND c.ProviderId = d.ProviderId AND c.Type = d.Type;
 
 ```
- 
+
 **PostgreSQL**
 
 ```sql
@@ -335,7 +367,7 @@ CASE
     WHEN d."Type" = 2 THEN a."StringVal"
     WHEN d."Type" = 3 THEN CAST(a."DoubleVal" AS VARCHAR)
     WHEN d."Type" = 4 THEN INITCAP(CAST(a."BoolVal" AS VARCHAR))
-    ELSE CAST(a."DateTimeVal" AS VARCHAR) 
+    ELSE CAST(a."DateTimeVal" AS VARCHAR)
 END AS "Value",
     (TO_TIMESTAMP(a."Timestamp" / 1000) + (a."Timestamp" % 1000) * INTERVAL '1 millisecond') AT TIME ZONE 'UTC' AS EventTime,
     c."Alarm" AS "Path",
@@ -350,7 +382,7 @@ INNER JOIN public."ScadaAlarmMapping" c ON a."AlarmId" = c."Id" AND a."ProviderI
 INNER JOIN public."ScadaTagMapping" d ON c."TagId" = d."Id" AND c."ProviderId" = d."ProviderId" AND c."Type" = d."Type";
 
 ```
- 
+
 #### Breaking Change 11: Camera devices require WebRTC Streamer
 
 - **Impact** : Camera devices.
@@ -382,7 +414,7 @@ INNER JOIN public."ScadaTagMapping" d ON c."TagId" = d."Id" AND c."ProviderId" =
 #### Breaking Change 15: System.UI.currentPage changed to System.Page
 
 - **Impact** : Scripts using System.UI.currentPage.
-- **Change** : The System.UI.currentPage.function has one more level relative to other functions. Starting from version 4.2, System.UI.currentPage is adjusted to System.Page 
+- **Change** : The System.UI.currentPage.function has one more level relative to other functions. Starting from version 4.2, System.UI.currentPage is adjusted to System.Page
 - **Solution** : Rename System.UI.currentPage to System.Page in scripts.
 
  Please refer to: [System.Page.getPropertyValue](../appendix/system-function/system-page/system-page-getpropertyvalue.md),[System.Page.setPropertyValue](../appendix/system-function/system-page/system-page-setpropertyvalue.md)
@@ -390,7 +422,7 @@ INNER JOIN public."ScadaTagMapping" d ON c."TagId" = d."Id" AND c."ProviderId" =
 #### Breaking Change 16: System.UI.openPopup parameters modified
 
 - **Impact** : Scripts using this function.
-- **Change** : The parameter structure of the System.UI.openPopup function has been adjusted since version 4.2: 
+- **Change** : The parameter structure of the System.UI.openPopup function has been adjusted since version 4.2:
    -  New **titleBar** parameteris added to set the title of the popup;
    -  The original parameter used to set the position of the popup window should be unified into the **options** object;
    -  The page Properties parameter that was originally passed in now needs to be unified into the **options** object.
@@ -398,28 +430,28 @@ INNER JOIN public."ScadaTagMapping" d ON c."TagId" = d."Id" AND c."ProviderId" =
 
  Please refer to: [System.UI.openPopup](../appendix/system-function/system-ui/system-ui-openpopup.md)
 
-#### Breaking Change 17: In the script, the series under yAxis for realtime chart is changed to axes 
+#### Breaking Change 17: In the script, the series under yAxis for realtime chart is changed to axes
 
 - **Impact** : Scripts modifying y-axis settings of realtime chart.
-- **Change** : From version 4.2,series under yAxis is changed to axes. 
+- **Change** : From version 4.2,series under yAxis is changed to axes.
 - **Solution** : Rename series to axes.
 
-#### Breaking Change 18: In the script, the refreshRate parameter of the bar chart ismodified to refreshFrequency 
+#### Breaking Change 18: In the script, the refreshRate parameter of the bar chart ismodified to refreshFrequency
 
 - **Impact** : Scripts modifying bar chart refresh rate.
-- **Change** : From version 4.2,refreshRate is changed to refreshFrequency. 
+- **Change** : From version 4.2,refreshRate is changed to refreshFrequency.
 - **Solution** : Rename refreshRate to refreshFrequency.
 
-#### Breaking Change 19: In the script, barSpacing under bar chart series is adjusted tobarGap 
+#### Breaking Change 19: In the script, barSpacing under bar chart series is adjusted tobarGap
 
 - **Impact** : Scripts modifying bar chart layout.
 - **Change** : From version 4.2, barSpacing under series is changed to barGap.
 - **Solution** : Rename barSpacing to barGap.
 
-#### Breaking Change 20: In the script, the calendarBackgroundColor parameter of the **DatetimeInput** control is adjusted to pickerBackgroundColor. 
+#### Breaking Change 20: In the script, the calendarBackgroundColor parameter of the **DatetimeInput** control is adjusted to pickerBackgroundColor.
 
 - **Impact** : Scripts modifying calendar background color.
-- **Change** : From version 4.2,calendarBackgroundColor is changed to pickerBackgroundColor. 
+- **Change** : From version 4.2,calendarBackgroundColor is changed to pickerBackgroundColor.
 - **Solution** : Rename calendarBackgroundColor to pickerBackgroundColor.
 
 #### Breaking Change 21: Historical chart script parameters adjusted
@@ -449,7 +481,7 @@ INNER JOIN public."ScadaTagMapping" d ON c."TagId" = d."Id" AND c."ProviderId" =
    -  Add showSearchButton,searchButton
    -  Remove font,fontSize,bold,italic,fontColor in search
    -  Remove name from data
-   -  Remove sampling 
+   -  Remove sampling
    -  Add queryMode
 - **Solution** : Update to new structure.
 
