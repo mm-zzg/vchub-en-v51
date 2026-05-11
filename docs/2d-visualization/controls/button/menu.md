@@ -63,7 +63,6 @@ Use navigation to switch between pages.
 
 ![alt text](page.gif)
 
-
 **Popup**
 
 ![alt text](popup.png)
