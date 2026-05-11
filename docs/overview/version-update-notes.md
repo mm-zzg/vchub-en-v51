@@ -22,6 +22,7 @@
 - **Concurrent Online Users Include Engineering Users and Runtime Users:** The original “concurrent online users” refers to engineering users. Based on this, concurrent online user limits for runtime users have now been added.
 - **OPEN APIs Enhancement:** Introduced batch and CRUD (create, read, update, delete) APIs for assets, models, instances, tags, and alarm configurations, improved error messages, and provided full lifecycle management APIs for Modbus TCP devices and frames, including control, monitoring, and querying capabilities.
 - **Upgrade Angular to v21.x:** Upgrade the Angular version to the latest official release.(Angular is a front-end web application development framework.)
+- **Add "Page Container" and "IFrame" to the navigation method of the Menu:** When using the Menu control for page navigation, support has been added for navigation within the "Page Container" and "IFrame" controls.
 
 #### 5.0.X
 
