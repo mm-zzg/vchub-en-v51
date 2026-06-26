@@ -28,12 +28,12 @@ Currently, Labeling supports customization of the following items:
 
 **Example**
 
-| **Customization Item** | **Customized Value**                       |
-|-----------|----------------------------------|
-| Product Name      | Nexus |
-| Theme Color    |   #3991f7  |
-| Browser Favicon     |     ![](2026-06-26-10-28-14.png)   |
-| Login Page Image      |   ![](2026-06-26-10-28-39.png)      |
+| **Customization Item** | **Customized Value**   |
+|------------------------|------------------------|
+| Product Name           | Nexus                  |
+| Theme Color            | #3991f7              |
+| Browser Favicon        | ![](2026-06-26-10-28-14.png)   |
+| Login Page Image       | ![](2026-06-26-10-28-39.png)   |
 
 
 After installation, the customized branding is applied throughout the user interface.

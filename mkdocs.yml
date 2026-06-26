@@ -350,6 +350,8 @@ nav:
                                       - management-platform/security/identity-provider/azure-AD-integration.md
                                       - management-platform/security/identity-provider/integrates-with-OAuth0.md
                             - management-platform/security/open-api.md
+                  - Password Reset:
+                            - management-platform/password-reset/index.md
                   - Node Configuration:
                             - management-platform/node-configuration/index.md
                   - Certificate Management:
