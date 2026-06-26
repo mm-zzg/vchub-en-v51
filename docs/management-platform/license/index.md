@@ -185,7 +185,7 @@ The following features require separate Add-on licenses:
 
 **3D Visualization**
 
-**Notes**
+**Notes:**
 
 1. Each Add-on is licensed independently.
 

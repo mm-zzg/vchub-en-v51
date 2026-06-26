@@ -181,6 +181,7 @@ nav:
                   - installation/linux-environment.md
                   - installation/typical-architecture-selection-guide.md
                   - installation/setup-service-running-user.md
+                  - installation/branding-and-theming.md
         - Quick Start Guide:
                   - quick-start-guide/index.md
         - System Deployment:
