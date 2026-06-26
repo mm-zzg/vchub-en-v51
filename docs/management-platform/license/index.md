@@ -191,12 +191,13 @@ The following features require separate Add-on licenses:
 
 2. If an Add-on is not licensed:
 
-   - Admin Console and Designer remain fully functional.
-   - Configuration (Create, Update, Delete, Query) is allowed.
-   - Preview and Runtime cannot use the feature.
-   - A Module Not Licensed message is displayed. For example:
+     - Admin Console and Designer remain fully functional.
+     - Configuration (Create, Update, Delete, Query) is allowed.
+     - Preview and Runtime cannot use the feature.
+     - A Module Not Licensed message is displayed. For example:
 
      ![](![alt%20text](36.png).png)
+     
      ![](![alt%20text](37.png).png)
 
 ## License Management
