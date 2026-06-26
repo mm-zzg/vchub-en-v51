@@ -32,7 +32,7 @@ Currently, Labeling supports customization of the following items:
 |-----------|----------------------------------|
 | Product Name      | Nexus |
 | Theme Color    |   #3991f7  |
-| Favicon     |     ![](2026-06-26-10-28-14.png)   |
+| Browser Favicon     |     ![](2026-06-26-10-28-14.png)   |
 | Login Page Image      |   ![](2026-06-26-10-28-39.png)      |
 
 
