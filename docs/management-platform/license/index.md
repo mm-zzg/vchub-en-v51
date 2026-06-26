@@ -157,23 +157,32 @@ When a user is forced offline, they are redirected to the login page.
 The following features require separate Add-on licenses:
 
 **Database**
+
 - MySQL
 - SQL Server
 - PostgreSQL
 - InfluxDB
+
 **Reporting**
+
 - Report
+
 **Alarm Notification**
+
 - SMS (Twilio)
 - SMS (Ali Cloud)
 - WeCom
 - DingTalk
+
 **Open API**
+
 **Device**
+
 - MQTT Native
 - MQTT Sparkplug B
 - WAGO Protocol
 - IEC 104
+
 **3D**
 
 **Notes**
