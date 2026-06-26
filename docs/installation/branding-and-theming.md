@@ -40,6 +40,8 @@ After installation, the customized branding is applied throughout the user inter
 
 ![](2026-06-26-10-26-33.png)
 
+![](2026-06-26-10-46-10.png)
+
 
 ## Customization Process
 
@@ -60,27 +62,3 @@ After installation, the customized branding is applied throughout the user inter
    ![](2026-06-26-10-36-34.png)
 - The onboarding pages do not currently support Labeling.
    ![](2026-06-26-10-37-13.png)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
