@@ -182,13 +182,13 @@ The following features require separate Add-on licenses:
 
 2. If an Add-on is not licensed:
 
-- Admin Console and Designer remain fully functional.
-- Configuration (Create, Update, Delete, Query) is allowed.
-- Preview and Runtime cannot use the feature.
-- A Module Not Licensed message is displayed. For example:
+   - Admin Console and Designer remain fully functional.
+   - Configuration (Create, Update, Delete, Query) is allowed.
+   - Preview and Runtime cannot use the feature.
+   - A Module Not Licensed message is displayed. For example:
 
-    ![](![alt%20text](36.png).png)
-    ![](![alt%20text](37.png).png)
+     ![](![alt%20text](36.png).png)
+     ![](![alt%20text](37.png).png)
 
 ## License Management
 
@@ -301,10 +301,8 @@ When the number of users has not reached the limit:
 
 - Runtime users will be directed to the runtime view after login.
 
-When the user limit is reached, refer to the Concurrent Online User section in [License](../installation/product-license.md) for details.
 
-
-#### Configuring Accessible Runtime Views for Runtime Users
+### Configuring Accessible Runtime Views for Runtime Users
 
 Runtime users **must have a role** in order to access runtime views.
 
@@ -340,11 +338,6 @@ The configuration steps are as follows:
 7. In the project list, click the Design button for ProjectA. In the editor, right-click the page "Home", set its Permission, and select "test" in the Access Level tree.
 
 8. Log in as Jane. After accessing VC Hub, the Home page will be displayed automatically.
-
-
-
-
-
 
 
 
