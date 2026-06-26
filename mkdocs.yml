@@ -179,7 +179,6 @@ nav:
                   - installation/index.md
                   - installation/windows-environment.md
                   - installation/linux-environment.md
-                  - installation/product-license.md
                   - installation/typical-architecture-selection-guide.md
                   - installation/setup-service-running-user.md
         - Quick Start Guide:
