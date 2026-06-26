@@ -183,7 +183,7 @@ The following features require separate Add-on licenses:
 - WAGO Protocol
 - IEC 104
 
-**3D**
+**3D Visualization**
 
 **Notes**
 
@@ -196,9 +196,9 @@ The following features require separate Add-on licenses:
      - Preview and Runtime cannot use the feature.
      - A Module Not Licensed message is displayed. For example:
 
-     ![](![alt%20text](36.png).png)
-     
-     ![](![alt%20text](37.png).png)
+     ![](2026-06-26-09-43-33.png)
+
+     ![](2026-06-26-09-43-45.png)
 
 ## License Management
 
