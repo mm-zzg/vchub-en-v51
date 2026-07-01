@@ -34,6 +34,7 @@ To configure the email service:
 |User Name	|SMTP account username.|
 |Password	|SMTP account password.|
 |SMTP Timeout	|Connection timeout in milliseconds.|
+
 4. Click Connection Test to verify the SMTP configuration.
 5. Click OK to save the configuration.
 
@@ -44,13 +45,13 @@ To configure the email service:
 ### Reset a Password by Email
 
 1. Open the VC Hub login page. 
-2. Click Forgot Password.
-![](2026-07-01-14-38-32.png)
-3. Enter the email address associated with your account.
-![](2026-07-01-14-39-31.png)
+2. Click Forgot Password.<br>
+![](2026-07-01-14-38-32.png)<br>
+3. Enter the email address associated with your account.<br>
+![](2026-07-01-14-39-31.png)<br>
 4. Click Send Verification Code.
-5. Check your email and enter the verification code.
-![](2026-07-01-14-41-30.png)
+5. Check your email and enter the verification code.<br>
+![](2026-07-01-14-41-30.png)<br>
 6. Enter the new password.
 7. Confirm the new password.
 8. Click OK.
