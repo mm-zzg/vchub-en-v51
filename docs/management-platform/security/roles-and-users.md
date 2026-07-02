@@ -28,7 +28,7 @@ You can add other roles in the Roles page.
 When you log in for the first time, the first user created during installation is displayed in the user list. You can add other users on the users list page.
 
 1. Click "Security"> "User".
-2. Click the Add button on the user list page to create a user.  Only one role can be set for a user. 
+2. Click the Add button on the user list page to create a user. Only one role can be set for a user. 
 
 ![alt text](3.png)
 

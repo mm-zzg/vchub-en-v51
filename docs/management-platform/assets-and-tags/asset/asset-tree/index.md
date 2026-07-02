@@ -113,7 +113,7 @@ You can right-click on individual nodes in the asset tree to perform various ope
 
 ##### **Folder right-click menu**
 
-![alt text](32.png)
+![alt text](32.png) 
 
 - Add Folder: Click it to bring up the Add Folder window.
 - Add Instance: Click it to bring up the Add Instance window.
@@ -125,11 +125,10 @@ You can right-click on individual nodes in the asset tree to perform various ope
 - Delete: Click the Delete button to bring up the Delete confirmation window. Clicking the OK button in the window deletes the node and all its children.
 - Rename: Clicking on the node changes the node to edit status and allows you to rename the folder. The renamed folder cannot be renamed with other nodes under the current hierarchy. It should be noted that after renaming the folder, the paths of the child nodes under it will be changed.
 - Copy Path: Click to copy the path of the current node. After copying, you can paste the path directly into the text input box.
-- Export Tag Configuration: Click this button to export the configuration information of all tags under the current node. Each configuration item is divided into one sheet, for example, one sheet for basic attributes, one sheet for events, and one sheet for alarms, including limit alarms, equal alarms, rate of change alarms, and switch alarms.
 
 ##### **Instance right-click menu**
 
-![alt text](33.png)
+![alt text](33.png) 
 
 - Edit: Click it to bring up the edit window of the tag. The content is the same as the Add window. All attributes can be modified. When the model is changed, the content of the customized attributes will be changed accordingly. 
 - Copy: Click the Copy button, the Paste button above the list becomes clickable and the Paste option is displayed in the context menu of all folders. You can paste the contents of the current folder and all its sub-nodes under the target path.
@@ -137,18 +136,16 @@ You can right-click on individual nodes in the asset tree to perform various ope
 - Delete: Click the Delete button to bring up the Delete confirmation window. Clicking the OK button in the window deletes the node and all its children.
 - Rename: After clicking, the node changes to edit status and you can rename the instance. The renamed instance cannot be renamed with other nodes under the current hierarchy. It should be noted that after renaming the instance, the paths of the child nodes under it will be changed.
 - Copy Path: Click to copy the path of the current node. After copying, you can paste the path directly into the text input box.
-- Export Tag Configuration: Click this button to export the configuration information of all tags under the current node. Each configuration item is divided into one sheet, for example, one sheet for basic attributes, one sheet for events, and one sheet for alarms, including limit alarms, equal alarms, rate of change alarms, and switch alarms.
 
 ##### **Right-click menus for tags not under an instance**
 
-![alt text](34.png)
+![alt text](33.png)
 
 - Edit: Click it to bring up the edit window of the tag. The content is the same as the Add window. In the editing window, the name and data type cannot be modified, but others can be modified.
 - Copy: Click Copy button to paste the current tag into the instance root node or folder. The name of the pasted tag remains unchanged. If there is a file with the same name in the current hierarchy, the suffix of the new tag name after pasting will be automatically added 1. For example, if the name of the copied tag is A, and there already exists a node with the name A under the current node that needs to be pasted, the name of the tag after pasting will be displayed as A1.
 - Delete: Click the Delete button to bring up the Delete Confirmation window. Click OK button in the window to delete the tag.
 - Rename: After clicking, the node becomes editable and can be renamed. The renamed name cannot be renamed with other nodes under the current hierarchy.
 - Copy Path: Click to copy the path of the current node. After copying, you can paste the path directly into the text input box.
-- Export Tag Configuration: Click this button to export the configuration information of all tags under the current node. Each configuration item is divided into one sheet, for example, one sheet for basic attributes, one sheet for events, and one sheet for alarms, including limit alarms, equal alarms, rate of change alarms, and switch alarms.
 
 ##### **Right-click menu for tag under instances**
 
@@ -156,32 +153,28 @@ You can right-click on individual nodes in the asset tree to perform various ope
 
 - Edit: Click it to bring up the edit window of the tag. The content is the same as the Add window. In the editing window, the name and data type can not be modified, while others can be modified.
 - Copy Path: click it to copy the path of the current node. After copying, you can paste the path directly into the text input box.
-- Export Tag Configuration: click it to export the configuration information of all tags under the current node. Each configuration item is divided into one sheet, for example, one sheet for basic attributes, one sheet for events, and one sheet for alarms, including limit alarms, equal alarms, rate of change alarms, and switch alarms.
 
 ##### **Right-click menu for instances under instances**
 
-![alt text](36.png)
+![alt text](35.png)
 
 - Edit: Click it to bring up the edit window of the tag. The content is the same as the Add window. In the editing window, the name and data type can not be modified, while others can be modified.
 - Copy Path: click it to copy the path of the current node. After copying, you can paste the path directly into the text input box.
-- Export Tag Configuration: click it to export the configuration information of all tags under the current node. Each configuration item is divided into one sheet, for example, one sheet for basic attributes, one sheet for events, and one sheet for alarms, including limit alarms, equal alarms, rate of change alarms, and switch alarms.
 
 ##### **Right-click menu for sets under instances** 
 
-![alt text](37.png)
+![alt text](38.png)
 
 - Generate: Click on it to bring up the editing window for the collection. Set the name of the prefix to be generated and the quantity. The quantity only supports inputting positive integers.
 - Copy Path: Click it to copy the path of the current node. After copying, you can paste the path directly into the text input box.
-- Export Tag Configuration: click to export the configuration information of all tags under the current node. Each configuration item is divided into one sheet, for example, one sheet for basic attributes, one sheet for events, and one sheet for alarms, including limit alarms, equal alarms, rate of change alarms, and switch alarms.
 
 ##### **Right-click menu for instances under sets**
 
-![alt text](38.png)
+![alt text](37.png)
 
 - Edit: Click it to bring up the edit window.
 - Delete: Click the Delete button to bring up the Delete Confirmation window. Click the OK button in the window to delete the data.
 - Copy Path: Click to copy the path of the current node. After copying, you can paste the path directly into the text input box.
-- Export Tag Configuration: Click this button to export the configuration information of all tags under the current node. Each configuration item is divided into one sheet, for example, one sheet for basic attributes, one sheet for events, and one sheet for alarms, including limit alarms, equal alarms, rate of change alarms, and switch alarms.
 
 ## **Shortcuts**
 
