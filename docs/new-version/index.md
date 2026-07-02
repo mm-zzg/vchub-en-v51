@@ -12,6 +12,8 @@ Currently, Labeling supports customization of the following items:
 - Images and Logos
 - Theme Colors
 
+Labeling is not available during installation or on the onboarding pages.
+
 ## Password Reset
 
 When users forget their passwords, they can reset them in two different ways.
