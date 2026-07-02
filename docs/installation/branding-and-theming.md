@@ -2,6 +2,8 @@
 
 The Labeling feature enables branding and UI theming customization for WAGO VC Hub during product delivery.
 
+For Labeling, customers first need to provide their branding materials to us. Based on these materials, we will create a customized package and provide a dedicated installation package for specific customers. This feature is mainly intended for system integrators.
+
 With Labeling, system integrators can customize the appearance of the system before delivery, ensuring that the product matches the customer's corporate identity and branding requirements.
 
 ## Supported Branding Scope

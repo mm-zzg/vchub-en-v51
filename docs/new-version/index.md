@@ -1,5 +1,28 @@
 # New in this Version
 
+## Labeling
+
+The Labeling feature enables branding and UI theming customization for WAGO VC Hub during product delivery.
+
+For Labeling, customers first need to provide their branding materials to us. Based on these materials, we will create a customized package and provide a dedicated installation package for specific customers. This feature is mainly intended for system integrators.
+
+Currently, Labeling supports customization of the following items:
+
+- Brand Information
+- Images and Logos
+- Theme Colors
+
+## Password Reset
+
+When users forget their passwords, they can reset them in two different ways.
+
+- Reset via email
+- Reset using the command-line tool included in the installation package
+
+To reset password via email, you need to configure an email service for password recovery and set an email address to the user account.
+
+To reset a password using the command-line tool, the tool must be run with administrator or root privileges.
+
 ## Separate licensing for runtime and engineering users
 
 The **user type** have been added for users,including **Engineering User** and **Runtime User**. 
