@@ -29,14 +29,15 @@ To configure the email service:
 |Enable	|Enables or disables the password reset email service.|
 |From Address	|Sender email address displayed in password reset emails.|
 |SMTP Server	|SMTP server hostname or IP address.|
-|Secure Connection	|SSL/TLS, STARTTLS, or None.|
+|Secure Connection	|SSL/TLS, StartTLS, or None.|
 |SMTP Port	|SMTP server port.|
 |User Name	|SMTP account username.|
 |Password	|SMTP account password.|
 |SMTP Timeout	|Connection timeout in milliseconds.|
 
-4. Click Connection Test to verify the SMTP configuration.
-5. Click OK to save the configuration.
+4.Click Connection Test to verify the SMTP configuration.
+
+5.Click OK to save the configuration.
 
 **Note:**
 

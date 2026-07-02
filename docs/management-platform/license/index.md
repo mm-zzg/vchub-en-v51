@@ -124,11 +124,13 @@ After login:
 
 **Users with Security Permission**
 
-1. Enter the online user management page, and it will display the currently online users.
+Enter the online user management page, and it will display the currently online users.
+
 ![](2026-06-26-09-15-32.png)
-     - Click the "**Exit**" button to navigate to the login page. You can use another account or your current account to log in again. 
-     - Click the "**Refresh**" button to refresh the current user list and retrieve the latest list of online engineering users.
-     - In the list, click the "**Force Logout**" button for a user to force them offline. After at least one user has been logged out, the "**Continue to the System**" button becomes enabled. Click it to enter the Admin Console page.
+
+- Click the "**Exit**" button to navigate to the login page. You can use another account or your current account to log in again. 
+- Click the "**Refresh**" button to refresh the current user list and retrieve the latest list of online engineering users.
+- In the list, click the "**Force Logout**" button for a user to force them offline. After at least one user has been logged out, the "**Continue to the System**" button becomes enabled. Click it to enter the Admin Console page.
 
 **Users without Security Permission**
 
