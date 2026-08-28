@@ -168,12 +168,12 @@ not_in_nav: |
 
 # Page tree
 nav:
-        - Product Overview:
+        - Overview:
                   - overview/index.md
                   - overview/version-update-notes.md
                   - overview/system-requirements.md
                   - overview/breaking-changes.md
-        - New in this Version:
+        - What's New:
                   - new-version/index.md
         - Installation and Upgrade:
                   - installation/index.md
@@ -182,9 +182,9 @@ nav:
                   - installation/typical-architecture-selection-guide.md
                   - installation/setup-service-running-user.md
                   - installation/branding-and-theming.md
-        - Quick Start Guide:
+        - Quick Start:
                   - quick-start-guide/index.md
-        - System Deployment:
+        - Deployment:
                   - system-deployment/index.md
                   - system-deployment/standalone-deployment.md
                   - system-deployment/network-deployment.md
@@ -646,6 +646,30 @@ nav:
                                                 - 3d-visualization/3d-low-code-example/object-models-in-the-scene/text-annotation/fontsize.md
                                                 - 3d-visualization/3d-low-code-example/object-models-in-the-scene/text-annotation/height.md
                                                 - 3d-visualization/3d-low-code-example/object-models-in-the-scene/text-annotation/text.md
+        - MEMS:
+                  - Overview:
+                            - mems/index.md
+                            - mems/overview/purpose-of-mems.md
+                            - mems/overview/architecture.md
+                            - mems/overview/main-functions.md
+                            - mems/overview/integration-into-vc-hub.md
+                  - mems/security.md
+                  - mems/requirements.md
+                  - mems/installation-and-upgrade.md
+                  - Getting Started:
+                            - mems/getting-started/index.md
+                            - mems/getting-started/login.md
+                            - mems/getting-started/user-interface-overview.md
+                            - mems/getting-started/navigation-concept.md
+                            - mems/getting-started/dashboard-overview.md
+                  - Core Functions:
+                            - mems/core-functions/index.md
+                            - mems/core-functions/peak-load-management.md
+                            - mems/core-functions/surplus-management.md
+                  - Administration:
+                            - mems/administration/index.md
+                            - mems/administration/configuration.md
+                            - mems/administration/notifications.md
         - Appendix:
                   - appendix/index.md
                   - System Function:
