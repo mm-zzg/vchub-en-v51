@@ -1,6 +1,6 @@
 # Custom Function
 
-Custom functions are functions written by the user. Custom functions that can be called from within other scripts. The use of these functions can reduce the amount of repetitive code, thus reducing the maintenance workload of the application. It can not be directly triggered by the system, must be called through other script to perform, customized functions are divided into two types: **Generic Function** and **Service Ffunction**.
+Custom functions are functions written by the user. Custom functions that can be called from within other scripts. The use of these functions can reduce the amount of repetitive code, thus reducing the maintenance workload of the application. It can not be directly triggered by the system, must be called through other script to perform, customized functions are divided into two types: **Generic Function** and **Service Function**.
 
 **Generic Function**: Generic function can be used in service scripts and ui scripts, use the `userDefined` namespace to access the custom functions that have been created.
 
