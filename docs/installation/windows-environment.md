@@ -42,30 +42,13 @@ Recommended Systems for Installation:
 
 After each installation, a new empty workspace will be created by default. To return to the original workspace, you need to log in to the new workspace first and then manually open the original workspace from the workspace list.
 
-## **Security Configuration (Optional)**
+## **Service Security**
 
-To further enhance system security, it is recommended to perform the following steps after configuration to set permissions on the **installation directory and application data directory**, allowing only specific users to access or modify them. This ensures that sensitive data is well protected and potential risks are minimized.
+The installer automatically configures the VC Hub Windows service to run under the dedicated virtual service account `NT SERVICE\WAGO_Visualization_And_Control_Hub`. It also grants the service only the application and data directory permissions required at runtime.
 
-1. Create a dedicated service account<br>
-      Create a dedicated account in Windows local users and groups (e.g., VCHubSvc):
-      ![alt text](14.png)
-2. Set service **installation directory** permissions<br>
-      Navigate to the service installation directory (e.g., C:\Program Files\WAGO Visualization And Control Hub), right-click the mouse, select "Properties" → "Security"
-       - Based on the actual security requirements, select the users or groups to be retained, and delete the unnecessary ones (such as Users, Everyone).
-       - Add the VCHubSvc user and grant Read, Write, and Modify permissions.
-       - Ensure the changes are applied to all subfolders and files.
-       Note: This step must be completed before changing the service logon account; otherwise, the service may fail to start or restart.
-3. Modify the service logon account<br>
-      In Services (services.msc), locate the VC Hub service → right-click → Properties → Log On → select "This account":
-       - Enter .\VCHubSvc and the password.
-       - Save and restart the service.
-4. Set application **data directory** permissions<br>
-     Navigate to the application data directory chosen during installation (e.g., C:\ProgramData\WAGOVisualizationAndControlHub), in the right-click menu, click "Properties"→ "Security":
-       - Based on the actual security requirements, select the users or groups to be retained, and delete the unnecessary ones (such as Users, Everyone).
-       - Add the VCHubSvc user and grant Read, Write, and Modify permissions.
-       - Ensure the changes are applied to all subfolders and files.
-5. Verify configuration<br>
-      Access the VC Hub site (e.g., `http://localhost:8066`) and confirm that the site is running normally.
+Do not create a regular local user for the service, change the service to run as `LocalSystem`, or grant it administrator privileges.
+
+For details and verification steps, see [VC Hub Service Account and File Permissions](setup-service-running-user.md).
 
 ## **Uninstallation Steps**
 
@@ -73,7 +56,6 @@ To further enhance system security, it is recommended to perform the following s
       ![alt text](15.png)
 2. Confirm the uninstallation to complete the removal of the application.
       ![alt text](16.png)
-
 
 
 
