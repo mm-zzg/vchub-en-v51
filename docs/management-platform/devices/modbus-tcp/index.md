@@ -105,3 +105,86 @@ Binds tags to the data from a ModbusTCP device.
 | **Address**              | The address of the storage area.                                                                                                    |
 | **Bit**                  | The bit of the address of the storage area. This field is displayed when the tag's data type is Bool.                               |
 
+## Writing Values from C#
+
+Use a Modbus client library, such as [NModbus](https://github.com/NModbus/NModbus), to write to a configured Modbus TCP device. Install the package in the ASP.NET Core project:
+
+```shell
+dotnet add package NModbus
+```
+
+The write method determines the Modbus function code:
+
+| Write operation | Function code |
+|-----------------|---------------|
+| Write one coil | `05` |
+| Write one holding register | `06` |
+| Write multiple holding registers | `16` |
+
+The following controller exposes a deliberately narrow endpoint for writing one holding register. `WriteSingleRegisterAsync` sends function code `06`.
+
+```csharp
+using System.Net.Sockets;
+using Microsoft.AspNetCore.Mvc;
+using NModbus;
+
+[ApiController]
+[Route("api/modbus")]
+public sealed class ModbusController : ControllerBase
+{
+      [HttpPost("holding-register")]
+      public async Task<IActionResult> WriteHoldingRegisterAsync(
+            [FromBody] WriteHoldingRegisterRequest request,
+            CancellationToken cancellationToken)
+      {
+            using var client = new TcpClient();
+            await client.ConnectAsync(request.Host, request.Port, cancellationToken);
+
+            var factory = new ModbusFactory();
+            var master = factory.CreateMaster(client);
+            await master.WriteSingleRegisterAsync(
+                  request.SlaveAddress,
+                  request.Address,
+                  request.Value);
+
+            return NoContent();
+      }
+}
+
+public sealed record WriteHoldingRegisterRequest(
+      string Host,
+      int Port,
+      byte SlaveAddress,
+      ushort Address,
+      ushort Value);
+```
+
+To send function code `05`, call `WriteSingleCoilAsync`. To send function code `16`, call `WriteMultipleRegistersAsync` with the target address and register values.
+
+!!! warning
+      Do not expose a general-purpose Modbus write endpoint without authentication, authorization, address allowlists, and audit logging. Run automated write tests only against an isolated test PLC or simulator.
+
+## Calling the Endpoint from Playwright
+
+Playwright can invoke the C# endpoint through its API request context. This test writes `1234` to holding-register address `1` on a test device and asserts that the endpoint accepted the request.
+
+```typescript
+import { expect, test } from "@playwright/test";
+
+test("writes a Modbus holding register", async ({ request }) => {
+   const response = await request.post("/api/modbus/holding-register", {
+      data: {
+         host: "127.0.0.1",
+         port: 502,
+         slaveAddress: 1,
+         address: 1,
+         value: 1234
+      }
+   });
+
+   expect(response.status()).toBe(204);
+});
+```
+
+Set `baseURL` in `playwright.config.ts` to the ASP.NET Core application's URL, for example `http://localhost:5000`.
+
