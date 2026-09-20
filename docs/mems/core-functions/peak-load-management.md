@@ -29,9 +29,31 @@ The five cards at the top of the page provide core operational data for the curr
 
 ### 3.2 Real-time Trend Chart
 The chart displays the trends of power parameters over time:
+![alt text](chart.png)
 
+Tooltip: Hovering over the chart displays data for a specific point in time.
 
 ### 3.3 Legend
+
+The checkboxes on the right side of the chart control the visibility of different data curves. A checkmark indicates the item is currently displayed.
+
+You can select/unselect checkboxes.
+![alt text](Legend.png)
+
+
+### 3.4 Active Controls List
+
+Located at the bottom of the page, this section shows the current control status of individual component which on stages.
+
+Active Controls: Lists managed components.
+
+Status: Displays the current action state of the component(Unchanged/Increased/Decreased).
+
+Active Power: The actual current power of the Component.
+
+Intervention: The power adjustment requested by the system for peak shaving.
+
+![alt text](Active_control_list.png)
 
 
 ## 4. Configuration Settings page
@@ -52,8 +74,8 @@ If not configured, it displays as -kw.
 ![alt text](Not_configured_constraints.png)
 If configured, the values are from Enabled Grid Setpoint Change constraint. 
 Click the gear icon ⚙️ Constraints, it navigates to Constraints & Tasks page, and you can add new Constraints and Tasks here.
-![alt text](Constraint.png)
-![alt text](Constrints_Tasks.png)
+![alt text](Constraints.png)
+![alt text](Constraints_Tasks.png)
 If you want to add a new Grid Setpoint Change constraint, you can click "Add" button, then select "Grid Setpoint Change" Constraint Type and enter suitable values, then click "Add" button.
 ![alt text](Constraint_Add_1.png)
 ![alt text](Grid_setpoint_change_constraint.png)
@@ -168,13 +190,23 @@ This stage is default notification stage, this stage is entered when automatic c
 ![alt text](Notification_default.png)
 ![alt text](Notification.png)
 
+Tips:
+1. If you want to adjust the sequence of stages，you can do it by dragging.
+Move the mouse to the Drag Icon (≡), and the cursor will change to cross. hold on the left mouse button and drag the stage to the desired location.
+![alt text](Drag.png)
+![alt text](Desired_stage.png)
+2. Click "Show All ↓" button will expand the list downward to expand all the component assigned to that stage.
+![alt text](Show_all.png)
+3. Click "Hide ↑" to hide the extra items to save screen space.
+![alt text](Hide.png)
+
 #### Explanation of Stage
 
 **Discharge Battery Storages**
 
 | **Name**                  | **Description**                      |
 |---------------------------|--------------------------------------|
-| Target                    | The desired state of charge (SoC) the battery storage is intended to discharge down to.                  |
+| Target                    | The desired state of charge (SoC) the battery storage is intended to discharge down to.                                              |
 | Actual                    | Real-time state of charge (SoC).                                                             |
 | Blocked                   |                                      |
 
@@ -182,7 +214,7 @@ This stage is default notification stage, this stage is entered when automatic c
 | **Name**                  | **Description**                      |
 |---------------------------|--------------------------------------|
 | Low Priority              | Classification for Components that are minimal.                                                           |
-| Mid Priority              | Classification for Components that are important, but not critical.                                       |
+| Mid Priority              | Classification for Components that are important, but not critical.                                                          |
 | High Priority             | Classification for Components that are critical.                                                          |
 | Limit                     |                                      |
 | Previous                  |                                      | 
@@ -190,9 +222,18 @@ This stage is default notification stage, this stage is entered when automatic c
 **Turn Off Binary Controlled Consumer**
 | **Name**                  | **Description**                      |
 |---------------------------|--------------------------------------|
-| Low Priority              | Classification for Components that are minimal.                                                           |
-| Mid Priority              | Classification for Components that are important, but not critical.                                       |
-| High Priority             | Classification for Components that are critical.                                                                                                                     
-
+|   Green                   |                                      |
+|   Red                     |                                      |
 
  ## 5. Priority List page
+In the "Priority List" tab, you can view and manage the priority order of all **controlled** Charging Infrastructure(WALM). When executing peak-shaving actions, the system will limit WALM power consumption sequentially based on the order in this list.
+![alt text](Priority_list.png)
+
+Tips:
+1. You can click and hold the icon to drag rows up and down to the desired position.
+![alt text](Drag_priority.png)
+
+2. You can click and hold the Priority line to change the priority quickly.
+![alt text](Drag_line.png)
+
+
