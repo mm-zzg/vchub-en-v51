@@ -43,6 +43,7 @@ Grid Power
 
 Remaining Headroom
 
+
 15-Minutes Grid Power Forecast
 
     Red - Over Setpoint
@@ -83,7 +84,7 @@ The checkboxes on the right side of the chart control the visibility of differen
 
 ### 3.4 Active Controls List
 
-This section shows the current control status of individual component which on stages ("Configuration Settings - Actions to Avoid Peak Load").
+This section shows the current control status of individual component which on stages.(Configuration Settings - Actions to Avoid Peak Load)
 
 Active Controls: Lists managed components which from stages.
 
@@ -111,6 +112,7 @@ Limits Based On Constraints:
 
 If not configured, it displays as -kw.
 ![alt text](Not_configured_constraints.png)
+
 If configured, the values are from Enabled Grid Setpoint Change constraint. 
 Click the gear icon ⚙️ Constraints, it navigates to Constraints & Tasks page, and users can add new Constraints and Tasks here.
 ![alt text](Constraints.png)
@@ -127,7 +129,7 @@ Steps:
 ![alt text](Enabled_grid_setpoint_change.png)
 ![alt text](Limits_based_on_constraints.png)
 
-During Grid Setpoint Change type constraint enabled period, System's Setpoint, Upper Threshold, Lower Threshold of Predefined Limits are overwrite temporaryby Limits Based on Constraints.
+During Grid Setpoint Change type constraint enabled period, System's Setpoint, Upper Threshold, Lower Threshold of Predefined Limits are overwrited temporary by Limits Based on Constraints.
 ![alt text](Peak_load_management_constraint_setponit_1.png)
 ![alt text](Peak_load_management_constraint_setponit_2.png)
 
@@ -173,9 +175,9 @@ Step 3: Switch to the first window, the setted value is populated.
 2. If value of "Target SoC/Minimum SoC" is higher than value of "Reduce to Target SoC", "Minimum SoC of some components is higher than Target SoC. " message will display, users can still add the battery storage to the stage.
 ![alt text](SOC_mini.png)
 
-3. If users want to add more Components on this stage, users can click "Add Component" button.
+3. If want to add more Components on this stage, users can click "Add Component" button.
 
-4. If users want to delete added Component, users can click "Trash" button.
+4. If want to delete added Component, users can click "Trash" button.
 
 •Add a new Stage 2 - Discharge one after each other for Battery Storages.
 
@@ -220,12 +222,17 @@ Before performing the turn-off Binary Controlled Consumer stage operation, pleas
 ![alt text](Green_icon.png)
 
 •Edit a Stage
+
 1. Click "Edit" button.
+
 2. Selected target values.
+
 3. Click "Sava" button.
 
 •Delete a Stage
+
 1. Click "Delete" button.
+
 2. Click "Delete Anyway" button.
 
 •Notification of the User stage
@@ -235,9 +242,12 @@ This stage is default notification stage, this stage is entered when automatic c
 ![alt text](Notification.png)
 
 Tips:
+
 1. If users want to adjust the sequence of stages，users can do it by dragging.
 Move the mouse to the Drag Icon (≡), and the cursor will change to cross. hold on the left mouse button and drag the stage to the desired location.
+
 2. Click "Show All ↓" button will expand the list downward to expand all the component assigned to that stage.
+
 3. Click "Hide ↑" to hide the extra items to save screen space.
 
 #### Explanation of Stage
@@ -260,13 +270,13 @@ Move the mouse to the Drag Icon (≡), and the cursor will change to cross. hold
 | Limit                     | Refers to the maximum power consumption limit allowed for the component during this stage.                                                 |
 | Previous                  | Refers to the power limit value of the component before entering this stage.                                                             |
 
- ## 5. Priority List page
+## 5. Priority List page
+
 In the "Priority List" tab, you can view and manage the priority order of all **controlled** Charging Infrastructure(WALM). When executing peak-shaving actions, the system will limit WALM power consumption sequentially based on the order in this list.
 ![alt text](Priority_list.png)
 Tips:
+
 1. Users can click and hold the icon to drag rows up and down to the desired position.
 ![alt text](Drag_priority.png)
 2. Users can click and hold the Priority line to change the priority quickly.
 ![alt text](Drag_line.png)
-
-
