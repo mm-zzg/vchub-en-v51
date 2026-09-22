@@ -173,7 +173,8 @@ Step 3: Switch to the first window, the setted value is populated.
 ![alt text](SOC_Not_set_6.png)
 
 2. If value of "Target SoC/Minimum SoC" is higher than value of "Reduce to Target SoC", "Minimum SoC of some components is higher than Target SoC. " message will display, users can still add the battery storage to the stage.
-![alt text](SoC_mini.png)
+![alt text](4.png)
+
 
 3. If want to add more Components on this stage, users can click "Add Component" button.
 
@@ -279,4 +280,4 @@ Tips:
 1. Users can click and hold the icon to drag rows up and down to the desired position.
 ![alt text](Drag_priority.png)
 2. Users can click and hold the Priority line to change the priority quickly.
-![alt text](Drag_line.png)
+![alt text](5.png)
