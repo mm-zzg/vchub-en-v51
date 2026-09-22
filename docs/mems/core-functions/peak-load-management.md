@@ -5,7 +5,7 @@ Peak Load Management is designed to help users monitor and control power consump
 Peak Load Management is activated if "Activate Load Managent" toggle is activated in the "Project Settings" based on entered "Setpoints", "Upper Threshold" and "Lower Threshold".
 ![alt text](1.png)
 
-Users inactivated "Activete Load Managent" toggle, "Turn off" symbol displays to present the "Peak Load Management" feature of the system is currently inactivated.
+Users inactivate "Activete Load Managent" toggle, "Turn off" symbol displays to present the "Peak Load Management" feature of the system is currently inactivated.
 ![alt text](2.png)
 
 ## 2. Interface Navigation & Layout
@@ -173,7 +173,7 @@ Step 3: Switch to the first window, the setted value is populated.
 ![alt text](SOC_Not_set_6.png)
 
 2. If value of "Target SoC/Minimum SoC" is higher than value of "Reduce to Target SoC", "Minimum SoC of some components is higher than Target SoC. " message will display, users can still add the battery storage to the stage.
-![alt text](SOC_mini.png)
+![alt text](SoC_mini.png)
 
 3. If want to add more Components on this stage, users can click "Add Component" button.
 
@@ -272,7 +272,7 @@ Move the mouse to the Drag Icon (≡), and the cursor will change to cross. hold
 
 ## 5. Priority List page
 
-In the "Priority List" tab, you can view and manage the priority order of all **controlled** Charging Infrastructure(WALM). When executing peak-shaving actions, the system will limit WALM power consumption sequentially based on the order in this list.
+In the "Priority List" tab, users can view and manage the priority order of all **controlled** Charging Infrastructure(WALM). When executing peak-shaving actions, the system will limit WALM power consumption sequentially based on the order in this list.
 ![alt text](Priority_list.png)
 Tips:
 
