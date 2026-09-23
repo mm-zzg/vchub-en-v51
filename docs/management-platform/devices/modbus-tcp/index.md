@@ -103,5 +103,3 @@ Binds tags to the data from a ModbusTCP device.
 | DOUBLE                   | This data type is displayed when the data type of the tag is Double.                                                                |
 | FLOAT32                  | This data type is displayed when the data type of the tag is Double.                                                                |
 | **Address**              | The address of the storage area.                                                                                                    |
-| **Bit**                  | The bit of the address of the storage area. This field is displayed when the tag's data type is Bool.                               |
-

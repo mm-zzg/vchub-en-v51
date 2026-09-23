@@ -64,53 +64,13 @@ If you see the message **"Failed to install libice6/libsm6. Please try installin
 **Note**: If you perform an upgrade installation, a new empty workspace will be created by default. To return to the original workspace, you need to log in to the new workspace first and then manually open the original workspace from the workspace list. 
 
 
-## **Security Configuration (Optional)**
+## **Service Security**
 
-To further enhance system security, it is recommended to perform the following steps after configuration to set permissions on the **service directory and application data directory**, allowing only specific users to access or modify them. This ensures that sensitive data is well protected and potential risks are minimized.
+The installer automatically creates or reuses the non-login `vchub` system account and configures the VC Hub systemd service to run under that account. It also grants the service only the application and data directory permissions required at runtime.
 
-1.  Create a Dedicated Service Account
-    Create a dedicated system account (e.g., wago_vc_hub) with no interactive login, used only to run service processes:
-    ```
-    sudo useradd -r -s /sbin/nologin wago_vc_hub
-    ```
-    Then, configure passwordless sudo for this account via the sudoers file:
-    ```
-    wago_vc_hub ALL=(ALL) NOPASSWD: ALL
-    ```
-2. Set Service Installation Directory Permissions
-    Assign ownership of the service installation directory (e.g., /usr/local/bin/wagovisualizationandcontrolhub-x.x.x-linux-x64) to wago_vc_hub and restrict access to other users:
-    ```
-    sudo chown -R wago_vc_hub:wago_vc_hub /usr/local/bin/wagovisualizationandcontrolhub-x.x.x-linux-x64
-    sudo chmod -R 750 /usr/local/bin/wagovisualizationandcontrolhub-x.x.x-linux-x64
-    ```
-   **Note:** Perform this step before changing the service run account, otherwise the service may lose access.  
-3. Modify Service Run Account
-  Configure the service to run under the wago_vc_hub account:
-   ```
-   sudo systemctl edit wagovisualizationandcontrolhub.service
-   ```
-   Add the following lines under the [Service] section:
-   ```
-   User=wago_vc_hub
-   Group=wago_vc_hub
-   ```
-   Then reload the systemd configuration and restart the service:
-   ```
-   sudo systemctl daemon-reexec
-   sudo systemctl restart wagovisualizationandcontrolhub.service
-   ``` 
-4. Set Application Data Directory Permissions<br>
-    Assign ownership of the data directory (e.g., /usr/share/wagovisualizationandcontrolhub) to wago_vc_hub and ensure read/write access while restricting other users:
-   ```
-   sudo chown -R wago_vc_hub:wago_vc_hub/usr/share/wagovisualizationandcontrolhub
-   sudo chmod -R 750 /usr/share/wagovisualizationandcontrolhub
-   ``` 
-5. Verify Configuration
-   Check that the service is running under the wago_vc_hub account and confirm the site is accessible:
-   ```
-   systemctl status wagovisualizationandcontrolhub.service
-   ``` 
-   Open a browser and visit the VC Hub site (e.g., `http://localhost:8066`) to verify it is running correctly.
+Do not assign a password to `vchub`, add it to the `sudo` group, configure passwordless sudo, or change the service to run as root.
+
+Linux ports below 1024 require additional operating-system permission. Use a port of 1024 or higher whenever possible. If a low port is required, follow the capability-based procedure in [VC Hub Service Account and File Permissions](setup-service-running-user.md#using-ports-below-1024-on-linux); do not run VC Hub as root.
 
 ## **Uninstallation Steps**
 
@@ -124,4 +84,3 @@ To further enhance system security, it is recommended to perform the following s
 **Notes:**  
 
 The uninstallation script includes operations such as deleting files, so ensure you have sufficient permissions.
-

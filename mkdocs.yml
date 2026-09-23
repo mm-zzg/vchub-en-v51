@@ -307,6 +307,7 @@ nav:
                             - management-platform/databases/index.md
                             - Database Connection:
                                       - management-platform/databases/database-connection/index.md
+                                      - management-platform/databases/database-connection/least-privilege-account.md
                                       - management-platform/databases/database-connection/mysql.md
                                       - management-platform/databases/database-connection/sql-server.md
                                       - management-platform/databases/database-connection/postgresql.md
@@ -766,4 +767,3 @@ nav:
                                       - appendix/system-function/system-utils/index.md
                                       - appendix/system-function/system-utils/system-utils-importscript.md
                                       - appendix/system-function/system-utils/system-utils-importstyle.md
-
