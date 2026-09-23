@@ -1,4 +1,4 @@
-# System Deployment
+# Deployment
 
  The deployment of VC Hub  is flexible enough to meet the needs of any small, large, or medium-sized enterprise infrastructure. You can deploy VC Hub  on a single site, multiple sites, or in the cloud.
 

@@ -1,4 +1,7 @@
 # Database Connection
+
+Before creating a connection to an external database, configure a dedicated account according to [Least-Privilege Database Accounts](least-privilege-account.md). Avoid using a built-in database administrator account for routine VC Hub operation.
+
 ## **Creating a Connection**
 
 1.  On the "**Databases**" -> "**Database Connections**" screen, click the Add button.
@@ -33,6 +36,5 @@
 | Standby Mode           | Allows you to choose how to handle database connection failures and recovery.  <br>**Standard**: When the current connection is unavailable, the standby connection is transferred, but when this connection is restored, the standby will continue to be used.  <br>**Sticky**: When the current connection is unavailable, it will transfer to use the standby repository connection, but when this connection is restored, it will be resumed to use this connection again. |
 | Maximum Query Points   | When selecting MySQL, SQL Server, PostgreSQL, or SQLite, this field is displayed. It is used to define the maximum number of data points that can be retrieved in a single query execution for a specific database.  |
 | Query Timeout(s)       | When selecting MySQL, SQL Server, PostgreSQL, or SQLite, this field is displayed. It is used to define the maximum duration for executing a data query on a specific database. If the query is not completed within the specified time, the system will automatically terminate it. This setting helps prevent performance bottlenecks or system slowdowns caused by prolonged query operations.  |
-
 
 

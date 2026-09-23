@@ -1,5 +1,5 @@
 
-# Product Overview
+# Overview
 
 **What is WAGO Visualization and Control Hub?**
 
