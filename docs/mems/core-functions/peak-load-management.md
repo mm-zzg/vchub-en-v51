@@ -34,6 +34,7 @@ The five cards at the top of the page provide core operational data for the curr
 Vertical status indicator bars Indicators：
 
 Grid Power
+
 | **Name**                  | **Description**     |
 |---------------------------|---------------------|
 | Red                       | Over Setpoint       |
@@ -44,6 +45,7 @@ Remaining Headroom
 
 
 15-Minutes Grid Power Forecast
+
 | **Name**                  | **Description**     |
 |---------------------------|---------------------|
 | Red                       | Over Setpoint       |
@@ -51,6 +53,7 @@ Remaining Headroom
 | Green                     | Under Upper Threshold|
 
 Control Stage - Stage [number according to actual stage]
+
 | **Name**                  | **Description**     |
 |---------------------------|---------------------|
 | Grey                      | Not active          |
@@ -58,6 +61,7 @@ Control Stage - Stage [number according to actual stage]
 | Red                       | Last stage reached and Peak Load not avoided ( Notification of the User )|
 
 Battery Storage SoC 
+
 | **Name**                  | **Description**     |
 |---------------------------|---------------------|
 | Grey                      | there is no battery storage|
@@ -76,6 +80,7 @@ Tooltip: Users can hover over the chart displays data for a specific point in ti
 
 The checkboxes on the right side of the chart control the visibility of different data curves. A checkmark indicates the item is currently displayed. Users can select/unselect checkboxes.
 ![alt text](Legend.png)
+
 If "Turn off" symbol displays, "Setpoint", "Upper/Lower Threshold" curves and checkboxes will disappear automatically.
 ![alt text](6.png)
 
