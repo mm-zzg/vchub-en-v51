@@ -42,7 +42,7 @@ Users with security permissions can view all currently online engineering and ru
 The system now includes support for the IEC 60870-5-104 (IEC 104) communication protocol, enabling VC Hub to communicate efficiently and reliably with industry-standard power equipment and dispatching systems, and providing real-time monitoring and remote control capabilities while enhancing system interoperability and industry compatibility.
 
 
-## Add New License Types
+## Add New License Items
 
 - Added a license item for 100,000 I/O tags
 - Added a license item for IEC 104
@@ -78,3 +78,7 @@ When clicking a menu item in the Menu control, in addition to the existing optio
 Within a Page Container or IFrame, users can now switch between different pages by clicking menu items without refreshing the current page.
 
 ![](1.png)
+
+## Support importing projects across minor versions
+
+Projects can be imported from an earlier minor version into a later minor version, such as from 5.0.x to 5.1.x. Previously, only projects from the previous patch version, such as 5.0.1 to 5.0.2, were supported.

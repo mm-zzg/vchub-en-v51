@@ -24,6 +24,7 @@
 - **Add "Page Container" and "IFrame" to the navigation method of the Menu:** When using the Menu control for page navigation, support has been added for navigation within the "Page Container" and "IFrame" controls.
 - **Labeling**: If customers have labeling requirements, they can provide assets such as product name, abbreviation, logo, login/logout page images, theme color, and browser icon. We will use these assets to generate a dedicated installation package for the customer.
 - **Reset User Password**: Provide password recovery capability for users, allowing password reset through the login page “Forgot Password” function or via the Command Tool bundled in the installation package.
+- **Support importing projects across minor versions**: Projects can be imported from an earlier minor version into a later minor version, such as from 5.0.x to 5.1.x. Previously, only projects from the previous patch version, such as 5.0.1 to 5.0.2, were supported.
 
 #### 5.0.X
 
