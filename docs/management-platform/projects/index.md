@@ -2,7 +2,7 @@
 
 ## **What is a project?**
 
-Projects are used to manage the visualization elements of the VC Hub system, and through multi-project management, it is possible to clearly differentiate between the presentation and design of configuration screens in several industrial application scenarios. In a project, **configuration controls**, **tag** **s** and **scripts** allow the user to freely configure a variety of digital visualization interfaces in order to cope with different industrial production scenarios.
+Projects are used to manage the visualization elements of the VC Hub system, and through multi-project management, it is possible to clearly differentiate between the presentation and design of configuration screens in several industrial application scenarios. In a project, **configuration controls**, **tags** and **scripts** allow the user to freely configure a variety of digital visualization interfaces in order to cope with different industrial production scenarios.
 
 In the VC Hub system, the project is a configuration unit that contains:
 
