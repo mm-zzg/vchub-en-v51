@@ -35,40 +35,39 @@ Vertical status indicator bars Indicators：
 
 Grid Power
 
-    Red - Over Setpoint
-
-    Yellow - Over Upper Threshold
-
-    Green - Under Upper Threshold
+| **Name**                  | **Description**     |
+|---------------------------|---------------------|
+| Red                       | Over Setpoint       |
+| Yellow                    | Over Upper Threshold|
+| Green                     | Under Upper Threshold|
 
 Remaining Headroom
 
 
 15-Minutes Grid Power Forecast
 
-    Red - Over Setpoint
+| **Name**                  | **Description**     |
+|---------------------------|---------------------|
+| Red                       | Over Setpoint       |
+| Yellow                    | Over Upper Threshold|
+| Green                     | Under Upper Threshold|
 
-    Yellow - Over Upper Threshold
-
-    Green - Under Upper Threshold
-    
 Control Stage - Stage [number according to actual stage]
 
-    Grey - Not active
-
-    Green - Active
-
-    Red - Last stage reached and Peak Load not avoided ( Notification of the User )
+| **Name**                  | **Description**     |
+|---------------------------|---------------------|
+| Grey                      | Not active          |
+| Green                     | Active              |
+| Red                       | Last stage reached and Peak Load not avoided ( Notification of the User )|
 
 Battery Storage SoC 
 
-    Grey - there is no battery
-
-    Green  - SoC > 80% 
-
-    Yellow -SoC > 20% and SoC < 80%
-
-    Red - SoC < 20% or SoC = 0%
+| **Name**                  | **Description**     |
+|---------------------------|---------------------|
+| Grey                      | there is no battery storage|
+| Yellow                    | SoC > 80%             |
+| Red                       | SoC < 20% or SoC = 0% |
+ 
 ![alt text](3.png)
 
 ### 3.2 Real-time Trend Chart
@@ -81,6 +80,9 @@ Tooltip: Users can hover over the chart displays data for a specific point in ti
 
 The checkboxes on the right side of the chart control the visibility of different data curves. A checkmark indicates the item is currently displayed. Users can select/unselect checkboxes.
 ![alt text](Legend.png)
+
+If "Turn off" symbol displays, "Setpoint", "Upper/Lower Threshold" curves and checkboxes will disappear automatically.
+![alt text](6.png)
 
 ### 3.4 Active Controls List
 
@@ -197,9 +199,11 @@ Step 3: Switch to the first window, the setted value is populated.
 
 •Add a new Stage 3 - Decrease Consumption of Controllable Consumers
 
-1. Turn on the toggles that users want.
+1. Click the green + Add Stage button
 
-2. Click "Save" button and Stage 3 is created successfully.
+2. Turn on the toggles that users want.
+
+3. Click "Save" button and Stage 3 is created successfully.
 ![alt text](Add_stage_1.png)
 ![alt text](Add_stage_2_3.png)
 ![alt text](Add_stage_3_3.png)
