@@ -25,11 +25,11 @@ Message notifications indicate normal system events, successful operations, or a
 | :--- | :--- | :--- | :--- |
 | Yellow | Warning | A potential issue or abnormal condition that requires attention. | Monitor the condition and take preventive action if necessary. |
 | Red | Error / Critical | A fault, failure, or critical condition that may affect system operation. | Immediate action is required. Follow the alarm handling procedure. |
-| Black | Info | A normal event, status change, or successful operation. | No immediate action is required. Review if needed. |
+| Black | Info | A normal event, status change, or successful operation. | No immediate action is required. Review if necessary. |
 
 
-Below action will trigger info message on black icon:
-1. VcHub is successfully connected
+The following action will trigger info message on black icon:
+1. VC Hub is successfully connected
 2. Sync is started or completed
 3. System trigger Peakload regulation
 4. System trigger Avoid Peakload regulation
@@ -37,27 +37,26 @@ Below action will trigger info message on black icon:
 6. System stop Reactivation regulation
 
 
-Below action will trigger Error / Critical message on red icon:
-1. VcHub is disconnected
+The following action will trigger Error / Critical message on red icon:
+1. VC Hub is disconnected
 2. License expired
 
-Below action will trigger Warning message on yellow icon:
+The following action will trigger Warning message on yellow icon:
 1. Sync failed
-2. No License 
+2. No License is available
 3. License almost expired
 4. Surplus regulation failed
 
 
-Count of unread message will displayed on the top of icon, click icon, detailed messsage will show on the list. 
+The count of unread messages is displayed at the top of the icon. Click the icon, and detailed messages will be shown in the list.
 
-Click 'Mark all read' button, system will automatically read all unread message, the number of unread messages will decrease 0.
+Click the 'Mark all read' button, and the system will automatically mark all unread messages as read; the number of unread messages will decrease to 0.
 
-
-Click 'Clear all' button, system will automatically delete all messages on the list
+Click the 'Clear all' button, and the system will automatically delete all messages in the list.
 
 ![alt text](u1.png)
 
-Error / Critical messages cannot be removed from the notification list until a user has explicitly acknowledged them. It prevents critical events from being missed, ignored, or deleted without being reviewed.
+Error / Critical messages cannot be removed from the notification list until the user has explicitly acknowledged them. This prevents critical events from being missed, ignored, or deleted without review.
 
 ![alt text](u2.png)
 
@@ -65,7 +64,7 @@ Error / Critical messages cannot be removed from the notification list until a u
 
 ![alt text](u4.png)
 
-When all the Error / Critical or Warning messages are cleared , the relevant icon will disappear
+When all Error / Critical or Warning messages are cleared, the relevant icon will disappear.
 
 ![alt text](u5.png)
 
@@ -73,7 +72,8 @@ When all the Error / Critical or Warning messages are cleared , the relevant ico
 
 ### 2.Version Information
 
-Click Version Infomration button, Version Infomration will display
+Click the Version Information button, and the Version Information will be displayed.
+
 
 ![alt text](u6.png)
 
@@ -82,7 +82,7 @@ Click Version Infomration button, Version Infomration will display
 
 ### 3.System Login
 
-The user avatar in the top bar provides access to account-related functions. Clicking the avatar displays detailed user information. Clicking the Logout button allows the user to securely exit the system.
+The user avatar in the top bar provides access to account-related functions. Clicking the avatar will display detailed user information. Clicking the Logout button allows the user to securely log out of the system.
 
 ![alt text](u8.png)
 
@@ -90,8 +90,8 @@ The user avatar in the top bar provides access to account-related functions. Cli
 
 ## SiderBar Functions
 
-MEMS  provides an integrated set of functions for configuring, monitoring, controlling, and reporting on microgrid operations. It supports the full workflow from component creation and data connection to automatic regulation, alarm handling, system configuration, and energy reporting.
-Users can do these actions by clicking the sidebar button.
+MEMS provides an integrated set of functions for configuring, monitoring, controlling, and reporting on microgrid operations. It supports the full workflow from component creation and data connection to automatic regulation, alarm handling, system configuration, and energy reporting.
+Users can perform these actions by clicking the sidebar buttons.
 
 ![alt text](u11.png)
 
@@ -101,16 +101,16 @@ The Dashboard provides a centralized overview of energy usage across the system.
 
 ![alt text](u12.png)
 
-'Energy Overview' display an overview of energy usage for all configured endpoints, and allow users to configure consumption endpoints and generation endpoints in VcHub.
+'Energy Overview' displays an overview of energy usage for all configured endpoints and allows users to configure consumption endpoints and generation endpoints in VC Hub.
 
-'System State' detect abnormal conditions based on Load Management Settings or user-defined alarm, displaying the corresponding system status.
+'System State' detects abnormal conditions based on Load Management Settings or user-defined alarms and displays the corresponding system status.
 
-'Alarm' can display user-defined alarm when the setting alarm conditions are triggered.
+'Current Alarm' can display user-defined alarms when the configured alarm conditions are triggered.
 
 
 ### 2.Microgrid Components
 
-The Microgrid Components page allows users to build and manage the logical structure of the microgrid by adding different components, subgroups or folders
+The Microgrid Components page allows users to build and manage the logical structure of the microgrid by adding different components, subgroups, or folders.
 
 ![alt text](u13.png)
 
@@ -120,11 +120,11 @@ The Microgrid Components page allows users to build and manage the logical struc
 
 ![alt text](u14.png)
 
-Users can create different types of components and synchronize them to VcHub. 
+Users can create different types of components and synchronize them to VC Hub. 
 
 ![alt text](u17.png)
 
-Once synchronized and connected to real data sources, component data is available on the component details page.
+Once synchronized and connected to real data sources, component data becomes available on the component details page.
 
 ![alt text](u18.png)
 
@@ -132,10 +132,9 @@ Once synchronized and connected to real data sources, component data is availabl
 
 ### 3.Constraints & Tasks
 
-The Constraints & Tasks page allows users to define time-based Constraints and Tasks, and scheduled actions for the microgrid.
+The Constraints & Tasks page allows users to define time-based Constraints and Tasks, as well as scheduled actions for the microgrid.
 
-
-Constraints limit how the system or a component may operate during a specified period. Tasks can schedule charging a battery component during a specified period.
+Constraints limit how the system or a component may operate during a specified period. Tasks can schedule the charging of a battery component during a specified period.
 
 ![alt text](u20.png)
 
@@ -147,7 +146,7 @@ Peak Load Management is a control and monitoring function that helps maintain gr
 
      ![alt text](u21.png)
 
-2. Adjust system consumption — automatically regulate consumption when it is too high or too low, keeping operation within the configured reasonable range by using created satges
+2. Adjust system consumption — automatically regulate consumption when it is too high or too low, keeping operation within the configured reasonable range by using created stages.
 
      ![alt text](u22.png)
 
@@ -185,17 +184,18 @@ This page typically includes the following configuration areas:
 
      ![alt text](u26.png)
 
-2. Set Load Management
+2. Set Load Management Settings
 
      ![alt text](u27.png)
 
-4. Set Data Storage Period
+3. Set Data Storage Limitation
 
      ![alt text](u28.png)
 
-5. License Configuration
+4. License Configuration
+
      ![alt text](u29.png)
 
-6. VcHub Connection Test
+5. VC Hub Connection Test
 
      ![alt text](u30.png)

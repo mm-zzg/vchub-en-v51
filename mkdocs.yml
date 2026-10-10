@@ -661,7 +661,6 @@ nav:
                             - mems/getting-started/index.md
                             - mems/getting-started/login.md
                             - mems/getting-started/user-interface-overview.md
-                            - mems/getting-started/navigation-concept.md
                             - mems/getting-started/dashboard-overview.md
                   - Core Functions:
                             - mems/core-functions/index.md

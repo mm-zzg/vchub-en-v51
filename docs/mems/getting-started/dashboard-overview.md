@@ -26,14 +26,18 @@ The system provides four Energy Role categories:
 
 Each category contains specific component types that can be bound to real devices or data sources. After binding and synchronization, the system can display real-time data and include the component in energy calculations, reports, alarms, and regulation logic.
 
-| Energy Role Category | Available Component Types | Main Purpose | |
-| :--- | :--- | :--- | :--- |
-| Grid & Infrastructure | Grid Connection Meter, Total Meter | Bind to the external grid and participate in energy exchange with the outside. |![alt text](d11.png)|
-| Producer | PV Inverter, Generation Meter, Datalogger | Bind to internal generation devices and monitor generated electricity in real time. |![alt text](d12.png)|
-| Consumer | Charging Infrastructure (WALM), Consumption Meter, Binary Controlled Consumer | Bind to internal consumption devices and monitor consumed electricity in real time. |![alt text](d13.png)|
-| Bidirectional Entity | Battery Storage | Store surplus energy and discharge when energy is insufficient. |![alt text](d14.png)|
+| Energy Role Category | Available Component Types | Main Purpose | 
+| :--- | :--- | :--- |
+| Grid & Infrastructure | Grid Connection Meter, Total Meter | Bind to the external grid and participate in energy exchange with the outside. |
+| Producer | PV Inverter, Generation Meter, Datalogger | Bind to internal generation devices and monitor generated electricity in real time. |
+| Consumer | Charging Infrastructure (WALM), Consumption Meter, Binary Controlled Consumer | Bind to internal consumption devices and monitor consumed electricity in real time. |
+| Bidirectional Entity | Battery Storage | Store surplus energy and discharge when energy is insufficient. |
 
-Users can create the following components and configure the relevant information in VcHub, and then can see the real-time effect on the overview.
+Users can create the Energy Roles components by clicking 'Microgrid Components' siderbar
+
+![alt text](d11.png)
+
+Users can create the following components and configure the relevant information in VCHub, and then can see the real-time effect on the overview.
 
 ![alt text](d15.png)
 
