@@ -649,9 +649,8 @@ nav:
                                                 - 3d-visualization/3d-low-code-example/object-models-in-the-scene/text-annotation/height.md
                                                 - 3d-visualization/3d-low-code-example/object-models-in-the-scene/text-annotation/text.md
         - MEMS:
-                  - mems/index.md
                   - Overview:
-                            - mems/overview/index.md
+                            - mems/index.md
                             - mems/overview/purpose-of-mems.md
                             - mems/overview/architecture.md
                             - mems/overview/main-functions.md
