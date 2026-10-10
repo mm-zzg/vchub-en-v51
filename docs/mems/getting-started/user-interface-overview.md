@@ -29,22 +29,34 @@ Message notifications indicate normal system events, successful operations, or a
 
 
 The following action will trigger info message on black icon:
+
 1. VC Hub is successfully connected
+
 2. Sync is started or completed
+
 3. System trigger Peakload regulation
+
 4. System trigger Avoid Peakload regulation
+
 5. System trigger Reactivation regulation
+
 6. System stop Reactivation regulation
 
 
 The following action will trigger Error / Critical message on red icon:
+
 1. VC Hub is disconnected
+
 2. License expired
 
 The following action will trigger Warning message on yellow icon:
+
 1. Sync failed
+
 2. No License is available
+
 3. License almost expired
+
 4. Surplus regulation failed
 
 
