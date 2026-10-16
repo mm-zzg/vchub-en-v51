@@ -228,8 +228,7 @@ nav:
                             - WAGO Protocol:
                                       - management-platform/devices/wago-protocol/index.md
                                       - management-platform/devices/wago-protocol/batch-operation.md
-                                      - Command Execution: management-platform/devices/wago-protocol/command-execution.md
-                                      - PLC Back-Write Reference: management-platform/devices/wago-protocol/command.md
+                                      - management-platform/devices/wago-protocol/command.md
                             - IEC 104:
                                       - management-platform/devices/iec104/index.md
                                       - management-platform/devices/iec104/tls.md
