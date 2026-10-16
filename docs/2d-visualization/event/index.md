@@ -44,3 +44,9 @@ All controls support lifetime events.
 
 When a page or control is loaded or destroyed, a specific event is triggered.
 
+## WAGO Protocol Commands
+
+Select **Command** under an event's **Action Type** to execute a command on an enabled WAGO Protocol device. You can configure initial execution parameter values and bind response parameters to writable tags. At runtime, the event opens a window where the user checks the parameters and clicks **Execute**.
+
+For the complete configuration and runtime procedure, see [WAGO Protocol Command Execution](../../management-platform/devices/wago-protocol/command-execution.md 'WAGO Protocol Command Execution').
+

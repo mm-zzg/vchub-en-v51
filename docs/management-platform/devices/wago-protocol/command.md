@@ -4,6 +4,8 @@
 
 This document describes how to configure a `WriteValue` command with `WagoAppCloud` and provides a reference implementation for processing the command and generating a response.
 
+This example covers writing through a bound I/O Tag. For executing registered commands in the device details or from a button event, see [Command Execution](command-execution.md).
+
 A typical use case is:
 
 > VC Hub / Cloud sends a WAGO Protocol write command to a WAGO PLC. The PLC locates the target variable by `Name`, writes the supplied `Value`, and returns the execution result.
@@ -15,8 +17,8 @@ A typical use case is:
 
 | Item | Example Value | Description |
 |---|---|---|
-| Command ID | `0` | **User configurable.** `0` is only the value used in this example. The actual ID may be changed as long as it does not conflict with another registered Command ID |
-| Command Name | `WriteValue` | **Must be exactly `WriteValue` for VC Hub back-write.** VC Hub internally uses this fixed command name; changing it will cause VC Hub back-write to fail |
+| Command ID | `0` | Must match the VC Hub backend's `WagoPlcOptions.CommandId` configuration and the PLC handler. Its default is `0`; changing only the PLC ID will break I/O tag back-write |
+| Command Name | `WriteValue` | Example PLC registration name. The I/O tag back-write driver identifies the command by its configured ID; it does not look it up by this name |
 | Number of Request Parameters | `3` | `Name`, `Value`, `RequestId` |
 | Number of Response Parameters | `3` | `Name`, `Success`, `RequestId` |
 
@@ -30,7 +32,7 @@ aCommandDescriptions[0]
 
 `[0]` is only the **array subscript** of the IEC 61131-3 / Structured Text array `aCommandDescriptions`. It means that this example stores the command description in the first element of the array.
 
-It is **not a WAGO Protocol Command configuration parameter**, and there is no separate protocol field that needs to be configured as `Command Index`. The previous `Command Index` row has therefore been removed from this document.
+It is **not a WAGO Protocol Command configuration parameter**, and there is no separate protocol field that needs to be configured as `Command Index`.
 
 For example, an application with several commands may use:
 
@@ -49,17 +51,17 @@ aCommandDescriptions[1].bCommandId := 20;
 
 The protocol command is identified by `bCommandId` and the other properties of the command description, not by the PLC array subscript `[0]`.
 
-### 2.2 Two Critical Requirements for VC Hub Back-Write
+### 2.2 Matching the PLC and VC Hub Configuration
 
-> **Command ID is configurable; Command Name is fixed to `WriteValue`.**
+1. **Use the same Command ID in VC Hub and the PLC.** I/O tag back-write uses the backend's `WagoPlcOptions.CommandId`, which defaults to `0`. If you choose another ID, update the backend configuration, PLC command description, and PLC `CASE` branch together. Do not reuse an ID reserved for a built-in command.
+2. **Keep the three-parameter write contract.** The request contains `Name`, `Value`, and `RequestId`; the response contains `Name`, `Success`, and `RequestId` in that order. All are strings. VC Hub supplies a numeric request identifier as a string; return it unchanged.
+3. **Use a descriptive registration name.** This example uses `WriteValue`. Its name is displayed when the PLC registers it as a custom command, but it does not select the command for I/O tag back-write.
 
-1. **The Command ID can be defined by the user.** The value `0` in this document is only an example. Any non-conflicting ID may be used.
-2. **The Command Name must be `WriteValue`.** This is a VC Hub integration requirement, not a general restriction of the WAGO Protocol. VC Hub internally invokes the back-write command using the fixed name `WriteValue`; another name will cause the VC Hub back-write operation to fail.
-3. If the Command ID is changed, the corresponding `CASE` branch in the command-processing code must be changed as well. For example, if the ID is changed to `10`:
+For example, if the backend's write Command ID is configured as `10`:
 
 ```iecst
 aCommandDescriptions[0].bCommandId := 10;
-aCommandDescriptions[0].sName := 'WriteValue'; // Required by VC Hub back-write. Do not rename.
+aCommandDescriptions[0].sName := 'WriteValue'; // Example registration name.
 ```
 
 then the processing logic must use:
@@ -76,7 +78,7 @@ END_CASE
 ```iecst
 // Configure Command0 to accept three string parameters
 // and reply with three string parameters.
-aCommandDescriptions[0].bCommandId := 0; // Example only. The Command ID can be customized, but must be unique.
+aCommandDescriptions[0].bCommandId := 0; // Match the VC Hub backend's write Command ID.
 aCommandDescriptions[0].bNumberOfRequestParameters := 3;
 aCommandDescriptions[0].bNumberOfResponseParameters := 3;
 aCommandDescriptions[0].sName := 'WriteValue';
@@ -114,19 +116,18 @@ aCommandDescriptions[0].aResponseParameters[2].eParameterType :=
 |---:|---|---|---|---|
 | `0` | `Name` | `CPT_STRING` | Name of the Tag / Point to be written | `TagA` |
 | `1` | `Value` | `CPT_STRING` | New value to be written | `TRUE` |
-| `2` | `RequestId` | `CPT_STRING` | Application-level request identifier | `REQ-0001` |
+| `2` | `RequestId` | `CPT_STRING` | Numeric request identifier generated by VC Hub, transported as a string | `1234` |
 
 ### Example Request
 
-> `CommandId = 0` below is only an example. If another unique ID is configured, use that ID instead; `CommandName` must remain `WriteValue`.
+> The example uses the default write `CommandId` of `0`. If another ID is configured in the backend and PLC, use that ID. The MQTT request carries `CommandId` and `CommandParameters`; the registration name is not sent as a `CommandName` field.
 
 ```text
 CommandId = 0
-CommandName = WriteValue
 
 Name      = TagA
 Value     = TRUE
-RequestId = REQ-0001
+RequestId = 1234
 ```
 
 Although the actual PLC variable may be a `BOOL`, `INT`, `REAL`, or another type, all parameters in this example are defined as `STRING`. The PLC program therefore converts the received string to the target PLC data type.
@@ -143,14 +144,14 @@ STRING_TO_BOOL(IncomingCommand.aRequestParameters[1].sParameterValue)
 |---:|---|---|---|---|
 | `0` | `Name` | `CPT_STRING` | Tag / Point associated with this write operation | `TagA` |
 | `1` | `Success` | `CPT_STRING` | Indicates whether the write succeeded | `TRUE` / `FALSE` |
-| `2` | `RequestId` | `CPT_STRING` | The same application-level request ID received in the request | `REQ-0001` |
+| `2` | `RequestId` | `CPT_STRING` | The same numeric request ID string received in the request | `1234` |
 
 Successful response:
 
 ```text
 Name      = TagA
 Success   = TRUE
-RequestId = REQ-0001
+RequestId = 1234
 ```
 
 Failed response:
@@ -158,12 +159,12 @@ Failed response:
 ```text
 Name      = TagA
 Success   = FALSE
-RequestId = REQ-0001
+RequestId = 1234
 ```
 
 ## 5. Response Processing Reference Code
 
-> The `CASE ... 0:` branch below corresponds to the example `bCommandId := 0`. If the Command ID is changed, this CASE value must be changed to the same ID.
+> The `CASE ... 0:` branch below corresponds to the example `bCommandId := 0` and VC Hub's default write Command ID. If the ID is changed, update this branch and the backend configuration to the same ID.
 >
 > The generic example also assumes that the project provides `dwConfiguredTagCount` (the actual number of configured writable Tags) and declares typed pointers for the supported destination types, such as `POINTER TO BOOL`, `POINTER TO INT`, and `POINTER TO REAL`. Adapt the Tag array name, collection count field, and pointer-casting syntax to the actual project and WagoAppCloud version.
 
@@ -369,15 +370,16 @@ END_IF
 | 17 | `xResponseTrigger := TRUE` | Triggers sending of the response |
 
 
-## 7. Difference Between `CommandId`, `InvokeId`, and `RequestId`
+## 7. Request and Response Identifiers
 
 These identifiers serve different purposes.
 
 | ID | Source | Purpose |
 |---|---|---|
-| `CommandId` | Command configuration | Identifies which command should be executed, e.g. `0 = WriteValue` |
+| `CommandId` | Command configuration | Identifies the operation; for I/O tag back-write it must match the backend's configured write Command ID |
 | `InvokeId` | WagoAppCloud / protocol layer | Correlates a protocol command invocation with its response |
-| `RequestId` | Application request parameter | Application-level identifier defined by VC Hub / the calling application |
+| `RequestId` | Application request parameter | Numeric identifier supplied by VC Hub as a string; the legacy write response returns it as its third parameter |
+| `CommandRequestId` | General command response | Top-level numeric identifier used to correlate responses for commands executed from device details or page events |
 
 Conceptually:
 
@@ -395,6 +397,26 @@ RequestId
 “Which business-level write request does this belong to?”
 ```
 
+### 7.1 General Command Execution Responses
+
+Commands executed from the device details or a page event use a separate response contract. VC Hub automatically appends the string `RequestId` to the request parameters. The PLC's MQTT response must return the same identifier as a top-level numeric `CommandRequestId`, together with the matching `CommandId` and its `CommandResponseParameters`.
+
+For example, a general execution of this registered write command with `RequestId = "1234"` can return:
+
+```json
+{
+  "CommandId": 0,
+  "CommandRequestId": 1234,
+  "CommandResponseParameters": [
+    { "Name": "Name", "Value": "TagA" },
+    { "Name": "Success", "Value": "TRUE" },
+    { "Name": "RequestId", "Value": "1234" }
+  ]
+}
+```
+
+Returning only the legacy third response parameter does not complete a general command execution. Conversely, the I/O tag back-write path still requires the three response parameters in the order described above. If the PLC application supports both entry points, ensure its response handling satisfies both contracts.
+
 
 ## 8. Example Execution Flow
 
@@ -404,7 +426,7 @@ VC Hub sends:
 CommandId = 0
 Name      = TagA
 Value     = TRUE
-RequestId = REQ-0001
+RequestId = 1234
 ```
 
 PLC processing:
@@ -438,7 +460,7 @@ Response:
 ```text
 Name      = TagA
 Success   = TRUE
-RequestId = REQ-0001
+RequestId = 1234
 ```
 
 
@@ -589,7 +611,7 @@ VC Hub / Cloud
       | CommandId = 0
       | Name = TagA
       | Value = TRUE
-      | RequestId = REQ-0001
+      | RequestId = 1234
       v
 +---------------------------+
 |         WAGO PLC          |
@@ -623,7 +645,7 @@ VC Hub / Cloud
       |
       | Name = TagA
       | Success = TRUE
-      | RequestId = REQ-0001
+      | RequestId = 1234
       v
 VC Hub / Cloud
 ```
