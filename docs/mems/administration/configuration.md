@@ -18,7 +18,7 @@ For more details, users can refer to [Create Roles](../../management-platform/Se
 ## 4. Create a user
 Click Security >> User
 ![alt text](5.png)
-For more details, users can refer to [Create Roles](../../management-platform/Security/roles-and-users.md) for the VcHub interface configuration
+For more details, users can refer to [Create Users](../../management-platform/Security/roles-and-users.md) for the VcHub interface configuration
 
 ## 5. Create a Project
 Click Projects >> Project
