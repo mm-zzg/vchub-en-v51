@@ -18,7 +18,7 @@ This module contains three main tabs:
 **Priority List**: Used to display the priority of various Charging Infrastructure(WALM) when peak load shedding is required.
 
 ## 3. Overview page
-The Overview page is divided into four main areas: **Key Metrics Cards**, **Real-time Trend Chart**, Legend, and **Active Controls List**.
+The Overview page is divided into four main areas: **Key Metrics Cards**, **Real-time Trend Chart**, **Legend**, and **Active Controls List**.
 
 ### 3.1 Key Metrics Cards
 The five cards at the top of the page provide core operational data for the current system status:
@@ -29,7 +29,7 @@ The five cards at the top of the page provide core operational data for the curr
 | Remaining Headroom        | The available power remaining before reaching the peak Setpoint. |
 | 15-Minute Grid Power Forecast | The system's predicted average grid power for the next 15 minutes, used for proactive decision-making. |
 | Control Stage             | The current control stage the system is in.|
-| SoC Battery Storages      | The average State of Charge (SoC) percentage of all connected controllable battery storages.|
+| SoC Battery Storages      | The average State of Charge (SoC) percentage of all connected battery storages.|
 
 Vertical status indicator bars Indicators：
 
@@ -79,6 +79,7 @@ Tooltip: Users can hover over the chart displays data for a specific point in ti
 ### 3.3 Legend
 
 The checkboxes on the right side of the chart control the visibility of different data curves. A checkmark indicates the item is currently displayed. Users can select/unselect checkboxes.
+
 ![alt text](Legend.png)
 
 If "Turn off" symbol displays, "Setpoint", "Upper/Lower Threshold" curves and checkboxes will disappear automatically.

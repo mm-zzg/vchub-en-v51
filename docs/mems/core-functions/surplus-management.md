@@ -25,7 +25,8 @@ The top of the page displays four key real-time metrics of the microgrid's curre
 ## 3. Actions to Utilize Surplus Energy
 This area is the core management interface, allowing users to define the processing logic for surplus energy by creating and prioritizing "Stages". The system executes these actions sequentially (Stage 1 -> Stage 2 -> ...).
 
-Stage configuration
+#### Stage configuration
+
 •Add a new Stage 1 - Charge Battery Storages
 
 1. Click the green + Add Stage button
@@ -65,20 +66,21 @@ Select "Turn On Binary Controlled Consumer" for "Action" field
 
 1. Click the green + Add Stage button
 
-Select "Activate Boost Mode" for "Action" field
+2. Select "Activate Boost Mode" for "Action" field
 
 3. Select target component for "Component" field
 
 4. Click "Save" button, and Stage 4 is created successfully.
 ![alt text](s7.png)
 
-## 4.Operational Recommendations:
+## 4. Operational Recommendations:
 
-•Edit a Stage
+•Edit/Delete a Stage
 
-If users need to modify charging limits or load trigger conditions, click the Edit button of the corresponding stage to make adjustments.
+If users need to modify charging limits or load trigger conditions, click the Edit/Delete button of the corresponding stage to make adjustments.
 
 ![alt text](s8.png)
+
 
 • Dragging a stage
 Users can adjust the execution priority of the stages by dragging the = icon on the left side of each stage (as shown in the image).
