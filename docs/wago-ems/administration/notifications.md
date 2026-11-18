@@ -1,7 +1,7 @@
 # Notifications
 
 
-## 1. Message Notifications in WAGO EMS { id="1-message-notifications-in-wagoems" }
+## 1. Message Notifications in WAGO EMS
 
 
 Message notifications indicate normal system events, successful operations, or automatic regulation activities, generally divided into three categories based on severity and display color:

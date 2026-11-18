@@ -1,10 +1,10 @@
-# Purpose of WAGO EMS { #purpose-of-wagoems }
+# Purpose of WAGO EMS
 
-WAGO Energy Management System (WAGO EMS) is the operational brain of a modern microgrid. It connects generation, storage, consumption, and grid interaction into one coordinated control and monitoring structure so that the system can be operated safely, reliably, and efficiently.
+Microgrid Energy Management System (WAGO EMS) is the operational brain of a modern microgrid. It connects generation, storage, consumption, and grid interaction into one coordinated control and monitoring structure so that the system can be operated safely, reliably, and efficiently.
 
 In a microgrid, several energy resources may be active at the same time, such as photovoltaic generation, battery energy storage, loads, EV charging, protection devices, and grid exchange. A microgrid without a dedicated energy management layer is difficult to run in an optimal way because operators must manually balance energy flows, protect critical loads, and react to changing conditions in real time. WAGO EMS provides this missing layer by collecting data, evaluating the current state of the microgrid, and applying control strategies based on both technical constraints and operational goals.
 
-## Goals of WAGO EMS { #goals-of-wagoems }
+## Goals of WAGO EMS
 
 The main purpose of WAGO EMS is to ensure that the microgrid behaves as a unified and controllable energy system rather than as a collection of separate devices.
 
@@ -16,7 +16,7 @@ The main purpose of WAGO EMS is to ensure that the microgrid behaves as a unifie
 - Visibility and traceability: provide a clear view of power flow, alarms, trend data, and operating history so that operators can understand what is happening and why.
 - Centralized supervision: enable operators to monitor and manage the microgrid from a unified platform while still allowing local autonomy when needed.
 
-## Why WAGO EMS matters { #why-wagoems-matters }
+## Why WAGO EMS matters
 
 Microgrids are usually more complex than a single installation or a conventional power system. They combine variable renewable power, flexible storage, switching logic, protection functions, and sometimes multiple operating modes. In such an environment, decisions must be made in real time. WAGO EMS provides the logic to interpret system status, detect abnormal conditions, and trigger the correct control action.
 
@@ -28,7 +28,7 @@ This is especially important for:
 - improving resilience during grid disturbances or outages
 - providing a clear operational picture for remote and centralized supervision
 
-## WAGO EMS in the VC Hub environment { #wagoems-in-the-vc-hub-environment }
+## WAGO EMS in the VC Hub environment
 
 The WAGO EMS functionality is integrated into the VC Hub platform so that microgrid operation can be managed together with data acquisition, dashboards, alarms, historical storage, reporting, and system visualization. In practice, this means WAGO EMS is not isolated from the rest of the industrial automation environment; it becomes part of a larger digital platform for monitoring, control, and optimization.
 

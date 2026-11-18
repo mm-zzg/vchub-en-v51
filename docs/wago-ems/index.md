@@ -2,7 +2,7 @@
 
 **What is WAGO EMS?**
 
-WAGO Energy Management System (WAGO EMS) is a control and optimization solution for modern microgrids, designed to coordinate generation, storage, loads, and grid interaction within the VC Hub platform.
+Microgrid Energy Management System (WAGO EMS) is a control and optimization solution for modern microgrids, designed to coordinate generation, storage, loads, and grid interaction within the VC Hub platform.
 
 ## Overview
 

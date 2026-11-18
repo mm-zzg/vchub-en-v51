@@ -6,7 +6,7 @@ There are three main functional modules on the dashboard: Energy Overview, Syste
 
 ## 1.Energy Overview
 
-WAGO EMS (WAGO Energy Management System) manages electricity generation, consumption, and storage within a microgrid. It continuously balances supply and demand to ensure stable, efficient, and reliable operation. The system includes generation/supply roles, consumption roles, and a battery storage role.
+WAGO EMS (Microgrid Energy Management System) manages electricity generation, consumption, and storage within a microgrid. It continuously balances supply and demand to ensure stable, efficient, and reliable operation. The system includes generation/supply roles, consumption roles, and a battery storage role.
 
 
 

@@ -27,7 +27,7 @@ WAGO EMS does not maintain a separate user directory or an independent permissio
 
 Manage upstream user accounts and their access in VC Hub. Do not create or manage daily user accounts in WAGO EMS.
 
-For information about managing users, roles, permissions, and access controls in VC Hub, see [Security](../management-platform/security/index.md).
+For information about managing users, roles, permissions, and access controls in VC Hub, see [Security](../management-platform/security/).
 
 Keycloak administrators should maintain the VC Hub IdP configuration used by the `wago-ems` realm. This configuration includes the VC Hub issuer URL, client ID, client secret, and redirect URIs created during WAGO EMS installation.
 

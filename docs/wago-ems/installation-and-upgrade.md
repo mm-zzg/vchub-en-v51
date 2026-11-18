@@ -1,6 +1,6 @@
-# WAGO EMS Offline Installation { #wagoems-offline-installation }
+# WAGO EMS Offline Installation
 
-WAGO Energy Management System (WAGO EMS)
+WAGO Microgrid Energy Management System (WAGO EMS)
 
 This manual describes how to install, verify, update and remove WAGO EMS on a machine
 with **no internet access**.
@@ -258,6 +258,12 @@ the selection later, run `update` with `--all-services` or
 `--main-services-only`; the extra images are loaded from the bundle at that
 point.
 
+A bundle built before the main/extra split contains a single
+`images/wago-ems.tar` and declares no main service set. `--main-services-only`
+still works with it — the installer warns, falls back to the built-in main
+service list above, and loads every bundled image even though it starts only the
+main ones.
+
 ### 3.5 Phases and what happens on failure
 
 The run is reported in eleven phases. The one that fails names the cause:
@@ -325,11 +331,10 @@ update.
 
 **1. Register the WAGO EMS login client.** In the VC Hub administration UI, create
 or update the OpenID client you named during installation (default `WAGOEMSKeyCloak`).
-Use the public Keycloak origin configured in `KEYCLOAK_URL` for both redirect URIs.
 
 ```text
-Redirect URI        https://<keycloak-host>:<keycloak-https-port>/realms/wago-ems/broker/vchub/endpoint
-Logout redirect URI https://<keycloak-host>:<keycloak-https-port>/realms/wago-ems/broker/vchub/endpoint/logout_response
+Redirect URI        https://<hostname>:<keycloak-https-port>/realms/wago-ems/broker/vchub/endpoint
+Logout redirect URI https://<hostname>:<keycloak-https-port>/realms/wago-ems/broker/vchub/endpoint/logout_response
 ```
 
 **2. Enable the Walm driver and allow embedding.** In the VC Hub
@@ -402,8 +407,7 @@ otherwise it is prompted for. Apply it afterwards with `install-wago-ems compose
 
 ## 7. Update
 
-These instructions apply to an existing WAGO EMS installation. An update keeps
-the environment file, the certificates and every database volume.
+An update keeps the environment file, the certificates and every database volume.
 It never prompts. There is **no automatic rollback**, so back up first.
 
 ### 7.1 Back up

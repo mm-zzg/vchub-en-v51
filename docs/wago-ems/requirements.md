@@ -4,7 +4,7 @@ WAGO EMS is installed as a Docker Compose stack. Before you start, make sure the
 target host and the connected VC Hub deployment satisfy the following
 conditions.
 
-## WAGO EMS host requirements { #wagoems-host-requirements }
+## WAGO EMS host requirements
 
 | Requirement    | Minimum                                                           | Checked by the installer |
 | -------------- | ----------------------------------------------------------------- | ------------------------ |
