@@ -14,7 +14,7 @@ When exporting Modbus RTU devices, the exported file will include frame informat
 
 **Example of an Exported File:**
 
-<![alt text](7.png)
+![alt text](7.png)
 
 - The content inside the red box represents the field information.
 - If it is a device, the "IsDevice" field is set to **True**.

@@ -1,12 +1,12 @@
 # Main Functions
 
-MEMS is the supervisory layer that turns a collection of local power assets into a coordinated microgrid. It monitors the real-time state of generation, storage, consumption, and grid exchange, then applies control logic to keep the system safe, stable, and efficient. In practice, MEMS is responsible for the decisions that connect individual devices into one operating energy system.
+WAGO EMS is the supervisory layer that turns a collection of local power assets into a coordinated microgrid. It monitors the real-time state of generation, storage, consumption, and grid exchange, then applies control logic to keep the system safe, stable, and efficient. In practice, WAGO EMS is responsible for the decisions that connect individual devices into one operating energy system.
 
-The functional scope of MEMS is aligned with the current product requirements: it supports grid-connected microgrid operation, manages distributed energy resources, optimizes storage use, and provides visibility for operators and engineers.
+The functional scope of WAGO EMS is aligned with the current product requirements: it supports grid-connected microgrid operation, manages distributed energy resources, optimizes storage use, and provides visibility for operators and engineers.
 
 ## Functional Overview
 
-MEMS covers the main operational functions required to run a modern microgrid in a controlled and repeatable way:
+WAGO EMS covers the main operational functions required to run a modern microgrid in a controlled and repeatable way:
 
 - real-time monitoring of the complete energy system
 - coordination of generation, storage, loads, and grid power exchange
@@ -16,7 +16,7 @@ MEMS covers the main operational functions required to run a modern microgrid in
 
 ## 1. Real-Time Monitoring and System State Awareness
 
-MEMS continuously collects and interprets data from the microgrid. This includes power flows, voltages, currents, battery state of charge, generator status, load demand, and grid conditions. By consolidating these values in one supervisory layer, MEMS gives operators a clear operational picture of the current energy state.
+WAGO EMS continuously collects and interprets data from the microgrid. This includes power flows, voltages, currents, battery state of charge, generator status, load demand, and grid conditions. By consolidating these values in one supervisory layer, WAGO EMS gives operators a clear operational picture of the current energy state.
 
 Typical monitoring functions include:
 
@@ -29,7 +29,7 @@ This visibility is essential for both daily operation and incident response. Wit
 
 ## 2. Battery Energy Management and Storage Optimization
 
-Battery storage is one of the most important assets in a microgrid because it provides flexibility, reserve capacity, and dynamic balancing. MEMS manages storage according to operating constraints and strategic goals.
+Battery storage is one of the most important assets in a microgrid because it provides flexibility, reserve capacity, and dynamic balancing. WAGO EMS manages storage according to operating constraints and strategic goals.
 
 Core functions include:
 
@@ -41,7 +41,7 @@ This allows the microgrid to absorb surplus renewable energy, release stored ene
 
 ## 3. Peak Load Management and Reactivation
 
-One of the key industrial objectives in microgrid operation is to avoid unnecessary power peaks. MEMS includes a coordinated Peak Load Management and Reactivation strategy that monitors the combined demand and takes corrective action before a limit is exceeded.
+One of the key industrial objectives in microgrid operation is to avoid unnecessary power peaks. WAGO EMS includes a coordinated Peak Load Management and Reactivation strategy that monitors the combined demand and takes corrective action before a limit is exceeded.
 
 Typical peak management behavior includes:
 
@@ -59,7 +59,7 @@ This control sequence helps reduce energy cost, avoid demand penalties, and rest
 
 ## 4. Surplus Management and Renewable Utilization
 
-When generation exceeds local demand, MEMS can take action to use that surplus effectively instead of wasting it or exporting unnecessarily. This is especially relevant for renewable generation, where the available power may vary strongly with weather and usage patterns.
+When generation exceeds local demand, WAGO EMS can take action to use that surplus effectively instead of wasting it or exporting unnecessarily. This is especially relevant for renewable generation, where the available power may vary strongly with weather and usage patterns.
 
 Examples of surplus management include:
 
@@ -71,7 +71,7 @@ The result is a more efficient microgrid that makes better use of local generati
 
 ## 5. Alarm Handling
 
-MEMS monitors operating conditions and raises alarms when the system reaches the configured limits for the supported grid-connected control strategies.
+WAGO EMS monitors operating conditions and raises alarms when the system reaches the configured limits for the supported grid-connected control strategies.
 
 The alarm mechanisms currently described in the product scope are limited to:
 
@@ -80,12 +80,12 @@ The alarm mechanisms currently described in the product scope are limited to:
 
 ## 6. Reporting, Traceability, and Operational Insight
 
-For an energy management system, visibility is as important as control. MEMS records operating data and sensitive events so that operators can review what happened and why.
+For an energy management system, visibility is as important as control. WAGO EMS records operating data and sensitive events so that operators can review what happened and why.
 
 This traceability helps operators improve their operating strategy, diagnose faults, and document the performance of the microgrid over time.
 
 ## Summary
 
-The main functions of MEMS are to supervise, coordinate, optimize, and monitor the microgrid as a unified energy system. By combining real-time monitoring, storage control, generation coordination, load demand management, peak management, and operational safety logic, MEMS enables stable and efficient grid-connected microgrid operation in normal and constrained conditions.
+The main functions of WAGO EMS are to supervise, coordinate, optimize, and monitor the microgrid as a unified energy system. By combining real-time monitoring, storage control, generation coordination, load demand management, peak management, and operational safety logic, WAGO EMS enables stable and efficient grid-connected microgrid operation in normal and constrained conditions.
 
-In short, MEMS acts as the control and optimization layer between energy sources, storage, loads, and the grid. Its purpose is to ensure that the microgrid can operate safely, reliably, and economically while making the best use of available renewable and stored energy resources under grid-connected operation.
+In short, WAGO EMS acts as the control and optimization layer between energy sources, storage, loads, and the grid. Its purpose is to ensure that the microgrid can operate safely, reliably, and economically while making the best use of available renewable and stored energy resources under grid-connected operation.
