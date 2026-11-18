@@ -1,12 +1,12 @@
 # Configuration
 ## VC Hub side:
 ## 1. Create a Client Id to use VC Hub as its identity provider to authenticate its end user.
-In **Security → OIDC Server (Open API)**, register `WAGOEMSKeyCloak` with the **Authorization Code Flow** grant type for user sign-in and sign-out.
+Click Security >> OIDC Server(Open API)
 ![alt text](2.png)
 For more details, users can refer to [OIDC Server](../../management-platform/Security/open-api.md) for the VcHub interface configuration
 
 ## 2. Create a Client Id to use VC Hub Connections by making Open API requests from its backend.
-In **Security → OIDC Server (Open API)**, register `WAGOEMSHTTPS` with the **Client Credentials Flow** grant type for backend Open API requests.
+Click Security >> OIDC Server(Open API)
 ![alt text](3.png)
 For more details, users can refer to [OIDC Server](../../management-platform/Security/open-api.md) for the VcHub interface configuration
 
@@ -45,7 +45,7 @@ Node Port*: Enter VC Hub communication port number, default value 10443.
 
 API Version*: Enter the API version number, default value v1. 
 
-Client ID*: Enter the backend client ID registered in VC Hub (`WAGOEMSHTTPS` in this guide).
+Client ID*: The client identifier used for authentication, enter Client Id which created on VC Hub. 
 
 Client Secret*: The password used for authentication, enter Secret which created on VC Hub.
 

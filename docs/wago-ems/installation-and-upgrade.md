@@ -314,9 +314,9 @@ their fixed paths. It is **not remembered** — pass the same value to `update`,
 | Trust stores   | Copies the reverse-proxy certificate into both trust directories so Keycloak and WAGO EMS trust each other through the proxy. Additional CAs are picked up as PEM/CRT files from `keycloak-truststore` and `wago-ems-truststore` — no Java truststore, no `keytool`. |
 | VC Hub certificate | Downloads the VC Hub web server certificate and checks that its subject alternative names cover the host in `VC_HUB_URL`. If VC Hub is unreachable, the download fails or the names do not match, the installation stops with exit code 2 and names the mismatch, for example `Certificate for <10.160.100.46> doesn't match any of the subject alternative names: [pc-sz-fsu-1, localhost, 127.0.0.1]`. On a name mismatch an interactive run offers to generate a matching self-signed certificate; it is written as a password-protected PKCS#12 file to `vchub-cert/vchub.pfx` in the configuration directory and the password is printed to the terminal only. Upload it in VC Hub under **Node → Certificate Management** (or set `VC_HUB_URL` to a covered host name), then run the installer again. Unattended runs (`--yes`, `update`, non-interactive shells) skip the whole step unless the answer file sets `VC_HUB_TRUST_CERT=yes`. |
 | Ports          | Detects occupied ports, shifts to the next free one and reports each substitution.               |
-| Keycloak realm | Renders the `wago-ems` realm template with the deployment origin and the VC Hub credentials, then imports it on the **first** Keycloak start. |
+| Keycloak realm | Renders the realm template with the deployment origin and the VC Hub credentials, then imports it on the **first** Keycloak start. |
 | Health         | Waits for both databases, Keycloak and the application (`--wait`). The observability services are probed separately and only produce warnings. |
-| Verification   | Checks the OpenID configuration for the `wago-ems` realm, verifies that the `wago-ems` client accepts the deployment redirect URI, and confirms that the `vchub` identity provider is offered. |
+| Verification   | Confirms the realm's OpenID configuration, that the `wago-ems` client accepts the deployment redirect URI, and that the `vchub` identity provider is offered. |
 | Data safety    | `update` compares the set of named volumes before and after and fails if it changed.             |
 | Logging        | Writes one timestamped log per run and replaces every generated secret with `******`.            |
 
@@ -329,8 +329,8 @@ WAGO EMS has no administrative access to. The installer prints both, with the
 hostname and ports that were actually used, at the end of every install and
 update.
 
-**1. Register the WAGO EMS login client.** In the VC Hub administration UI, create
-or update the OpenID client you named during installation (default `WAGOEMSKeyCloak`).
+**1. Register the WAGO EMS client.** In the VC Hub administration UI, create or
+update the OpenID client you named during the installation:
 
 ```text
 Redirect URI        https://<hostname>:<keycloak-https-port>/realms/wago-ems/broker/vchub/endpoint
@@ -513,7 +513,7 @@ sudo ./install-wago-ems.sh uninstall
 
 > **Warning — irreversible.** `--purge-data` deletes every WAGO EMS database volume,
 > every generated certificate and the environment file. All measurement history,
-> component configuration and Keycloak users in the `wago-ems` realm are lost. Back up
+> component configuration and Keycloak users in the WAGO EMS realm are lost. Back up
 > first ([7.1](#71-back-up)).
 
 **Linux**
@@ -662,8 +662,8 @@ Everything else comes from the template unchanged.
 | `KC_TRUSTSTORE_HOST_DIR`, `APP_TRUSTSTORE_HOST_DIR`, `NGINX_CERTS_HOST_DIR` | derived | Certificate and truststore directories on the host |
 
 The VC Hub client keys are used by the installer to render the Keycloak realm. `VC_HUB_URL` is
-also referenced by Compose for the application CSP. `KEYCLOAK_URL` configures Keycloak and
-sets the backend's OIDC issuer to `https://<keycloak-host>:<keycloak-https-port>/realms/wago-ems`.
+also referenced by Compose for the application CSP; `KEYCLOAK_URL` configures Keycloak itself and
+the WAGO EMS backend.
 
 `KC_LOG_LEVEL` defaults to `INFO`. `DEBUG` is very verbose and can expose request
 detail — do not leave it on in production.

@@ -29,7 +29,7 @@ Manage upstream user accounts and their access in VC Hub. Do not create or manag
 
 For information about managing users, roles, permissions, and access controls in VC Hub, see [Security](../management-platform/security/).
 
-Keycloak administrators should maintain the VC Hub IdP configuration used by the `wago-ems` realm. This configuration includes the VC Hub issuer URL, client ID, client secret, and redirect URIs created during WAGO EMS installation.
+Keycloak administrators should maintain the VC Hub IdP configuration used by the WAGO EMS realm. This configuration includes the VC Hub issuer URL, client ID, client secret, and redirect URIs created during WAGO EMS installation.
 
 For the required VC Hub client and redirect URI configuration, see [Installation and upgrade](installation-and-upgrade.md#5-finish-the-setup-in-vc-hub).
 
