@@ -30,9 +30,9 @@ Click Projects >> Project >> Design >> New Page
 ![alt text](7.png)
 For more details, users can refer to [Create Pages](../../2d-visualization/page/index.md) for the VcHub interface configuration
 
-## MEMS Side:
-## 1. Configure page on MEMS
-After logging into MEMS system, Click left navigation siderbar Project Settings >> VC Hub Connections tab
+## WAGO EMS Side:
+## 1. Configure page on WAGO EMS
+After logging into WAGO EMS system, Click left navigation siderbar Project Settings >> VC Hub Connections tab
 ![alt text](1.png)
 
 ### 1.1 Master Node Settings

@@ -3,7 +3,7 @@
 
 ## Top Bar Functions
 
-The top area of the MEMS user interface provides three main categories of functions:
+The top area of the WAGO EMS user interface provides three main categories of functions:
 
 1.Message Notifications
 
@@ -102,7 +102,7 @@ The user avatar in the top bar provides access to account-related functions. Cli
 
 ## SiderBar Functions
 
-MEMS provides an integrated set of functions for configuring, monitoring, controlling, and reporting on microgrid operations. It supports the full workflow from component creation and data connection to automatic regulation, alarm handling, system configuration, and energy reporting.
+WAGO EMS provides an integrated set of functions for configuring, monitoring, controlling, and reporting on microgrid operations. It supports the full workflow from component creation and data connection to automatic regulation, alarm handling, system configuration, and energy reporting.
 Users can perform these actions by clicking the sidebar buttons.
 
 ![alt text](u11.png)
@@ -188,7 +188,7 @@ The range of data that users can see is controlled by configuration in the Proje
 
 ### 7.Project Settings
 
-The Project Settings page provides system-level configuration options for the MEMS project. It allows authorized users to define basic project information, control time and regional settings, enable or disable load management, manage data retention, configure licensing, and verify connectivity to VcHub.
+The Project Settings page provides system-level configuration options for the WAGO EMS project. It allows authorized users to define basic project information, control time and regional settings, enable or disable load management, manage data retention, configure licensing, and verify connectivity to VcHub.
 
 This page typically includes the following configuration areas:
 

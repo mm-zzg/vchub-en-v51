@@ -1,10 +1,10 @@
 # Surplus Management
 ## 1. Introduction
 The "Surplus Management" page is used to monitor and manage the surplus energy generated within the microgrid. Through predefined control stages, the system automatically allocates or consumes excess power to maintain system stability and efficiency.
-Peak Load Management is activated if "Activate Load Managent" toggle is activated in the "Project Settings" based on entered "Setpoints", "Upper Threshold" and "Lower Threshold".
+Surplus Management is activated if "Activate Load Managent" toggle is activated in the "Project Settings" based on entered "Setpoints", "Upper Threshold" and "Lower Threshold".
 ![alt text](1.png)
 
-Users inactivate "Activete Load Managent" toggle, "Turn off" symbol displays to present the "Peak Load Management" feature of the system is currently inactivated.
+Users inactivate "Activete Load Managent" toggle, "Turn off" symbol displays to present the "Surplus Management" feature of the system is currently inactivated.
 ![alt text](s1.png)
 
 ## 2. Key Data Dashboard 
@@ -27,7 +27,7 @@ This area is the core management interface, allowing users to define the process
 
 #### Stage configuration
 
-•Add a new Stage 1 - Charge Battery Storages
+•Add a new Stage - Charge Battery Storages
 
 1. Click the green + Add Stage button
 
@@ -35,22 +35,22 @@ This area is the core management interface, allowing users to define the process
 
 3. Select target battery storage for "Component" field
 
-4. Click "Save" button, and Stage 1 is created successfully.
+4. Click "Save" button, and Stage is created successfully.
 
 ![alt text](s3.png)
 ![alt text](s4.png)
 
-•Add a new Stage 2 - Increase Consumption of Controllable Consumers
+•Add a new Stage - Increase Consumption of Controllable Consumers
 
 1. Click the green + Add Stage button
 
 2. Turn on the toggles that users want.
 
-3. Click "Save" button and Stage 3 is created successfully.
+3. Click "Save" button and Stage is created successfully.
 
 ![alt text](s5.png)
 
-•Add a new Stage 3 - Turn On Binary Controlled Consumer
+•Add a new Stage - Turn On Binary Controlled Consumer
 
 1. Click the green + Add Stage button
 
@@ -58,11 +58,11 @@ Select "Turn On Binary Controlled Consumer" for "Action" field
 
 3. Select target component for "Component" field
 
-4. Click "Save" button, and Stage 3 is created successfully.
+4. Click "Save" button, and Stage is created successfully.
 
 ![alt text](s6.png)
 
-•Add a new Stage 4 - Turn On Binary Controlled Consumer
+•Add a new Stage - Turn On Binary Controlled Consumer
 
 1. Click the green + Add Stage button
 
@@ -70,7 +70,7 @@ Select "Turn On Binary Controlled Consumer" for "Action" field
 
 3. Select target component for "Component" field
 
-4. Click "Save" button, and Stage 4 is created successfully.
+4. Click "Save" button, and Stage is created successfully.
 ![alt text](s7.png)
 
 ## 4. Operational Recommendations:

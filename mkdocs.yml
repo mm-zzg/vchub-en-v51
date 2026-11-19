@@ -647,31 +647,31 @@ nav:
                                                 - 3d-visualization/3d-low-code-example/object-models-in-the-scene/text-annotation/fontsize.md
                                                 - 3d-visualization/3d-low-code-example/object-models-in-the-scene/text-annotation/height.md
                                                 - 3d-visualization/3d-low-code-example/object-models-in-the-scene/text-annotation/text.md
-        - MEMS:
+        - WAGO EMS:
                   - Overview:
-                            - mems/index.md
-                            - mems/overview/purpose-of-mems.md
-                            - mems/overview/architecture.md
-                            - mems/overview/main-functions.md
-                            - mems/overview/integration-into-vc-hub.md
-                  - mems/security.md
-                  - mems/requirements.md
-                  - mems/installation-and-upgrade.md
+                            - wago-ems/index.md
+                            - wago-ems/overview/purpose-of-wago-ems.md
+                            - wago-ems/overview/architecture.md
+                            - wago-ems/overview/main-functions.md
+                            - wago-ems/overview/integration-into-vc-hub.md
+                  - wago-ems/security.md
+                  - wago-ems/requirements.md
+                  - wago-ems/installation-and-upgrade.md
                   - Getting Started:
-                            - mems/getting-started/index.md
-                            - mems/getting-started/login.md
-                            - mems/getting-started/user-interface-overview.md
-                            - mems/getting-started/dashboard-overview.md
+                            - wago-ems/getting-started/index.md
+                            - wago-ems/getting-started/login.md
+                            - wago-ems/getting-started/user-interface-overview.md
+                            - wago-ems/getting-started/dashboard-overview.md
                   - Core Functions:
-                            - mems/core-functions/index.md
-                            - mems/core-functions/peak-load-management.md
-                            - mems/core-functions/surplus-management.md
-                            - mems/core-functions/microgrid-components.md
-                            - mems/core-functions/constraints.md
+                            - wago-ems/core-functions/index.md
+                            - wago-ems/core-functions/peak-load-management.md
+                            - wago-ems/core-functions/surplus-management.md
+                            - wago-ems/core-functions/microgrid-components.md
+                            - wago-ems/core-functions/constraints.md
                   - Administration:
-                            - mems/administration/index.md
-                            - mems/administration/configuration.md
-                            - mems/administration/notifications.md
+                            - wago-ems/administration/index.md
+                            - wago-ems/administration/configuration.md
+                            - wago-ems/administration/notifications.md
         - Appendix:
                   - appendix/index.md
                   - System Function:

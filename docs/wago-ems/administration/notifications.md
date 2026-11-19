@@ -1,7 +1,7 @@
 # Notifications
 
 
-## 1. Message Notifications in MEMS
+## 1. Message Notifications in WAGO EMS
 
 
 Message notifications indicate normal system events, successful operations, or automatic regulation activities, generally divided into three categories based on severity and display color:
@@ -75,7 +75,7 @@ When all Error / Critical or Warning messages are cleared, the relevant icon wil
 
 #### 2.1 Notification configuration
 
-Open Grafana website of MEMS enviornment
+Open Grafana website of WAGO EMS enviornment
 
 Click 'Alerting' sidebar button
 
@@ -120,7 +120,7 @@ Click Notification configuration > Contact points > Audit Log Pipeline Health bu
 
 ![alt text](n9.png)
 
-When unable Third-party audit log while MEMS system is running, status of Audit Log Pipeline Health will turn to 'Firing' and be red
+When unable Third-party audit log while WAGO EMS system is running, status of Audit Log Pipeline Health will turn to 'Firing' and be red
 
 
 

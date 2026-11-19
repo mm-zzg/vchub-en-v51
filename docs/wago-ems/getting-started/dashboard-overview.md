@@ -6,13 +6,13 @@ There are three main functional modules on the dashboard: Energy Overview, Syste
 
 ## 1.Energy Overview
 
-MEMS (Microgrid Energy Management System) manages electricity generation, consumption, and storage within a microgrid. It continuously balances supply and demand to ensure stable, efficient, and reliable operation. The system includes generation/supply roles, consumption roles, and a battery storage role.
+WAGO EMS (Microgrid Energy Management System) manages electricity generation, consumption, and storage within a microgrid. It continuously balances supply and demand to ensure stable, efficient, and reliable operation. The system includes generation/supply roles, consumption roles, and a battery storage role.
 
 
 
 #### 1.1 Energy Roles
 
-MEMS allows users to customize Energy Roles by assigning different types of components to predefined role categories. These Energy Roles determine how a component participates in monitoring, reporting, energy balancing, and control.
+WAGO EMS allows users to customize Energy Roles by assigning different types of components to predefined role categories. These Energy Roles determine how a component participates in monitoring, reporting, energy balancing, and control.
 
 The system provides four Energy Role categories:
 
@@ -63,7 +63,7 @@ Refer to [Project Configuration](../../2d-visualization/index.md) for the VcHub 
 
 ## 2.System State
 
-The System State reflects the overall operating condition of the MEMS system. It changes dynamically based on two main factors:
+The System State reflects the overall operating condition of the WAGO EMS system. It changes dynamically based on two main factors:
 
 1. Peak Load Management activities.
 

@@ -1,28 +1,28 @@
-# MEMS Offline Installation
+# WAGO EMS Offline Installation
 
-WAGO Microgrid Energy Management System (MEMS)
+WAGO Microgrid Energy Management System (WAGO EMS)
 
-This manual describes how to install, verify, update and remove MEMS on a machine
+This manual describes how to install, verify, update and remove WAGO EMS on a machine
 with **no internet access**.
 
-The delivery is two files: the bundle `mems-offline-<version>.tar.gz` — every
+The delivery is two files: the bundle `wago-ems-offline-<version>.tar.gz` — every
 container image, compose file, configuration template and integrity manifest —
 and **one installer script, chosen by the operating system of the target host**:
 
 | Target host | Installer script                   | Run it in                                                       |
 | ----------- | ---------------------------------- | --------------------------------------------------------------- |
-| **Linux**   | `install-mems.sh` (bash)           | a root shell, normally via `sudo`                                |
-| **Windows** | `install-mems.ps1` (PowerShell 7+) | an **elevated** PowerShell 7 session (`pwsh` as Administrator)   |
+| **Linux**   | `install-wago-ems.sh` (bash)           | a root shell, normally via `sudo`                                |
+| **Windows** | `install-wago-ems.ps1` (PowerShell 7+) | an **elevated** PowerShell 7 session (`pwsh` as Administrator)   |
 
 The two scripts offer the same commands, options and exit codes, but they are not
-interchangeable — use only the one that matches your platform. Everything MEMS
+interchangeable — use only the one that matches your platform. Everything WAGO EMS
 needs at run time is inside the bundle; the installer never contacts a registry,
 a package repository or any other network service.
 
 Every procedure below shows the **Linux** command first and the **Windows**
 command directly underneath. Run only the one for your platform.
 
-MEMS runs as a Docker Compose stack: the application, Keycloak, two PostgreSQL
+WAGO EMS runs as a Docker Compose stack: the application, Keycloak, two PostgreSQL
 databases and — optionally — Loki, Tempo, Prometheus, the OpenTelemetry
 Collector, Grafana and blackbox-exporter.
 
@@ -58,19 +58,19 @@ put them in the **same directory**. Copy only the installer for that platform.
 **Linux**
 
 ```bash
-mkdir -p /var/tmp/mems-install
-cd /var/tmp/mems-install
-# copy mems-offline-<version>.tar.gz and install-mems.sh here
-chmod +x install-mems.sh
+mkdir -p /var/tmp/wago-ems-install
+cd /var/tmp/wago-ems-install
+# copy wago-ems-offline-<version>.tar.gz and install-wago-ems.sh here
+chmod +x install-wago-ems.sh
 ```
 
 **Windows (elevated PowerShell 7)**
 
 ```powershell
-New-Item -ItemType Directory -Path C:\Temp\mems-install -Force
-Set-Location C:\Temp\mems-install
-# copy mems-offline-<version>.tar.gz and install-mems.ps1 here
-Unblock-File .\install-mems.ps1
+New-Item -ItemType Directory -Path C:\Temp\wago-ems-install -Force
+Set-Location C:\Temp\wago-ems-install
+# copy wago-ems-offline-<version>.tar.gz and install-wago-ems.ps1 here
+Unblock-File .\install-wago-ems.ps1
 ```
 
 **Step 1 — confirm the archive is the one WAGO published.** Compare its SHA-256
@@ -80,14 +80,14 @@ the download). This is the step that establishes where the bundle came from.
 **Linux**
 
 ```bash
-sha256sum -c mems-offline-<version>.tar.gz.sha256
+sha256sum -c wago-ems-offline-<version>.tar.gz.sha256
 ```
 
 **Windows**
 
 ```powershell
-$expected = (Get-Content .\mems-offline-<version>.tar.gz.sha256).Split(' ')[0]
-$actual = (Get-FileHash .\mems-offline-<version>.tar.gz -Algorithm SHA256).Hash.ToLower()
+$expected = (Get-Content .\wago-ems-offline-<version>.tar.gz.sha256).Split(' ')[0]
+$actual = (Get-FileHash .\wago-ems-offline-<version>.tar.gz -Algorithm SHA256).Hash.ToLower()
 if ($actual -eq $expected) { 'OK' } else { 'MISMATCH' }
 ```
 
@@ -96,13 +96,13 @@ if ($actual -eq $expected) { 'OK' } else { 'MISMATCH' }
 **Linux**
 
 ```bash
-./install-mems.sh verify --bundle ./mems-offline-<version>.tar.gz
+./install-wago-ems.sh verify --bundle ./wago-ems-offline-<version>.tar.gz
 ```
 
 **Windows**
 
 ```powershell
-.\install-mems.ps1 verify --bundle .\mems-offline-<version>.tar.gz
+.\install-wago-ems.ps1 verify --bundle .\wago-ems-offline-<version>.tar.gz
 ```
 
 `verify` checks the SHA-256 of every file inside the bundle. It also verifies the
@@ -121,26 +121,26 @@ and still succeeds, so do not treat step 2 as a substitute for step 1. Run
 **Linux**
 
 ```bash
-sudo ./install-mems.sh install
+sudo ./install-wago-ems.sh install
 ```
 
 **Windows (elevated PowerShell 7)**
 
 ```powershell
-.\install-mems.ps1 install
+.\install-wago-ems.ps1 install
 ```
 
-If exactly one `mems-offline-*.tar.gz` sits next to the script it is used
+If exactly one `wago-ems-offline-*.tar.gz` sits next to the script it is used
 automatically. With several bundles in the directory, pass `--bundle PATH`.
 
 The installer asks five questions and derives everything else:
 
 | Prompt                      | Meaning                                                                 |
 | --------------------------- | ----------------------------------------------------------------------- |
-| Deployment hostname or IP   | The public MEMS application hostname or IP. It goes into the MEMS certificate and realm client URLs. Defaults to the primary IPv4 address of this machine. `localhost` only works for a single-machine demo. |
-| Public Keycloak URL          | Complete HTTPS origin used by browsers and MEMS, for example `https://<keycloak-host>:8443`. It may use a different hostname from MEMS. |
+| Deployment hostname or IP   | The public WAGO EMS application hostname or IP. It goes into the WAGO EMS certificate and realm client URLs. Defaults to the primary IPv4 address of this machine. `localhost` only works for a single-machine demo. |
+| Public Keycloak URL          | Complete HTTPS origin used by browsers and WAGO EMS, for example `https://<keycloak-host>:8443`. It may use a different hostname from WAGO EMS. |
 | VC Hub base URL             | The externally reachable VC Hub URL, for example `https://<vchub-host>:10443`. |
-| VC Hub OpenID client ID     | The client MEMS uses at VC Hub. Default `MEMSKeyCloak`. Register it in VC Hub under **Security → OIDC Server (Open API) → Register** with the Authorization Code Flow grant type. |
+| VC Hub OpenID client ID     | The client WAGO EMS uses at VC Hub. Default `WAGOEMSKeyCloak`. Register it in VC Hub under **Security → OIDC Server (Open API) → Register** with the Authorization Code Flow grant type. |
 | VC Hub OpenID client secret | The corresponding secret. It is read without echo and never logged.      |
 
 ### 3.2 Unattended
@@ -148,7 +148,7 @@ The installer asks five questions and derives everything else:
 `--yes` never prompts, so every value must come from an answer file — the VC Hub
 client secret has no default and the install fails without it.
 
-`mems-answers.env` (the same file works on both platforms):
+`wago-ems-answers.env` (the same file works on both platforms):
 
 ```ini
 # Required
@@ -175,14 +175,14 @@ carry subject alternative names for both `DEPLOY_HOSTNAME` and the host in
 **Linux**
 
 ```bash
-chmod 600 mems-answers.env
-sudo ./install-mems.sh install --answers ./mems-answers.env --yes
+chmod 600 wago-ems-answers.env
+sudo ./install-wago-ems.sh install --answers ./wago-ems-answers.env --yes
 ```
 
 **Windows** — restrict the answer file to administrators, then install:
 
 ```powershell
-.\install-mems.ps1 install --answers .\mems-answers.env --yes
+.\install-wago-ems.ps1 install --answers .\wago-ems-answers.env --yes
 ```
 
 ### 3.3 The initial credentials
@@ -199,13 +199,13 @@ them from the environment file:
 
 ```bash
 sudo grep -E '^(KEYCLOAK_ADMIN|KEYCLOAK_ADMIN_PASSWORD|GRAFANA_ADMIN_USER|GRAFANA_ADMIN_PASSWORD)=' \
-  /etc/wago/mems/mems.env
+  /etc/wago/wago-ems/wago-ems.env
 ```
 
 **Windows**
 
 ```powershell
-Select-String -Path "$env:ProgramData\WAGO\MEMS\config\mems.env" `
+Select-String -Path "$env:ProgramData\WAGO\WAGOEMS\config\wago-ems.env" `
   -Pattern '^(KEYCLOAK_ADMIN|KEYCLOAK_ADMIN_PASSWORD|GRAFANA_ADMIN_USER|GRAFANA_ADMIN_PASSWORD)='
 ```
 
@@ -213,13 +213,13 @@ Change both administrator passwords at first login.
 
 ### 3.4 Commands and options
 
-`install-mems.sh` (Linux) and `install-mems.ps1` (Windows) expose the same
-commands, options and exit codes. Run `install-mems.sh help <command>` or
-`install-mems.ps1 help <command>` for the authoritative list on your platform.
+`install-wago-ems.sh` (Linux) and `install-wago-ems.ps1` (Windows) expose the same
+commands, options and exit codes. Run `install-wago-ems.sh help <command>` or
+`install-wago-ems.ps1 help <command>` for the authoritative list on your platform.
 
 - `install` — install from a bundle (the default when no command is given)
 - `update` — update an existing installation, preserving configuration and data
-- `uninstall` — remove MEMS; `--purge-data` also removes volumes and configuration
+- `uninstall` — remove WAGO EMS; `--purge-data` also removes volumes and configuration
 - `status` — show the installed version and `docker compose ps`
 - `verify` — verify bundle checksums and, if possible, the signature
 - `trust-vchub` — download the VC Hub certificate and add it to the truststores
@@ -236,21 +236,21 @@ Options: `--bundle PATH`, `--answers FILE`, `--vchub-url URL`, `--hostname NAME`
 
 By default every service in the bundle is installed. Pass
 `--main-services-only` to `install` to limit the installation to the services
-MEMS cannot run without:
+WAGO EMS cannot run without:
 
-`postgres_mems_keycloak`, `postgres_mems_app`, `mems_keycloak`, `mems_app`,
+`postgres_wago_ems_keycloak`, `postgres_wago_ems_app`, `wago_ems_keycloak`, `wago_ems_app`,
 `nginx`
 
 The observability stack — Loki, Tempo, Prometheus, Grafana, the OpenTelemetry
 Collector and blackbox-exporter — is then neither loaded nor started:
 
-- Only `images/mems-images-main.tar` is loaded; the images in
-  `images/mems-images-extra.tar` stay in the bundle and are never imported.
+- Only `images/wago-ems-images-main.tar` is loaded; the images in
+  `images/wago-ems-images-extra.tar` stay in the bundle and are never imported.
 - The Grafana server block is removed from the nginx configuration, so the
   Grafana URL is not served and no Grafana credentials are printed.
-- `mems_app` runs with `OpenTelemetry__Enabled=false`; no traces or metrics are
+- `wago_ems_app` runs with `OpenTelemetry__Enabled=false`; no traces or metrics are
   exported.
-- Everything else — the MEMS UI, Keycloak, VC Hub integration — is unaffected.
+- Everything else — the WAGO EMS UI, Keycloak, VC Hub integration — is unaffected.
 
 The choice is recorded in `state.json` and shown by `status`. `update` inherits
 it, so an installation stays consistent without repeating the flag. To change
@@ -259,7 +259,7 @@ the selection later, run `update` with `--all-services` or
 point.
 
 A bundle built before the main/extra split contains a single
-`images/mems-images.tar` and declares no main service set. `--main-services-only`
+`images/wago-ems.tar` and declares no main service set. `--main-services-only`
 still works with it — the installer warns, falls back to the built-in main
 service list above, and loads every bundled image even though it starts only the
 main ones.
@@ -284,16 +284,16 @@ previously installed version stays active. Fix the cause and run `install` again
 
 | Path                                 | Contents                                      |
 | ------------------------------------ | --------------------------------------------- |
-| `/opt/wago/mems/releases/<version>/` | Extracted bundle payload                      |
-| `/opt/wago/mems/current`             | Symlink to the active release                 |
-| `/opt/wago/mems/state.json`          | Installed version, timestamp, bundle checksum |
-| `/opt/wago/mems/scripts/`            | `compose-config.sh`, `compose-apply.sh`       |
-| `/etc/wago/mems/mems.env`            | Environment file, mode `0600`, root-owned     |
-| `/etc/wago/mems/nginx-cert/`         | `server.crt` and `server.key` used by the reverse proxy |
-| `/etc/wago/mems/keycloak-truststore/`, `mems-truststore/` | Trusted CA certificates (PEM/CRT) |
-| `/var/log/wago/mems/`                | Installer logs, one file per run              |
+| `/opt/wago/wago-ems/releases/<version>/` | Extracted bundle payload                      |
+| `/opt/wago/wago-ems/current`             | Symlink to the active release                 |
+| `/opt/wago/wago-ems/state.json`          | Installed version, timestamp, bundle checksum |
+| `/opt/wago/wago-ems/scripts/`            | `compose-config.sh`, `compose-apply.sh`       |
+| `/etc/wago/wago-ems/wago-ems.env`            | Environment file, mode `0600`, root-owned     |
+| `/etc/wago/wago-ems/nginx-cert/`         | `server.crt` and `server.key` used by the reverse proxy |
+| `/etc/wago/wago-ems/keycloak-truststore/`, `wago-ems-truststore/` | Trusted CA certificates (PEM/CRT) |
+| `/var/log/wago/wago-ems/`                | Installer logs, one file per run              |
 
-**Windows** — the same layout under `%ProgramData%\WAGO\MEMS\`, with
+**Windows** — the same layout under `%ProgramData%\WAGO\WAGOEMS\`, with
 `releases\`, `current` (a junction), `state.json`, `scripts\`, `config\` (the
 environment file and the certificate directories, readable by administrators
 only) and `logs\`.
@@ -311,12 +311,12 @@ their fixed paths. It is **not remembered** — pass the same value to `update`,
 | Images         | Loads every image from the bundle and verifies each one against the packaged inventory. Compose uses local references with `pull_policy: never`, so no registry is contacted. |
 | Secrets        | Generates the PostgreSQL, Keycloak admin, Grafana admin and OTLP passwords from a cryptographic random source. Template defaults such as `rootpass` never reach a running system. |
 | Certificates   | Creates one PEM certificate and key (RSA 3072, 825 days) with SANs for the deployment hostname, the Keycloak hostname, the local machine name, `localhost`, `127.0.0.1` and `::1`, using `openssl` inside the bundled PostgreSQL image. The nginx reverse proxy terminates TLS with it on every published HTTPS port. `CERT_MODE=byo` installs your own pair instead. |
-| Trust stores   | Copies the reverse-proxy certificate into both trust directories so Keycloak and MEMS trust each other through the proxy. Additional CAs are picked up as PEM/CRT files from `keycloak-truststore` and `mems-truststore` — no Java truststore, no `keytool`. |
+| Trust stores   | Copies the reverse-proxy certificate into both trust directories so Keycloak and WAGO EMS trust each other through the proxy. Additional CAs are picked up as PEM/CRT files from `keycloak-truststore` and `wago-ems-truststore` — no Java truststore, no `keytool`. |
 | VC Hub certificate | Downloads the VC Hub web server certificate and checks that its subject alternative names cover the host in `VC_HUB_URL`. If VC Hub is unreachable, the download fails or the names do not match, the installation stops with exit code 2 and names the mismatch, for example `Certificate for <10.160.100.46> doesn't match any of the subject alternative names: [pc-sz-fsu-1, localhost, 127.0.0.1]`. On a name mismatch an interactive run offers to generate a matching self-signed certificate; it is written as a password-protected PKCS#12 file to `vchub-cert/vchub.pfx` in the configuration directory and the password is printed to the terminal only. Upload it in VC Hub under **Node → Certificate Management** (or set `VC_HUB_URL` to a covered host name), then run the installer again. Unattended runs (`--yes`, `update`, non-interactive shells) skip the whole step unless the answer file sets `VC_HUB_TRUST_CERT=yes`. |
 | Ports          | Detects occupied ports, shifts to the next free one and reports each substitution.               |
 | Keycloak realm | Renders the realm template with the deployment origin and the VC Hub credentials, then imports it on the **first** Keycloak start. |
 | Health         | Waits for both databases, Keycloak and the application (`--wait`). The observability services are probed separately and only produce warnings. |
-| Verification   | Confirms the realm's OpenID configuration, that the `mems` client accepts the deployment redirect URI, and that the `vchub` identity provider is offered. |
+| Verification   | Confirms the realm's OpenID configuration, that the `wago-ems` client accepts the deployment redirect URI, and that the `vchub` identity provider is offered. |
 | Data safety    | `update` compares the set of named volumes before and after and fails if it changed.             |
 | Logging        | Writes one timestamped log per run and replaces every generated secret with `******`.            |
 
@@ -325,16 +325,16 @@ their fixed paths. It is **not remembered** — pass the same value to `update`,
 ## 5. Finish the setup in VC Hub
 
 Two steps cannot be automated because they change **VC Hub**, a separate system
-MEMS has no administrative access to. The installer prints both, with the
+WAGO EMS has no administrative access to. The installer prints both, with the
 hostname and ports that were actually used, at the end of every install and
 update.
 
-**1. Register the MEMS client.** In the VC Hub administration UI, create or
+**1. Register the WAGO EMS client.** In the VC Hub administration UI, create or
 update the OpenID client you named during the installation:
 
 ```text
-Redirect URI        https://<hostname>:<keycloak-https-port>/realms/mems/broker/vchub/endpoint
-Logout redirect URI https://<hostname>:<keycloak-https-port>/realms/mems/broker/vchub/endpoint/logout_response
+Redirect URI        https://<hostname>:<keycloak-https-port>/realms/wago-ems/broker/vchub/endpoint
+Logout redirect URI https://<hostname>:<keycloak-https-port>/realms/wago-ems/broker/vchub/endpoint/logout_response
 ```
 
 **2. Enable the Walm driver and allow embedding.** In the VC Hub
@@ -343,7 +343,7 @@ Logout redirect URI https://<hostname>:<keycloak-https-port>/realms/mems/broker/
 ```jsonc
 {
   "Driver": { "EnabledDrivers": "...,Walm" },
-  "CSP": { "frame-ancestors": "'self' https://<hostname>:<mems-app-https-port>" }
+  "CSP": { "frame-ancestors": "'self' https://<hostname>:<wago-ems-app-https-port>" }
 }
 ```
 
@@ -354,7 +354,7 @@ Recommended afterwards:
   or reinstall with `CERT_MODE=byo` and your own certificate. It expires after
   825 days.
 - Copy any private CA certificate into `keycloak-truststore` (for Keycloak) or
-  `mems-truststore` (for MEMS) and restart the stack.
+  `wago-ems-truststore` (for WAGO EMS) and restart the stack.
 
 ---
 
@@ -363,19 +363,19 @@ Recommended afterwards:
 **Linux**
 
 ```bash
-sudo ./install-mems.sh status
+sudo ./install-wago-ems.sh status
 ```
 
 **Windows**
 
 ```powershell
-.\install-mems.ps1 status
+.\install-wago-ems.ps1 status
 ```
 
 `status` prints the installed version, the active release, the configuration path
 and `docker compose ps`. Every core service must report `healthy`.
 
-Then open `https://<hostname>:<mems-app-https-port>/` in a browser. You should be
+Then open `https://<hostname>:<wago-ems-app-https-port>/` in a browser. You should be
 redirected to Keycloak and see a VC Hub login option. A certificate warning is
 expected with self-signed certificates.
 
@@ -387,21 +387,21 @@ given a new certificate afterwards, fetch it again without reinstalling:
 **Linux**
 
 ```bash
-sudo ./install-mems.sh trust-vchub
+sudo ./install-wago-ems.sh trust-vchub
 ```
 
 **Windows (elevated PowerShell 7)**
 
 ```powershell
-.\install-mems.ps1 trust-vchub
+.\install-wago-ems.ps1 trust-vchub
 ```
 
 The command downloads the certificate over TLS, writes it as PEM to
 `vchub-server.crt` in the configuration directory, reports its subject
 alternative names and warns when they do not cover the VC Hub host name. It then
-asks whether to copy it into the MEMS and Keycloak truststores. The URL comes
+asks whether to copy it into the WAGO EMS and Keycloak truststores. The URL comes
 from `--vchub-url`, an `--answers` file or the installed environment file;
-otherwise it is prompted for. Apply it afterwards with `install-mems compose-apply`.
+otherwise it is prompted for. Apply it afterwards with `install-wago-ems compose-apply`.
 
 ---
 
@@ -415,24 +415,24 @@ It never prompts. There is **no automatic rollback**, so back up first.
 **Linux**
 
 ```bash
-sudo mkdir -p /var/backups/mems
-sudo chmod 700 /var/backups/mems
-sudo cp /etc/wago/mems/mems.env /var/backups/mems/mems.env
-PGUSER=$(sudo sed -n 's/^POSTGRES_USER=//p' /etc/wago/mems/mems.env)
-sudo docker exec postgres-mems-app pg_dumpall -U "$PGUSER" | sudo tee /var/backups/mems/mems-app.sql > /dev/null
-sudo docker exec postgres-mems-keycloak pg_dumpall -U "$PGUSER" | sudo tee /var/backups/mems/keycloak.sql > /dev/null
+sudo mkdir -p /var/backups/wago-ems
+sudo chmod 700 /var/backups/wago-ems
+sudo cp /etc/wago/wago-ems/wago-ems.env /var/backups/wago-ems/wago-ems.env
+PGUSER=$(sudo sed -n 's/^POSTGRES_USER=//p' /etc/wago/wago-ems/wago-ems.env)
+sudo docker exec postgres-wago-ems-app pg_dumpall -U "$PGUSER" | sudo tee /var/backups/wago-ems/wago-ems-app.sql > /dev/null
+sudo docker exec postgres-wago-ems-keycloak pg_dumpall -U "$PGUSER" | sudo tee /var/backups/wago-ems/keycloak.sql > /dev/null
 ```
 
 **Windows**
 
 ```powershell
-$backup = 'C:\Backup\MEMS'
+$backup = 'C:\Backup\WAGOEMS'
 New-Item -ItemType Directory -Path $backup -Force | Out-Null
-$envFile = "$env:ProgramData\WAGO\MEMS\config\mems.env"
+$envFile = "$env:ProgramData\WAGO\WAGOEMS\config\wago-ems.env"
 Copy-Item $envFile $backup
 $pgUser = ((Select-String -Path $envFile -Pattern '^POSTGRES_USER=').Line -split '=', 2)[1]
-docker exec postgres-mems-app pg_dumpall -U $pgUser | Set-Content "$backup\mems-app.sql"
-docker exec postgres-mems-keycloak pg_dumpall -U $pgUser | Set-Content "$backup\keycloak.sql"
+docker exec postgres-wago-ems-app pg_dumpall -U $pgUser | Set-Content "$backup\wago-ems-app.sql"
+docker exec postgres-wago-ems-keycloak pg_dumpall -U $pgUser | Set-Content "$backup\keycloak.sql"
 ```
 
 The dumps contain credentials — store them like the environment file.
@@ -442,13 +442,13 @@ The dumps contain credentials — store them like the environment file.
 **Linux**
 
 ```bash
-sudo ./install-mems.sh update --bundle ./mems-offline-<newer-version>.tar.gz
+sudo ./install-wago-ems.sh update --bundle ./wago-ems-offline-<newer-version>.tar.gz
 ```
 
 **Windows**
 
 ```powershell
-.\install-mems.ps1 update --bundle .\mems-offline-<newer-version>.tar.gz
+.\install-wago-ems.ps1 update --bundle .\wago-ems-offline-<newer-version>.tar.gz
 ```
 
 Add `--dry-run` to print the plan without changing anything.
@@ -477,17 +477,17 @@ and, if the new version already migrated the schema, restore the dumps from 7.1:
 **Linux**
 
 ```bash
-sudo ./install-mems.sh update --bundle ./mems-offline-<previous-version>.tar.gz --force
+sudo ./install-wago-ems.sh update --bundle ./wago-ems-offline-<previous-version>.tar.gz --force
 ```
 
 **Windows**
 
 ```powershell
-.\install-mems.ps1 update --bundle .\mems-offline-<previous-version>.tar.gz --force
+.\install-wago-ems.ps1 update --bundle .\wago-ems-offline-<previous-version>.tar.gz --force
 ```
 
-Keep the failing run log for the support request — `/var/log/wago/mems/` on
-Linux, `%ProgramData%\WAGO\MEMS\logs\` on Windows.
+Keep the failing run log for the support request — `/var/log/wago/wago-ems/` on
+Linux, `%ProgramData%\WAGO\WAGOEMS\logs\` on Windows.
 
 ---
 
@@ -500,32 +500,32 @@ later `install` reconnects to the existing data.
 **Linux**
 
 ```bash
-sudo ./install-mems.sh uninstall
+sudo ./install-wago-ems.sh uninstall
 ```
 
 **Windows**
 
 ```powershell
-.\install-mems.ps1 uninstall
+.\install-wago-ems.ps1 uninstall
 ```
 
 **Remove everything.**
 
-> **Warning — irreversible.** `--purge-data` deletes every MEMS database volume,
+> **Warning — irreversible.** `--purge-data` deletes every WAGO EMS database volume,
 > every generated certificate and the environment file. All measurement history,
-> component configuration and Keycloak users in the MEMS realm are lost. Back up
+> component configuration and Keycloak users in the WAGO EMS realm are lost. Back up
 > first ([7.1](#71-back-up)).
 
 **Linux**
 
 ```bash
-sudo ./install-mems.sh uninstall --purge-data
+sudo ./install-wago-ems.sh uninstall --purge-data
 ```
 
 **Windows**
 
 ```powershell
-.\install-mems.ps1 uninstall --purge-data
+.\install-wago-ems.ps1 uninstall --purge-data
 ```
 
 The installer asks for confirmation; use `--yes` only in automation.
@@ -534,8 +534,8 @@ After either variant:
 
 - On Windows the installer logs live under the installation root and are removed
   with it. Copy them out first if you need them. On Linux they stay in
-  `/var/log/wago/mems/`.
-- The MEMS client registration in **VC Hub** is not touched and its secret stays
+  `/var/log/wago/wago-ems/`.
+- The WAGO EMS client registration in **VC Hub** is not touched and its secret stays
   valid. Remove it in VC Hub if the installation is gone for good.
 
 ---
@@ -544,8 +544,8 @@ After either variant:
 
 Every run writes a log with generated secrets replaced by `******`:
 
-- Linux: `/var/log/wago/mems/<command>-<timestamp>.log`
-- Windows: `%ProgramData%\WAGO\MEMS\logs\<command>-<timestamp>.log`
+- Linux: `/var/log/wago/wago-ems/<command>-<timestamp>.log`
+- Windows: `%ProgramData%\WAGO\WAGOEMS\logs\<command>-<timestamp>.log`
 
 The logs are never pruned automatically — clean the directory up periodically.
 
@@ -557,8 +557,8 @@ The installer supplies them for you:
 
 | Purpose                              | Command                          |
 | ------------------------------------ | -------------------------------- |
-| Validate the effective configuration | `install-mems compose-config`    |
-| Apply the configuration (`up -d`)    | `install-mems compose-apply`     |
+| Validate the effective configuration | `install-wago-ems compose-config`    |
+| Apply the configuration (`up -d`)    | `install-wago-ems compose-apply`     |
 
 The same flags are also written to two ready-made wrappers, whose paths appear in
 the installation summary. Copy the flags out of them for any other subcommand,
@@ -566,8 +566,8 @@ such as `logs` or `ps`:
 
 | Purpose                              | Linux                                      | Windows                                              |
 | ------------------------------------ | ------------------------------------------ | ---------------------------------------------------- |
-| Validate the effective configuration | `/opt/wago/mems/scripts/compose-config.sh` | `%ProgramData%\WAGO\MEMS\scripts\compose-config.ps1` |
-| Apply the configuration (`up -d`)    | `/opt/wago/mems/scripts/compose-apply.sh`  | `%ProgramData%\WAGO\MEMS\scripts\compose-apply.ps1`  |
+| Validate the effective configuration | `/opt/wago/wago-ems/scripts/compose-config.sh` | `%ProgramData%\WAGO\WAGOEMS\scripts\compose-config.ps1` |
+| Apply the configuration (`up -d`)    | `/opt/wago/wago-ems/scripts/compose-apply.sh`  | `%ProgramData%\WAGO\WAGOEMS\scripts\compose-apply.ps1`  |
 
 ### Exit codes
 
@@ -575,11 +575,11 @@ such as `logs` or `ps`:
 | ---- | ------------- | --------------------------------------------------------------------------------------------------------- |
 | `0`  | Success       | —                                                                                                          |
 | `1`  | Usage         | Unknown option or command, or a value missing in a non-interactive run. Run `help <command>`; in automation pass `--yes` **and** a complete answer file. |
-| `2`  | Preflight     | Not root / not elevated, Docker not installed or not running, no Compose v2 plugin, wrong architecture, no free port, or MEMS is already installed (use `update`, or `--force`). |
-| `3`  | Bundle        | Archive missing, truncated, not a MEMS bundle, or a checksum/signature mismatch. Copy it again and re-verify. A **signature** failure means the bundle is not what WAGO published — do not install it, report it. |
+| `2`  | Preflight     | Not root / not elevated, Docker not installed or not running, no Compose v2 plugin, wrong architecture, no free port, or WAGO EMS is already installed (use `update`, or `--force`). |
+| `3`  | Bundle        | Archive missing, truncated, not a WAGO EMS bundle, or a checksum/signature mismatch. Copy it again and re-verify. A **signature** failure means the bundle is not what WAGO published — do not install it, report it. |
 | `4`  | Images        | `docker load` failed (usually disk space — check `docker system df`), or a locally present image differs from the bundle. Remove it with `docker image rm <ref>` and re-run. |
 | `5`  | Unhealthy     | The stack did not become healthy within 600 s, or the set of volumes changed during an update.              |
-| `6`  | Provisioning  | The realm was not imported, the `mems` client rejected the redirect URI, or the certificate could not be generated. The run log contains the Keycloak container log. |
+| `6`  | Provisioning  | The realm was not imported, the `wago-ems` client rejected the redirect URI, or the certificate could not be generated. The run log contains the Keycloak container log. |
 | `7`  | Version gate  | Downgrade refused (pass `--force` only if you accept that the databases may already have been migrated forward), or `minUpgradeFrom` not met — install the intermediate bundle first. |
 
 ### The stack does not become healthy
@@ -587,10 +587,10 @@ such as `logs` or `ps`:
 These commands are identical on both platforms:
 
 ```bash
-docker compose --project-name mems ps
-docker logs mems-app
-docker logs mems-keycloak
-docker logs postgres-mems-app
+docker compose --project-name wago-ems ps
+docker logs wago-ems-app
+docker logs wago-ems-keycloak
+docker logs postgres-wago-ems-app
 ```
 
 Common causes: a published port taken by a process that started after the
@@ -603,11 +603,11 @@ the installation.
 
 1. Confirm both [VC Hub steps](#5-finish-the-setup-in-vc-hub) were done with the
    exact URLs the installer printed.
-2. Confirm the browser reaches the **Keycloak** HTTPS port, not only the MEMS
+2. Confirm the browser reaches the **Keycloak** HTTPS port, not only the WAGO EMS
    port.
 3. If VC Hub uses a private CA, place its certificate in `keycloak-truststore`
-   (and in `mems-truststore` if MEMS must trust it directly) and restart the
-   stack. `install-mems trust-vchub` does this for the VC Hub server
+   (and in `wago-ems-truststore` if WAGO EMS must trust it directly) and restart the
+   stack. `install-wago-ems trust-vchub` does this for the VC Hub server
    certificate itself ([6.1](#61-trust-the-vc-hub-certificate-later)).
 
 ### The deployment hostname changed
@@ -628,15 +628,15 @@ directory. Edit only what you need, then apply:
 **Linux**
 
 ```bash
-sudo nano /etc/wago/mems/mems.env
-sudo ./install-mems.sh compose-apply
+sudo nano /etc/wago/wago-ems/wago-ems.env
+sudo ./install-wago-ems.sh compose-apply
 ```
 
 **Windows (elevated PowerShell 7)**
 
 ```powershell
-notepad "$env:ProgramData\WAGO\MEMS\config\mems.env"
-.\install-mems.ps1 compose-apply
+notepad "$env:ProgramData\WAGO\WAGOEMS\config\wago-ems.env"
+.\install-wago-ems.ps1 compose-apply
 ```
 
 The file is root-only (Linux `0600`) / administrators-only (Windows). Keep it
@@ -649,21 +649,21 @@ Everything else comes from the template unchanged.
 
 | Key                           | Source    | Meaning                                             |
 | ----------------------------- | --------- | --------------------------------------------------- |
-| `DEPLOY_HOSTNAME`             | prompted  | Hostname or IP clients use for the MEMS application |
+| `DEPLOY_HOSTNAME`             | prompted  | Hostname or IP clients use for the WAGO EMS application |
 | `KEYCLOAK_URL`                | prompted  | Public Keycloak HTTPS origin; also controls its certificate hostname |
 | `POSTGRES_PASSWORD`           | generated | Shared PostgreSQL password                          |
 | `KEYCLOAK_ADMIN_PASSWORD`     | generated | Keycloak administrator password                     |
 | `GRAFANA_ADMIN_PASSWORD`      | generated | Grafana administrator password                      |
 | `OTEL_API_KEY`                | generated | Shared key between the application and the collector |
 | `VC_HUB_URL`                  | prompted  | External VC Hub HTTPS origin                        |
-| `VC_HUB_CLIENT_ID`            | prompted  | OpenID client MEMS uses at VC Hub                   |
+| `VC_HUB_CLIENT_ID`            | prompted  | OpenID client WAGO EMS uses at VC Hub                   |
 | `VC_HUB_CLIENT_SECRET`        | prompted  | The corresponding secret — treat as a credential    |
 | `*_PORT`                      | derived   | Shifted to the next free port when the default is taken |
 | `KC_TRUSTSTORE_HOST_DIR`, `APP_TRUSTSTORE_HOST_DIR`, `NGINX_CERTS_HOST_DIR` | derived | Certificate and truststore directories on the host |
 
 The VC Hub client keys are used by the installer to render the Keycloak realm. `VC_HUB_URL` is
 also referenced by Compose for the application CSP; `KEYCLOAK_URL` configures Keycloak itself and
-the MEMS backend.
+the WAGO EMS backend.
 
 `KC_LOG_LEVEL` defaults to `INFO`. `DEBUG` is very verbose and can expose request
 detail — do not leave it on in production.
@@ -677,9 +677,9 @@ server.
 
 Include with any support request:
 
-- the output of `install-mems.sh status` (Linux) or `install-mems.ps1 status` (Windows),
+- the output of `install-wago-ems.sh status` (Linux) or `install-wago-ems.ps1 status` (Windows),
 - the installer log of the failing run (secrets are already scrubbed),
 - `BUILD-INFO.json` from the active release,
-- `docker compose --project-name mems ps`.
+- `docker compose --project-name wago-ems ps`.
 
 Do not send the environment file or a database dump — both contain credentials.
